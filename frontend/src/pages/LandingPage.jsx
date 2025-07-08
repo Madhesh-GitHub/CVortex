@@ -1,10 +1,14 @@
 import React from 'react'
+import Header from '../components/Header/Header'
+import Hero from '../components/Hero/Hero'
 import HowItWorks from '../components/HowItWorks'
 
 const LandingPage = () => {
   return (
     <div>
-      <HowItWorks />
+      <Header/>
+      <Hero/>
+      <HowItWorks/>
     </div>
   )
 }
