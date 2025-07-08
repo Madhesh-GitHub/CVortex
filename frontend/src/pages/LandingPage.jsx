@@ -1,8 +1,11 @@
 import React from 'react'
+import HowItWorks from '../components/HowItWorks'
 
 const LandingPage = () => {
   return (
-    <div>LandingPage</div>
+    <div>
+      <HowItWorks />
+    </div>
   )
 }
 
