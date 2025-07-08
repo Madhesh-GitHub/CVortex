@@ -33,7 +33,7 @@
 .icon {
   width: 80px;
   height: 80px;
-  /* background-color: #898AC4; */
+  background-color: #898AC4;
   border-radius: 10px;
   display: flex;
   align-items: center;
