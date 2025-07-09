@@ -6,6 +6,7 @@
 
 .how-it-works h2 {
   font-size: 36px;
+  font-weight: bold;
   color: #898AC4;
   margin-bottom: 20px;
 }
@@ -46,6 +47,7 @@
   font-size: 24px;
   color: #898AC4;
   margin-bottom: 15px;
+  font-weight: 600;
 }
 
 .step p {
@@ -67,7 +69,7 @@
 
 @media (max-width: 768px) {
   .how-it-works {
-    padding: 80px 0;
+    padding: 40px 20px;
   }
   
   .how-it-works h2 {
@@ -80,43 +82,42 @@
   
   .steps {
     flex-direction: column;
-    gap: 48px;
+    gap: 40px;
   }
   
-  .title {
-    font-size: 24px;
+  .step h3 {
+    font-size: 22px;
   }
   
-  .description {
-    font-size: 16px;
+  .step p {
+    font-size: 15px;
   }
 }
 
 @media (max-width: 480px) {
-  .container {
-    padding: 0 15px;
+  .how-it-works {
+    padding: 30px 15px;
   }
   
-  .heading {
-    font-size: 2rem;
+  .how-it-works h2 {
+    font-size: 24px;
   }
   
-  .subtitle {
-    font-size: 1rem;
-    margin-bottom: 50px;
+  .how-it-works > p {
+    font-size: 14px;
   }
   
   .icon {
-    width: 32px;
-    height: 32px;
+    width: 60px;
+    height: 60px;
+    font-size: 24px;
   }
   
-  .title {
-    font-size: 1.3rem;
+  .step h3 {
+    font-size: 20px;
   }
   
-  .description {
-    font-size: 0.95rem;
-    max-width: 250px;
+  .step p {
+    font-size: 14px;
   }
 }
