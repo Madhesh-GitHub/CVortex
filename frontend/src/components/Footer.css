@@ -1,0 +1,66 @@
+.footer {
+  background-color: #898AC4;
+  color: white;
+  padding: 40px 0 20px;
+  /* margin-top: 80px; */
+}
+
+.contents {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+
+.sections h3 {
+  font-size: 24px;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.sections h4 {
+  font-size: 18px;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.sections p {
+  font-size: 14px;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+.sections ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sections li {
+  margin-bottom: 8px;
+}
+
+
+.sections a {
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.sections a:hover {
+  text-decoration: underline;
+}
+
+.copy-right {
+  background-color: #7a7bb3;
+  text-align: center;
+  padding: 15px 0;
+  margin-top: 30px;
+}
+
+.copy-right p {
+  margin: 0;
+  font-size: 14px;
+}
