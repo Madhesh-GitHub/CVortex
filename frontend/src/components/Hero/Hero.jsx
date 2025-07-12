@@ -1,7 +1,9 @@
 import React from 'react'
 import heroImage from '../../assets/hero-image.png'
+import { useNavigate } from 'react-router'
 
 const Hero = () => {
+  const navigate=useNavigate();
   return (
     <div className="flex justify-between items-center px-[80px] py-[60px] bg-[#fff6ef] gap-[40px]">
       <div className="flex-1 max-w-[55%]">
@@ -15,7 +17,7 @@ const Hero = () => {
         </div>
 
         <div className="flex gap-[20px]">
-          <button className="bg-[#dcd9f4] text-[#5c4d7d] px-5 py-3 rounded-md hover:bg-[#c2bbf0] transition-all duration-300"> Upload Your Resume </button>
+          <button className="bg-[#dcd9f4] text-[#5c4d7d] px-5 py-3 rounded-md hover:bg-[#c2bbf0] transition-all duration-300" onClick={()=>navigate('/app')} > Upload Your Resume </button>
           <button className="bg-[#b9b4e2]  text-white px-5 py-3 rounded-md  hover:bg-[#a59ce0] transition-all duration-300"> Build ATS Ready Resume </button>
         </div>
       </div>
