@@ -18,7 +18,7 @@ const Hero = () => {
 
         <div className="flex gap-[20px]">
           <button className="bg-[#dcd9f4] text-[#5c4d7d] px-5 py-3 rounded-md hover:bg-[#c2bbf0] transition-all duration-300" onClick={()=>navigate('/app')} > Upload Your Resume </button>
-          <button className="bg-[#b9b4e2]  text-white px-5 py-3 rounded-md  hover:bg-[#a59ce0] transition-all duration-300"> Build ATS Ready Resume </button>
+          <button className="bg-[#b9b4e2]  text-white px-5 py-3 rounded-md  hover:bg-[#a59ce0] transition-all duration-300" onClick={() => navigate('/builder')}> Build ATS Ready Resume </button>
         </div>
       </div>
 
