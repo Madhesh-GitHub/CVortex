@@ -1,49 +1,47 @@
-import React from 'react'
-import './Footer.css'
+import React from 'react';
+import './Footer.css';
 
-const Footer = () => {
+function Footer() {
   return (
-    <>
     <footer className="footer">
-        <div className="contents">
-            <div classsName="sections">
-                <h3>Proofile</h3>
-                <p>Use our tool to optimize your resume</p>
-            </div>
-            <div className="sections">
-                <h4>Links</h4>
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a>About</a></li>
-                    <li><a>Contact</a></li>
-                    <li><a>Blogs</a></li>
-                </ul>
-            </div>
-            <div className="sections">
-                <h4>Resources</h4>
-                <ul>
-                    <li><a>Help Center</a></li>
-                    <li><a>Guide for Resumes</a></li>
-                    <li><a>ATS Tips</a></li>
-                    <li><a>Blogs</a></li>
-                </ul>
-            </div>
-            <div className = "sections">
-                <h4>Support</h4>
-                <p>Email: proofile@gmail.com</p>
-                <p>Phone: 1234567890</p>
-            </div>
+      <div className="footer-content">
+        <div className="footer-section">
+          <h3>ATS Tool</h3>
+          <p>Optimize your resume for better job opportunities</p>
         </div>
-
-        <div className="copy-right">
-            <p>&copy; 2025 Proofile. All rights reserved.</p>
+        
+        <div className="footer-section">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
         </div>
-
-
-    </footer>  
-
-    </>
-  )
+        
+        <div className="footer-section">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="#help">Help Center</a></li>
+            <li><a href="#guide">Resume Guide</a></li>
+            <li><a href="#tips">ATS Tips</a></li>
+            <li><a href="#blog">Blog</a></li>
+          </ul>
+        </div>
+        
+        <div className="footer-section">
+          <h4>Contact</h4>
+          <p>Email: support@atstool.com</p>
+          <p>Phone: +1 (555) 123-4567</p>
+        </div>
+      </div>
+      
+      <div className="footer-bottom">
+        <p>&copy; 2025 ATS Tool. All rights reserved.</p>
+      </div>
+    </footer>
+  );
 }
 
-export default Footer
+export default Footer;

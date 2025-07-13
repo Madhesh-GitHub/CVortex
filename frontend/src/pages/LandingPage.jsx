@@ -8,7 +8,7 @@ import ReadyToBoost from '../components/ReadyToBoost'
 
 const LandingPage = () => {
   return (
-    <div>
+    <div className="min-h-screen bg-[#F9FAFB] font-roboto">
       <Header/>
       <Hero/>
       <HowItWorks/>
