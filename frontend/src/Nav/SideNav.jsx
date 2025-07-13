@@ -19,7 +19,7 @@ const SideNav = ({ isSidebarOpen, setIsSidebarOpen }) => {
   const activePath = location.pathname;
 
   return (
-    <aside className={`fixed top-0 left-0 h-full bg-[#fdf2e9] text-[#333] border-r border-[#eee] transition-all duration-300 ease-in-out ${isSidebarOpen ? "w-[220px]" : "w-[60px]"}`}>
+    <aside className={`fixed top-0 left-0 h-full bg-cyan-50 text-gray-700 border-r border-[#eee] transition-all duration-300 ease-in-out ${isSidebarOpen ? "w-[220px]" : "w-[60px]"}`}>
       <div className="relative flex items-center h-16 px-4 border-b border-[[#fdf2e9] shadow">
         <img src="/logo.jpg" alt="Logo" className="h-10 w-10 rounded-full" />
         {isSidebarOpen && <span className="ml-3 font-bold text-md tracking-wide text-[#5c5470]">ATS Tool</span>}
@@ -48,7 +48,7 @@ const NavItem = ({ icon, label, path, isOpen, activePath }) => {
 
   return (
     <div
-      className={`flex items-center space-x-3 p-2 rounded-md cursor-pointer transition ${isActive ? "bg-[#e6e4f4] font-semibold" : "hover:bg-[#f1eefc]"}`}
+      className={`flex items-center space-x-3 p-2 rounded-md cursor-pointer transition ${isActive ? "bg-[#e6e4f4] font-semibold" : "hover:bg-[#456882] hover:text-white"}`}
       onClick={() => navigate(path)}
     >
       {icon}
