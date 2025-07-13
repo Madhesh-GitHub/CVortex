@@ -9,6 +9,7 @@ import ResumeBuilderNavBar from './Resume Builder Nav/ResumeBuilderNavBar'
 import CertificatePage from './pages/DeepikaA/CertificatePage'
 import AddCertificatePage from './pages/DeepikaA/AddCertificatePage'
 import SignUp from './pages/SignUp'
+import Language from './pages/Language'
 
 
 const App = () => {
@@ -21,6 +22,7 @@ const App = () => {
           <Route path="upload" element={<UploadResume/>} />
           <Route path="score" element={<ResumeScore/>} />
           <Route path="improve" element={<ImproveResume/>} />
+          <Route path="language" element={<Language/>} />
           
           
         </Route>

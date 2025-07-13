@@ -10,7 +10,7 @@ import {
   Activity,
   List,
   Settings,
-  HelpCircle,
+  HelpCircle,GlobeIcon
 } from "lucide-react";
 import { useLocation, useNavigate } from "react-router-dom";
 
@@ -33,6 +33,7 @@ const SideNav = ({ isSidebarOpen, setIsSidebarOpen }) => {
         <NavItem icon={<Upload size={18} />} label="Upload Resume" path="/app/upload" isOpen={isSidebarOpen} activePath={activePath} />
         <NavItem icon={<Activity size={18} />} label="Resume Score" path="/app/score" isOpen={isSidebarOpen} activePath={activePath} />
         <NavItem icon={<FileText size={18} />} label="Improve Resume" path="/app/improve" isOpen={isSidebarOpen} activePath={activePath} />
+        <NavItem icon={<GlobeIcon size={18}/>} label="Language" path="/app/language" isOpen={isSidebarOpen} activePath={activePath}/>
         <NavItem icon={<List size={18} />} label="Features" path="/app/features" isOpen={isSidebarOpen} activePath={activePath} />
         {/* <NavItem icon={<User size={18} />} label="Sign Up" path="/app/signup" isOpen={isSidebarOpen} activePath={activePath} /> */}
         <NavItem icon={<Settings size={18} />} label="Settings" path="/app/settings" isOpen={isSidebarOpen} activePath={activePath} />
