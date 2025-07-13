@@ -10,31 +10,28 @@ import CertificatePage from './pages/DeepikaA/CertificatePage'
 import AddCertificatePage from './pages/DeepikaA/AddCertificatePage'
 import SignUp from './pages/SignUp'
 import Language from './pages/Language'
-
+import WorkExperience from './pages/WorkExperience'
 
 const App = () => {
-  return(
+  return (
     <>
       <Routes>
         <Route path="/" element={<LandingPage />} />
-        <Route path="signup" element={<SignUp/>} />
-        <Route path="/app" element={<Navbar/>}>
-          <Route path="upload" element={<UploadResume/>} />
-          <Route path="score" element={<ResumeScore/>} />
-          <Route path="improve" element={<ImproveResume/>} />
-          <Route path="language" element={<Language/>} />
-          
-          
-        </Route>
-        
-        
-        
-        <Route path="/builder" element={<ResumeBuilderNavBar/>}>
-            <Route path="CertificatePage" element={<CertificatePage/>} />
-             <Route path="AddCertificatePage" element={<AddCertificatePage/>} />
-           
+        <Route path="signup" element={<SignUp />} />
 
-    
+        {/* Navbar Routes */}
+        <Route path="/app" element={<Navbar />}>
+          <Route path="upload" element={<UploadResume />} />
+          <Route path="score" element={<ResumeScore />} />
+          <Route path="improve" element={<ImproveResume />} />
+          <Route path="language" element={<Language />} />
+        </Route>
+
+        {/* Resume Builder Routes */}
+        <Route path="/builder" element={<ResumeBuilderNavBar />}>
+          <Route path="CertificatePage" element={<CertificatePage />} />
+          <Route path="AddCertificatePage" element={<AddCertificatePage />} />
+          <Route path="experience" element={<WorkExperience />} />
         </Route>
       </Routes>
     </>
