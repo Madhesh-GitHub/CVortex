@@ -1,19 +1,19 @@
 .how-it-works {
   padding: 60px 20px;
   text-align: center;
-  background-color: white;
+  background-color: #F9FAFB;
 }
 
 .how-it-works h2 {
   font-size: 36px;
   font-weight: bold;
-  color: #898AC4;
+  color: #1F2937;
   margin-bottom: 20px;
 }
 
 .how-it-works > p {
   font-size: 18px;
-  color: #898AC4;
+  color: #6B7280;
   margin-bottom: 50px;
   max-width: 600px;
   margin-left: auto;
@@ -34,25 +34,31 @@
 .icon {
   width: 80px;
   height: 80px;
-  background-color: #898AC4;
+  background-color: #6366F1;
   border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 0 auto 20px;
   font-size: 30px;
+  transition: all 0.3s ease;
+}
+
+.icon:hover {
+  background-color: #4F46E5;
+  transform: translateY(-2px);
 }
 
 .step h3 {
   font-size: 24px;
-  color: #898AC4;
+  color: #1F2937;
   margin-bottom: 15px;
   font-weight: 600;
 }
 
 .step p {
   font-size: 16px;
-  color: #898AC4;
+  color: #6B7280;
   line-height: 1.5;
 }
 
