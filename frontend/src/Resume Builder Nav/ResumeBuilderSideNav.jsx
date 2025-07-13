@@ -38,7 +38,7 @@ const ResumeBuilderSideNav = ({ isSidebarOpen, setIsSidebarOpen }) => {
         <NavItem icon={<FileText size={18} />} label="Skills" path="/builder/skills" isOpen={isSidebarOpen} activePath={activePath} />
         <NavItem icon={<Award size={18} />} label="Achievements" path="/builder/achievements" isOpen={isSidebarOpen} activePath={activePath} />
         <NavItem icon={<Languages size={18} />} label="Languages" path="/builder/languages" isOpen={isSidebarOpen} activePath={activePath} />
-        <NavItem icon={<FileCheck size={18} />} label="Certificates" path="/builder/certificates" isOpen={isSidebarOpen} activePath={activePath} />
+        <NavItem icon={<FileCheck size={18} />} label="Certificates" path="/builder/CertificatePage" isOpen={isSidebarOpen} activePath={activePath} />
         <NavItem icon={<Eye size={18} />} label="Preview Resume" path="/builder/preview" isOpen={isSidebarOpen} activePath={activePath} />
         <NavItem icon={<Settings size={18} />} label="Settings" path="/builder/settings" isOpen={isSidebarOpen} activePath={activePath} />
         <NavItem icon={<HelpCircle size={18} />} label="Help" path="/builder/help" isOpen={isSidebarOpen} activePath={activePath} />
