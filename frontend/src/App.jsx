@@ -16,11 +16,12 @@ const App = () => {
     <>
       <Routes>
         <Route path="/" element={<LandingPage />} />
+        <Route path="signup" element={<SignUp/>} />
         <Route path="/app" element={<Navbar/>}>
           <Route path="upload" element={<UploadResume/>} />
           <Route path="score" element={<ResumeScore/>} />
           <Route path="improve" element={<ImproveResume/>} />
-          <Route path="signup" element={<SignUp/>} />
+          
           
         </Route>
         
