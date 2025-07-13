@@ -35,10 +35,11 @@ const WorkExperience = () => {
   };
 
   return (
-    <div className="p-8 bg-[#f9f9fb] min-h-screen text-[#333]">
-      <div className="max-w-4xl mx-auto bg-white shadow-md rounded-lg p-8">
-        <div className="flex justify-between items-center mb-6">
-          <h1 className="text-2xl font-bold text-[#4338ca]">Work Experience</h1>
+    <div className="p-6 bg-[#f9f9fb] min-h-screen text-[#333]">
+      <div className="max-w-5xl mx-auto bg-white shadow-md rounded-lg p-8">
+        {/* Top Section */}
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
+          <h1 className="text-3xl font-bold text-[#4338ca]">Work Experience</h1>
           <div className="space-x-2">
             <button className="bg-[#ede9fe] text-[#6d28d9] px-4 py-2 rounded-md font-medium">
               Previous: Personal Info
@@ -49,59 +50,62 @@ const WorkExperience = () => {
           </div>
         </div>
 
-        <h2 className="text-lg font-semibold mb-4 text-[#4b5563]">Your Work History</h2>
-        <p className="mb-4 text-sm text-gray-600">Add your most recent positions first.</p>
+        {/* Intro */}
+        <div className="mb-6">
+          <h2 className="text-xl font-semibold text-[#4b5563] mb-1">Your Work History</h2>
+          <p className="text-sm text-gray-600">Add your most recent positions first.</p>
+        </div>
 
-        {/* Completion status bar */}
-        <div className="w-full bg-gray-200 h-2 rounded-full mb-6">
+        {/* Progress bar */}
+        <div className="w-full bg-gray-200 h-2 rounded-full mb-8">
           <div className="bg-purple-500 h-2 rounded-full" style={{ width: "33%" }}></div>
         </div>
 
-        {/* Form */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {/* Form Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-6">
           <div>
-            <label className="block text-sm font-medium">Job Title*</label>
+            <label className="block text-sm font-medium mb-1">Job Title*</label>
             <input
               type="text"
               name="jobTitle"
               value={formData.jobTitle}
               onChange={handleChange}
               placeholder="e.g. Senior Project Manager"
-              className="w-full border border-gray-300 rounded-md p-2 mt-1"
+              className="w-full border border-gray-300 rounded-md px-3 py-2"
             />
           </div>
           <div>
-            <label className="block text-sm font-medium">Company Name*</label>
+            <label className="block text-sm font-medium mb-1">Company Name*</label>
             <input
               type="text"
               name="companyName"
               value={formData.companyName}
               onChange={handleChange}
               placeholder="e.g. Acme Corporation"
-              className="w-full border border-gray-300 rounded-md p-2 mt-1"
+              className="w-full border border-gray-300 rounded-md px-3 py-2"
             />
           </div>
           <div>
-            <label className="block text-sm font-medium">Start Date*</label>
+            <label className="block text-sm font-medium mb-1">Start Date*</label>
             <input
               type="date"
               name="startDate"
               value={formData.startDate}
               onChange={handleChange}
-              className="w-full border border-gray-300 rounded-md p-2 mt-1"
+              className="w-full border border-gray-300 rounded-md px-3 py-2"
             />
           </div>
           <div>
-            <label className="block text-sm font-medium">End Date*</label>
+            <label className="block text-sm font-medium mb-1">End Date*</label>
             <input
               type="date"
               name="endDate"
               value={formData.endDate}
               onChange={handleChange}
-              className="w-full border border-gray-300 rounded-md p-2 mt-1"
+              className="w-full border border-gray-300 rounded-md px-3 py-2"
               disabled={formData.isCurrent}
             />
-            <label className="inline-flex items-center mt-2">
+            <label className="inline-flex items-center mt-2 text-sm text-gray-700">
               <input
                 type="checkbox"
                 name="isCurrent"
@@ -114,23 +118,26 @@ const WorkExperience = () => {
           </div>
         </div>
 
-        <div className="mt-4">
-          <label className="block text-sm font-medium">Key Responsibilities & Achievements*</label>
+        {/* Responsibilities */}
+        <div className="mt-6">
+          <label className="block text-sm font-medium mb-1">
+            Key Responsibilities & Achievements*
+          </label>
           <textarea
             name="responsibilities"
             value={formData.responsibilities}
             onChange={handleChange}
             placeholder="Describe your key responsibilities, achievements, and projects..."
             rows="5"
-            className="w-full border border-gray-300 rounded-md p-2 mt-1"
+            className="w-full border border-gray-300 rounded-md px-3 py-2"
           ></textarea>
           <p className="text-sm text-gray-500 mt-1">
             Tip: Use bullet points and action verbs to highlight your achievements
           </p>
         </div>
 
-        {/* Action Buttons */}
-        <div className="flex justify-between mt-6">
+        {/* Buttons */}
+        <div className="flex justify-between mt-8">
           <button
             onClick={handleDelete}
             className="bg-red-100 text-red-600 px-4 py-2 rounded-md font-medium"
@@ -139,18 +146,22 @@ const WorkExperience = () => {
           </button>
           <button
             onClick={handleSave}
-            className="bg-purple-600 text-white px-6 py-2 rounded-md font-semibold"
+            className="bg-purple-600 text-white px-6 py-2 rounded-md font-semibold hover:bg-purple-700"
           >
             Save Position
           </button>
         </div>
 
-        {/* ATS Optimization Tips */}
-        <div className="mt-10">
-          <h3 className="text-lg font-semibold text-gray-700 mb-3">ATS Optimization Tips</h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        {/* ATS Tips Section */}
+        <div className="mt-12">
+          <h3 className="text-xl font-semibold text-gray-700 mb-4">
+            ATS Optimization Tips
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <div className="bg-blue-50 p-4 rounded-md shadow-sm">
-              <h4 className="font-medium text-blue-700">Use Keywords from Job Description</h4>
+              <h4 className="font-medium text-blue-700">
+                Use Keywords from Job Description
+              </h4>
               <p className="text-sm mt-1">
                 Include relevant keywords to increase chances of passing ATS filters.
               </p>
