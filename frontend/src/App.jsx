@@ -24,7 +24,6 @@ const App = () => {
           <Route path="upload" element={<UploadResume />} />
           <Route path="score" element={<ResumeScore />} />
           <Route path="improve" element={<ImproveResume />} />
-          <Route path="language" element={<Language />} />
         </Route>
 
         {/* Resume Builder Routes */}
@@ -32,6 +31,7 @@ const App = () => {
           <Route path="CertificatePage" element={<CertificatePage />} />
           <Route path="AddCertificatePage" element={<AddCertificatePage />} />
           <Route path="experience" element={<WorkExperience />} />
+          <Route path="languages" element={<Language />} />
         </Route>
       </Routes>
     </>
