@@ -11,13 +11,14 @@ import AddCertificatePage from './pages/DeepikaA/AddCertificatePage'
 import SignUp from './pages/SignUp'
 import Language from './pages/Language'
 import WorkExperience from './pages/WorkExperience'
-
+import LostPage from "./pages/LostPage";
 const App = () => {
   return (
     <>
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="signup" element={<SignUp />} />
+        <Route path="*" element={<LostPage />} />
 
         {/* Navbar Routes */}
         <Route path="/app" element={<Navbar />}>
