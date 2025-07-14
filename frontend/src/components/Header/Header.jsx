@@ -15,7 +15,7 @@ const Header = () => {
         <ul className="flex gap-[25px] list-none m-0 p-0">
           <li className="text-[14px] text-[#6366F1] hover:text-[#6366F1] cursor-pointer font-medium">Home</li>
           <li className="text-[14px] text-[#6366F1] hover:text-[#6366F1] cursor-pointer font-medium">Features</li>
-          <li className="text-[14px] text-[#6366F1] hover:text-[#6366F1] cursor-pointer font-medium">Login</li>
+          <li className="text-[14px] text-[#6366F1] hover:text-[#6366F1] cursor-pointer font-medium" onClick={() => navigate('/login')}>Login</li>
           <li 
             className="text-[14px] text-[#6366F1] hover:text-[#6366F1] cursor-pointer font-medium"
             onClick={() => navigate('/signup')}

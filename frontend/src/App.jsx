@@ -12,17 +12,21 @@ import SignUp from './pages/SignUp'
 import Language from './pages/Language'
 import WorkExperience from './pages/WorkExperience'
 import LostPage from "./pages/LostPage";
+import Dashboard from './pages/Dashboard';
+import Login from './pages/Login';
+
 const App = () => {
   return (
     <>
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="signup" element={<SignUp />} />
+        <Route path="login" element={<Login />} />
         <Route path="*" element={<LostPage />} />
 
         {/* Navbar Routes */}
         <Route path="/app" element={<Navbar />}>
-          <Route path="upload" element={<UploadResume />} />
+          <Route path="upload" element={<Dashboard />} />
           <Route path="score" element={<ResumeScore />} />
           <Route path="improve" element={<ImproveResume />} />
         </Route>
