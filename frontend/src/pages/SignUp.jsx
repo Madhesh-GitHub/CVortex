@@ -4,7 +4,7 @@ import { Mail, Lock, User } from 'lucide-react';
 import illustration from '/image.png';
 import InputField from '../components/InputField';
 import AuthFooter from '../components/AuthFooter';
-
+import Header from '../components/Header/Header'
 const SignUp = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -45,6 +45,8 @@ const SignUp = () => {
   };
 
   return (
+    <>
+    <Header />
     <div className="flex flex-col md:flex-row bg-white rounded-2xl shadow-md overflow-hidden">
       {/* Form Section */}
       <div className="w-full md:w-1/2 p-8">
@@ -146,6 +148,7 @@ const SignUp = () => {
         />
       </div>
     </div>
+    </>
   );
 };
 
