@@ -14,6 +14,10 @@ import WorkExperience from './pages/WorkExperience'
 import LostPage from "./pages/LostPage"
 import ResumePreview from "./pages/ResumePreview"
 import Achievements from "./pages/Achievements"
+import Settings from "./pages/Settings"
+import Dashboard from './pages/Dashboard'
+import Login from './pages/Login'
+
 
 const App = () => {
   return (
@@ -22,11 +26,12 @@ const App = () => {
         {/* Public Routes */}
         <Route path="/" element={<LandingPage />} />
         <Route path="signup" element={<SignUp />} />
+        <Route path="login" element={<Login />} />
         <Route path="*" element={<LostPage />} />
 
         {/* Navbar Routes */}
         <Route path="/app" element={<Navbar />}>
-          <Route path="upload" element={<UploadResume />} />
+          <Route path="upload" element={<Dashboard />} />
           <Route path="score" element={<ResumeScore />} />
           <Route path="improve" element={<ImproveResume />} />
         </Route>
@@ -38,6 +43,7 @@ const App = () => {
           <Route path="experience" element={<WorkExperience />} />
           <Route path="languages" element={<Language />} />
           <Route path="achievements" element={<Achievements />} />
+          <Route path="settings" element={<Settings />} />
           <Route path="resume-preview" element={<ResumePreview />} />
         </Route>
       </Routes>

@@ -25,7 +25,7 @@ const ResumeBuilderTopNav = ({ isSidebarOpen }) => {
 
   return (
     <header
-      className="fixed top-0 left-0 right-0 h-16 bg-[#456882] text-white flex items-center justify-end px-4 md:px-8 shadow z-50"
+      className="fixed top-0 left-0 right-0 h-16 bg-[#456882] text-white flex items-center justify-end px-4 md:px-8 shadow"
       style={{ paddingLeft: isSidebarOpen ? "220px" : "60px" }}
     >
       <div className="absolute left-1/2 transform -translate-x-1/2 w-[400px]">
