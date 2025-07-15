@@ -24,9 +24,15 @@ const ResumeBuilderSideNav = ({ isSidebarOpen, setIsSidebarOpen }) => {
     <aside className={`fixed top-0 left-0 h-full bg-[#1274b1] text-[#fff] border-r border-[#eee] transition-all duration-300 ease-in-out ${isSidebarOpen ? "w-[220px]" : "w-[60px]"}`}>
       <div className="relative flex items-center h-16 px-4 border-b border-[#eee] shadow">
         <img src="/logo.jpg" alt="Logo" className="h-10 w-10 rounded-full" />
-        {isSidebarOpen && <span className="ml-3 font-bold text-md tracking-wide text-[#5c5470]">Resume Builder</span>}
-        <button onClick={() => setIsSidebarOpen(!isSidebarOpen)} className="absolute top-1/2 -right-4 transform -translate-y-1/2 bg-white border border-[#ccc] rounded-full p-1 hover:bg-[#eee]">
-          {isSidebarOpen ? <ChevronLeft size={14} /> : <ChevronRight size={14} />}
+        {isSidebarOpen && <span className="ml-3 font-bold text-md tracking-wide text-gray-200">Resume Builder</span>}
+        <button
+          onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+          className="absolute top-1/2 -right-4 transform -translate-y-1/2 bg-blue-100 border border-blue-300 text-blue-700 rounded-full p-1 hover:bg-blue-200"
+        >
+          {isSidebarOpen
+            ? <ChevronLeft size={14} className="text-blue-700" />
+            : <ChevronRight size={14} className="text-blue-700" />
+          }
         </button>
       </div>
 
@@ -53,7 +59,11 @@ const NavItem = ({ icon, label, path, isOpen, activePath }) => {
 
   return (
     <div
-      className={`flex items-center space-x-3 p-2 rounded-md cursor-pointer transition ${isActive ? "bg-[#e6e4f4] font-semibold" : "hover:bg-[#f1eefc]"}`}
+      className={`flex items-center space-x-3 p-2 rounded-md cursor-pointer transition 
+    ${isActive
+          ? "bg-white text-[#1274b1] font-semibold"
+          : "hover:bg-white hover:text-[#1274b1] text-white"
+        }`}
       onClick={() => navigate(path)}
     >
       {icon}
