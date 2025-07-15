@@ -11,23 +11,22 @@ import AddCertificatePage from './pages/DeepikaA/AddCertificatePage'
 import SignUp from './pages/SignUp'
 import Language from './pages/Language'
 import WorkExperience from './pages/WorkExperience'
-import LostPage from "./pages/LostPage";
-import Dashboard from './pages/Dashboard';
-import Login from './pages/Login';
-import Settings from './pages/Settings'
+import LostPage from "./pages/LostPage"
+import ResumePreview from "./pages/ResumePreview"
+import Achievements from "./pages/Achievements"
 
 const App = () => {
   return (
     <>
       <Routes>
+        {/* Public Routes */}
         <Route path="/" element={<LandingPage />} />
         <Route path="signup" element={<SignUp />} />
-        <Route path="login" element={<Login />} />
         <Route path="*" element={<LostPage />} />
 
         {/* Navbar Routes */}
         <Route path="/app" element={<Navbar />}>
-          <Route path="upload" element={<Dashboard />} />
+          <Route path="upload" element={<UploadResume />} />
           <Route path="score" element={<ResumeScore />} />
           <Route path="improve" element={<ImproveResume />} />
         </Route>
@@ -38,7 +37,8 @@ const App = () => {
           <Route path="AddCertificatePage" element={<AddCertificatePage />} />
           <Route path="experience" element={<WorkExperience />} />
           <Route path="languages" element={<Language />} />
-          <Route path="settings" element={<Settings />} />
+          <Route path="achievements" element={<Achievements />} />
+          <Route path="resume-preview" element={<ResumePreview />} />
         </Route>
       </Routes>
     </>
