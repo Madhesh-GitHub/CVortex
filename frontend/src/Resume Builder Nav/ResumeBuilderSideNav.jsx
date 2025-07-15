@@ -52,13 +52,18 @@ const NavItem = ({ icon, label, path, isOpen, activePath }) => {
   const isActive = activePath === path;
 
   return (
-    <div
-      className={`flex items-center space-x-3 p-2 rounded-md cursor-pointer transition ${isActive ? "bg-[#e6e4f4] font-semibold" : "hover:bg-[#f1eefc]"}`}
-      onClick={() => navigate(path)}
-    >
-      {icon}
-      {isOpen && <span className="text-sm">{label}</span>}
-    </div>
+   <div
+  className={`flex items-center space-x-3 p-2 rounded-md cursor-pointer transition 
+    ${isActive 
+      ? "bg-white text-[#1274b1] font-semibold" 
+      : "hover:bg-white hover:text-[#1274b1] text-white"
+    }`}
+  onClick={() => navigate(path)}
+>
+  {icon}
+  {isOpen && <span className="text-sm">{label}</span>}
+</div>
+
   );
 };
 

@@ -14,6 +14,7 @@ import WorkExperience from './pages/WorkExperience'
 import LostPage from "./pages/LostPage";
 import Dashboard from './pages/Dashboard';
 import Login from './pages/Login';
+import Settings from './pages/Settings'
 
 const App = () => {
   return (
@@ -37,6 +38,7 @@ const App = () => {
           <Route path="AddCertificatePage" element={<AddCertificatePage />} />
           <Route path="experience" element={<WorkExperience />} />
           <Route path="languages" element={<Language />} />
+          <Route path="settings" element={<Settings />} />
         </Route>
       </Routes>
     </>
