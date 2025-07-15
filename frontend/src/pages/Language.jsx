@@ -29,19 +29,19 @@ const Language = () => {
     };
 
     const handleBack = () => {
-    navigate("/builder/achievements");
-  };
+        navigate("/builder/achievements");
+    };
 
-  const handleNext = () => {
-    navigate("/builder/CertificatePage");
-  };
+    const handleNext = () => {
+        navigate("/builder/CertificatePage");
+    };
 
     return (
         <div className="bg-orange-50 min-h-screen p-6 mt-8">
             <div className="max-w-5xl mx-auto space-y-8">
                 {/* Header */}
                 <div>
-                    <h1 className="text-xl font-bold text-gray-800">Languages</h1>
+                    <h1 className="text-3xl font-bold text-[#4338ca]">Languages</h1>
                     <p className="text-gray-600 mt-1">
                         Add your language proficiencies to showcase your communication skills to potential employers.
                     </p>
@@ -62,8 +62,7 @@ const Language = () => {
                     {languages.map((entry, index) => (
                         <div
                             key={index}
-                            // Changed grid to 3 columns: 2 for inputs, 1 for delete button
-                            className="grid md:grid-cols-3 gap-4 mb-4 bg-gray-50 p-4 rounded border border-gray-200 items-center"
+                            className="grid md:grid-cols-3 gap-4 mb-4 bg-gray-100 p-4 rounded border border-gray-200 items-center"
                         >
                             <div>
                                 <label className="block text-sm font-medium mb-1">Language</label>
@@ -91,9 +90,9 @@ const Language = () => {
                                 </select>
                             </div>
 
-                            {/* Delete Button as a grid item, aligned to the end */}
+                            {/* Delete Button*/}
                             {languages.length > 1 && (
-                                <div className="flex justify-end self-start mt-6 md:mt-0"> {/* Adjust margin-top for smaller screens */}
+                                <div className="flex justify-end self-start mt-6 md:mt-0">
                                     <button
                                         onClick={() => deleteLanguage(index)}
                                         className="text-red-500 hover:text-red-700"
@@ -109,21 +108,21 @@ const Language = () => {
 
                 {/* ATS Tips */}
                 <div className="bg-white p-6 rounded shadow">
-                    <h2 className="font-semibold text-lg mb-4">ATS Optimization Tips</h2>
+                    <h2 className="text-xl font-semibold text-gray-700 mb-4">ATS Optimization Tips</h2>
                     <div className="grid md:grid-cols-2 gap-4 text-sm text-gray-700">
-                        <div className="border border-gray-200 rounded-lg p-4 bg-gray-50 shadow-sm">
+                        <div className="border border-gray-200 rounded-lg p-4 bg-gray-100 shadow-sm">
                             <strong className="text-blue-600 block mb-1">Be Specific About Proficiency</strong>
                             <p>Use levels like “Native”, “Fluent”, “Advanced”, “Intermediate”, or “Basic”. Avoid “Good” or “Fair”.</p>
                         </div>
-                        <div className="border border-gray-200 rounded-lg p-4 bg-gray-50 shadow-sm">
+                        <div className="border border-gray-200 rounded-lg p-4 bg-gray-100 shadow-sm">
                             <strong className="text-blue-600 block mb-1">Match Job Requirements</strong>
                             <p>Mention languages from the job description first, especially for roles that require specific language skills.</p>
                         </div>
-                        <div className="border border-gray-200 rounded-lg p-4 bg-gray-50 shadow-sm">
+                        <div className="border border-gray-200 rounded-lg p-4 bg-gray-100 shadow-sm">
                             <strong className="text-blue-600 block mb-1">Include Certifications</strong>
                             <p>If you have certifications (TOEFL, IELTS, etc.), include them in the Certificates section.</p>
                         </div>
-                        <div className="border border-gray-200 rounded-lg p-4 bg-gray-50 shadow-sm">
+                        <div className="border border-gray-200 rounded-lg p-4 bg-gray-100 shadow-sm">
                             <strong className="text-blue-600 block mb-1">Highlight Relevant Experience</strong>
                             <p>Connect language skills to achievements — e.g., working with international teams.</p>
                         </div>
