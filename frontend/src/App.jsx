@@ -17,6 +17,8 @@ import Achievements from "./pages/Achievements"
 import Settings from "./pages/Settings"
 import Dashboard from './pages/Dashboard'
 import Login from './pages/Login'
+import PersonalInformation from './pages/PersonalInformation'
+import Education from './pages/Education'
 
 
 const App = () => {
@@ -38,6 +40,8 @@ const App = () => {
 
         {/* Resume Builder Routes */}
         <Route path="/builder" element={<ResumeBuilderNavBar />}>
+          <Route path="education" element={<Education />} />
+          <Route path="personal" element={<PersonalInformation />} />
           <Route path="CertificatePage" element={<CertificatePage />} />
           <Route path="AddCertificatePage" element={<AddCertificatePage />} />
           <Route path="experience" element={<WorkExperience />} />
