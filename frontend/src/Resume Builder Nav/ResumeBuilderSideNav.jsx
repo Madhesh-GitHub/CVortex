@@ -39,7 +39,7 @@ const ResumeBuilderSideNav = ({ isSidebarOpen, setIsSidebarOpen }) => {
         <NavItem icon={<Award size={18} />} label="Achievements" path="/builder/achievements" isOpen={isSidebarOpen} activePath={activePath} />
         <NavItem icon={<Languages size={18} />} label="Languages" path="/builder/languages" isOpen={isSidebarOpen} activePath={activePath} />
         <NavItem icon={<FileCheck size={18} />} label="Certificates" path="/builder/CertificatePage" isOpen={isSidebarOpen} activePath={activePath} />
-        <NavItem icon={<Eye size={18} />} label="Preview Resume" path="/builder/preview" isOpen={isSidebarOpen} activePath={activePath} />
+        <NavItem icon={<Eye size={18} />} label="Preview Resume" path="/builder/resume-preview" isOpen={isSidebarOpen} activePath={activePath} />
         <NavItem icon={<Settings size={18} />} label="Settings" path="/builder/settings" isOpen={isSidebarOpen} activePath={activePath} />
         <NavItem icon={<HelpCircle size={18} />} label="Help" path="/builder/help" isOpen={isSidebarOpen} activePath={activePath} />
       </nav>
@@ -52,18 +52,13 @@ const NavItem = ({ icon, label, path, isOpen, activePath }) => {
   const isActive = activePath === path;
 
   return (
-   <div
-  className={`flex items-center space-x-3 p-2 rounded-md cursor-pointer transition 
-    ${isActive 
-      ? "bg-white text-[#1274b1] font-semibold" 
-      : "hover:bg-white hover:text-[#1274b1] text-white"
-    }`}
-  onClick={() => navigate(path)}
->
-  {icon}
-  {isOpen && <span className="text-sm">{label}</span>}
-</div>
-
+    <div
+      className={`flex items-center space-x-3 p-2 rounded-md cursor-pointer transition ${isActive ? "bg-[#e6e4f4] font-semibold" : "hover:bg-[#f1eefc]"}`}
+      onClick={() => navigate(path)}
+    >
+      {icon}
+      {isOpen && <span className="text-sm">{label}</span>}
+    </div>
   );
 };
 
