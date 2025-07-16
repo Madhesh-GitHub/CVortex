@@ -37,7 +37,7 @@ const Language = () => {
     };
 
     return (
-        <div className="bg-orange-50 min-h-screen p-6 mt-8">
+        <div className=" min-h-screen p-6 mt-8">
             <div className="max-w-5xl mx-auto space-y-8">
                 {/* Header */}
                 <div>

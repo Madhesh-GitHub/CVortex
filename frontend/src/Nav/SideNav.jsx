@@ -28,7 +28,7 @@ const SideNav = ({ isSidebarOpen, setIsSidebarOpen }) => {
         </button>
       </div>
 
-      <nav className="flex-1 px-2 py-4 space-y-1">
+      <nav className="flex-1 px-2 py-4 space-y-3">
         <NavItem icon={<Home size={18} />} label="Home" path="/" isOpen={isSidebarOpen} activePath={activePath} />
         <NavItem icon={<Upload size={18} />} label="Upload Resume" path="/app/upload" isOpen={isSidebarOpen} activePath={activePath} />
         <NavItem icon={<Activity size={18} />} label="Resume Score" path="/app/score" isOpen={isSidebarOpen} activePath={activePath} />
@@ -48,11 +48,11 @@ const NavItem = ({ icon, label, path, isOpen, activePath }) => {
 
   return (
     <div
-      className={`flex items-center space-x-3 p-2 rounded-md cursor-pointer transition ${isActive ? "bg-[#e6e4f4] font-semibold" : "hover:bg-[#456882] hover:text-white"}`}
+      className={`flex items-center space-x-3 p-2 rounded-md cursor-pointer transition  ${isActive ? "bg-[#456882] text-white font-semibold " : "hover:bg-[#456882] hover:text-white "}`}
       onClick={() => navigate(path)}
     >
       {icon}
-      {isOpen && <span className="text-sm">{label}</span>}
+      {isOpen && <span className="text-sm ">{label}</span>}
     </div>
   );
 };
