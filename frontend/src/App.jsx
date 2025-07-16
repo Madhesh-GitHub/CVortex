@@ -9,6 +9,7 @@ import ResumeBuilderNavBar from './Resume Builder Nav/ResumeBuilderNavBar'
 import CertificatePage from './pages/DeepikaA/CertificatePage'
 import AddCertificatePage from './pages/DeepikaA/AddCertificatePage'
 import SignUp from './pages/SignUp'
+import Skills from './pages/Skills'
 import Language from './pages/Language'
 import WorkExperience from './pages/WorkExperience'
 import LostPage from "./pages/LostPage"
@@ -19,6 +20,7 @@ import Dashboard from './pages/Dashboard'
 import Login from './pages/Login'
 import PersonalInformation from './pages/PersonalInformation'
 import Education from './pages/Education'
+import { Navigate } from "react-router-dom";
 
 
 const App = () => {
@@ -33,6 +35,7 @@ const App = () => {
 
         {/* Navbar Routes */}
         <Route path="/app" element={<Navbar />}>
+        <Route index element={<Navigate to="/app/upload" />} /> 
           <Route path="upload" element={<Dashboard />} />
           <Route path="score" element={<ResumeScore />} />
           <Route path="improve" element={<ImproveResume />} />
@@ -49,6 +52,9 @@ const App = () => {
           <Route path="achievements" element={<Achievements />} />
           <Route path="settings" element={<Settings />} />
           <Route path="resume-preview" element={<ResumePreview />} />
+          <Route path="skills" element={<Skills/>} />
+
+
         </Route>
       </Routes>
     </>

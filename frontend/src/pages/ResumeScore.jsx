@@ -4,19 +4,19 @@ const ResumeScore=()=>{
 
     return(
         <>
-          <div className="min-h-screen bg-gradient-to-br from-blue-100 to-purple-100 p-0 m-0">
+          <div className="min-h-screen p-0 bg-[#F9FAFB] ">
 
 
       {/* Main Section */}
-      <div className="p-6 max-w-6xl mx-auto">
-        <h1 className="text-7xl p-6 font-medium text-center mb-6 text-gray-800">
+      <div className="p-4 max-w-6xl mx-auto">
+        <h1 className="text-3xl p-6 font-medium text-start mb-4 text-[#456882] mt-4">
           Resume Analysis
         </h1>
 
         {/* Overall Score + New Div Side-by-Side */}
 <div className="flex flex-col md:flex-row md:items-stretch gap-6 mb-8">
   {/* Overall Score */}
-  <div className="flex-1 mb-1 bg-white p-6 rounded-xl shadow-md text-center shadow-lg">
+  <div className="flex-1 mb-1 bg-white p-6 rounded-xl shadow-lg border text-center shadow-lg">
     <h3 className="text-3xl pt-20 font-semibold text-gray-700 mb-2">Overall Score</h3>
     <div className="text-8xl p-5 font-bold text-blue-600 mb-1">78%</div>
     <p className="text-3xl pt-1 pb-4 text-green-600 font-medium ">Good</p>
