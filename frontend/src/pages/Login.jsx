@@ -1,9 +1,47 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
+import { useNavigate, useLocation } from "react-router-dom";
 import { COLORS } from "../styles/colors";
+import axios from "axios";
 import "./Login.css";
 
 function Login() {
+  const [formData, setFormData] = useState({ email: "", password: "" });
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setError("");
+
+    try {
+      const response = await axios.post(
+        "http://localhost:5000/api/users/login",
+        formData
+      );
+
+      // Axios automatically parses JSON
+      const { data } = response;
+
+      // Store token in sessionStorage (session-based)
+      sessionStorage.setItem("token", data.token);
+      sessionStorage.setItem("user", JSON.stringify(data.user));
+
+      // Check if there's a redirect path, otherwise default to /app
+      const redirectTo = location.state?.redirectTo || "/app";
+      navigate(redirectTo);
+    } catch (error) {
+      // Axios provides better error handling
+      const errorMessage = error.response?.data?.message || "Login failed";
+      setError(errorMessage);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <motion.div
       className="login-root"
@@ -21,7 +59,8 @@ function Login() {
       >
         <h1 style={{ color: COLORS.primary }}>Welcome Back</h1>
         <p style={{ color: COLORS.textMuted }}>
-          Log in to your account to access your resume tools and continue building your professional profile.
+          Log in to your account to access your resume tools and continue
+          building your professional profile.
         </p>
         <img
           src="/image1.png"
@@ -29,6 +68,7 @@ function Login() {
           className="login-illustration"
         />
       </motion.div>
+
       <motion.div
         className="login-right"
         initial={{ x: 100, opacity: 0 }}
@@ -36,42 +76,125 @@ function Login() {
         transition={{ delay: 0.3, duration: 0.7, type: "spring" }}
       >
         <div className="login-header">
-          <span className="login-logo" style={{ color: COLORS.primary }}>📄</span>
-          <span className="login-title" style={{ color: COLORS.primary, fontWeight: 700 }}>CVortex</span>
+          <span className="login-logo" style={{ color: COLORS.primary }}>
+            📄
+          </span>
+          <span
+            className="login-title"
+            style={{ color: COLORS.primary, fontWeight: 700 }}
+          >
+            CVortex
+          </span>
         </div>
         <h2 style={{ color: COLORS.primary }}>Login to your account</h2>
-        <form className="login-form">
-          <label style={{ color: COLORS.textPrimary }}>Email</label>
-          <input type="email" placeholder="Enter your email" />
-          <label style={{ color: COLORS.textPrimary }}>Password</label>
-          <input type="password" placeholder="Enter your password" />
-          <div className="login-forgot">
-            <a href="#" style={{ color: COLORS.secondary }}>Forgot Password?</a>
+
+        {/* Show which section user is trying to access */}
+        {location.state?.redirectTo && (
+          <div
+            style={{
+              color: COLORS.primary,
+              background: "#F0F4FF",
+              padding: "10px",
+              borderRadius: "6px",
+              marginBottom: "15px",
+              border: "1px solid #E0E7FF",
+              fontSize: "14px",
+            }}
+          >
+            {location.state.redirectTo === "/builder"
+              ? "Please login to access Resume Builder"
+              : "Please login to upload your resume"}
           </div>
+        )}
+
+        {/* Error Display */}
+        {error && (
+          <div
+            style={{
+              color: COLORS.error,
+              background: "#FEF2F2",
+              padding: "10px",
+              borderRadius: "6px",
+              marginBottom: "15px",
+              border: "1px solid #FECACA",
+            }}
+          >
+            {error}
+          </div>
+        )}
+
+        <form className="login-form" onSubmit={handleSubmit}>
+          <label style={{ color: COLORS.textPrimary }}>Email</label>
+          <input
+            type="email"
+            placeholder="Enter your email"
+            value={formData.email}
+            onChange={(e) =>
+              setFormData({ ...formData, email: e.target.value })
+            }
+            required
+            disabled={loading}
+          />
+
+          <label style={{ color: COLORS.textPrimary }}>Password</label>
+          <input
+            type="password"
+            placeholder="Enter your password"
+            value={formData.password}
+            onChange={(e) =>
+              setFormData({ ...formData, password: e.target.value })
+            }
+            required
+            disabled={loading}
+          />
+
+          <div className="login-forgot">
+            <a href="#" style={{ color: COLORS.secondary }}>
+              Forgot Password?
+            </a>
+          </div>
+
           <motion.button
             type="submit"
             className="login-btn"
-            style={{ background: COLORS.primary }}
-            whileHover={{ scale: 1.05, boxShadow: "0 4px 24px rgba(99,102,241,0.15)" }}
-            whileTap={{ scale: 0.97 }}
+            style={{
+              background: loading ? COLORS.textMuted : COLORS.primary,
+              cursor: loading ? "not-allowed" : "pointer",
+            }}
+            disabled={loading}
+            whileHover={
+              !loading
+                ? {
+                    scale: 1.05,
+                    boxShadow: "0 4px 24px rgba(99,102,241,0.15)",
+                  }
+                : {}
+            }
+            whileTap={!loading ? { scale: 0.97 } : {}}
           >
-            Login
+            {loading ? "Logging in..." : "Login"}
           </motion.button>
         </form>
+
         <div className="login-divider">
           <span>or</span>
         </div>
+
         <motion.button
           className="login-google"
           style={{ borderColor: COLORS.secondary, color: COLORS.secondary }}
           whileHover={{ scale: 1.03, background: "#E0F2FE" }}
           whileTap={{ scale: 0.97 }}
+          disabled={loading}
         >
           Continue with Google
         </motion.button>
+
         <div className="login-signup">
           <span style={{ color: COLORS.textMuted }}>Don't have an account?</span>
-          <a href="#" style={{ color: COLORS.secondary }}>Sign up</a>
+          <a href="/signup" style={{ color: COLORS.secondary }}>
+            Sign up
+          </a>
         </div>
       </motion.div>
     </motion.div>
