@@ -25,16 +25,16 @@ const ResumeBuilderTopNav = ({ isSidebarOpen }) => {
 
   return (
     <header
-      className="fixed top-0 left-0 right-0 h-16 bg-[#456882] text-white flex items-center justify-end px-4 md:px-8 shadow"
+      className="fixed top-0 left-0 right-0 h-16 bg-white text-white flex items-center justify-end px-4 md:px-8 shadow"
       style={{ paddingLeft: isSidebarOpen ? "220px" : "60px" }}
     >
-      <div className="absolute left-1/2 transform -translate-x-1/2 w-[400px]">
+      {/* <div className="absolute left-1/2 transform -translate-x-1/2 w-[400px]">
         <input
           type="text"
           placeholder="Search for resume templates, tips, or keywords..."
           className="bg-white border border-[#dcdcdc] placeholder-[#888] text-black px-4 py-2 rounded-full text-sm w-full focus:outline-none focus:ring-2 focus:ring-[#a18ae6]"
         />
-      </div>
+      </div> */}
 
       <div className="flex items-center space-x-4 relative" ref={dropdownRef}>
         <Mail size={20} className="text-white cursor-pointer" />
@@ -42,7 +42,7 @@ const ResumeBuilderTopNav = ({ isSidebarOpen }) => {
 
         {user && (
           <div className="flex items-center cursor-pointer space-x-2" onClick={() => setDropdownOpen(!dropdownOpen)}>
-            <img src={user.profileImage} alt="avatar" className="h-8 w-8 rounded-full object-cover border border-[#ccc]" />
+            <img src='profile.png' alt="avatar" className="h-8 w-8 rounded-full object-cover border border-[#ccc]" />
             <ChevronDown size={16} className="text-white" />
           </div>
         )}

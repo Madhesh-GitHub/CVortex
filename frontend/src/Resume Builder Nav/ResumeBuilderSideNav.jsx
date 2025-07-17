@@ -21,7 +21,7 @@ const ResumeBuilderSideNav = ({ isSidebarOpen, setIsSidebarOpen }) => {
   const activePath = location.pathname;
 
   return (
-    <aside className={`fixed top-0 left-0 h-full bg-[#1274b1] text-[#fff] border-r border-[#eee] transition-all duration-300 ease-in-out ${isSidebarOpen ? "w-[220px]" : "w-[60px]"}`}>
+    <aside className={`fixed top-0 left-0 h-full bg-[#0EA5E9] text-[#fff] border-r border-[#eee] transition-all duration-300 ease-in-out ${isSidebarOpen ? "w-[220px]" : "w-[60px]"}`}>
       <div className="relative flex items-center h-16 px-4 border-b border-[#eee] shadow">
         <img src="/logo.jpg" alt="Logo" className="h-10 w-10 rounded-full" />
         {isSidebarOpen && <span className="ml-3 font-bold text-md tracking-wide text-gray-200">Resume Builder</span>}
