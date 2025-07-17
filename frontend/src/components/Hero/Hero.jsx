@@ -55,11 +55,12 @@ const Hero = () => {
         </div>
       </div>
 
-      <div className="flex-1 flex justify-center">
+      {/* Right Image */}
+      <div className="flex-1 w-full flex justify-center items-center">
         <img
-          src={heroImage}
+          src='hero.png'
           alt="ATS Optimization Visual"
-          className="max-w-full h-auto object-contain"
+          className="w-full max-w-[400px] sm:max-w-[500px] md:max-w-[600px] h-auto object-contain"
         />
       </div>
     </div>
@@ -67,4 +68,3 @@ const Hero = () => {
 }
 
 export default Hero
-
