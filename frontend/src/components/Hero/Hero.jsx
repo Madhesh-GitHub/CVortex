@@ -1,9 +1,31 @@
 import React from 'react'
 import heroImage from '../../assets/hero-image.png'
-import { useNavigate } from 'react-router'
+import { useNavigate } from 'react-router-dom'
 
 const Hero = () => {
   const navigate = useNavigate();
+  
+  const handleUploadClick = () => {
+    // Check sessionStorage instead of localStorage
+    const token = sessionStorage.getItem('token');
+    if (token) {
+      navigate('/app');
+    } else {
+      // Pass redirect path to login page
+      navigate('/login', { state: { redirectTo: '/app' } });
+    }
+  };
+
+  const handleBuilderClick = () => {
+    // Check sessionStorage instead of localStorage
+    const token = sessionStorage.getItem('token');
+    if (token) {
+      navigate('/builder');
+    } else {
+      // Pass redirect path to login page
+      navigate('/login', { state: { redirectTo: '/builder' } });
+    }
+  };
   
   return (
     <div className="flex justify-between items-center px-[80px] py-[60px] bg-[#F9FAFB] gap-[40px]">
@@ -20,13 +42,13 @@ const Hero = () => {
         <div className="flex gap-[20px]">
           <button 
             className="bg-[#6366F1] text-white px-5 py-3 rounded-md hover:bg-[#4F46E5] transition-all duration-300" 
-            onClick={() => navigate('/app')}
+            onClick={handleUploadClick}
           > 
             Upload Your Resume 
           </button>
           <button 
             className="bg-[#0EA5E9] text-white px-5 py-3 rounded-md hover:bg-[#0284C7] transition-all duration-300"
-            onClick={() => navigate('/builder')}
+            onClick={handleBuilderClick}
           > 
             Build ATS Ready Resume 
           </button>
