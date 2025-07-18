@@ -10,9 +10,12 @@ import monisa from '../assets/Monisa.jpg';
 import karthik from '../assets/Karthik.jpg';
 import nikitha from '../assets/Nikhita.jpg';
 import shilpa from '../assets/Shilpa.jpg';
+import vaishali from '../assets/Vaishali.jpg';
+import shiva from '../assets/Shiva.jpg';
 
 const contributors = [
   { name: "Madhesh K", github: "https://github.com/Madhesh-GitHub", photo: madhesh },
+  { name: "Vaishali Kadam", github: "https://github.com/Vaishali-Kadam", photo: vaishali },
   { name: "Shilpa", github: "https://github.com/shilpa053020", photo: shilpa },
   { name: "Deepika A", github: "https://github.com/DeepikaA777", photo: deepika },
   { name: "Uvajanani", github: "https://github.com/Uvajanani", photo: uvajanani },
@@ -23,6 +26,7 @@ const contributors = [
   { name: "Nikitha S Nair", github: "https://github.com/NikithaSNair", photo: nikitha },
   { name: "Karthikeya", github: "https://github.com/karthikeyavb", photo: karthik },
   { name: "Dhanush Suresh", github: "https://github.com/Dhanush33-alts", photo: dhanush },
+  { name: "Shiva Gurumurthy", github: "https://github.com/ShivaGurumurthy", photo: shiva },
 ];
 
 export default function Contributors() {
