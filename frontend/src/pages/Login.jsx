@@ -4,6 +4,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { COLORS } from "../styles/colors";
 import axios from "axios";
 import "./Login.css";
+import { GoogleLogin } from "@react-oauth/google";
 
 function Login() {
   const [formData, setFormData] = useState({ email: "", password: "" });
@@ -18,27 +19,35 @@ function Login() {
     setError("");
 
     try {
-      const response = await axios.post(
-        "http://localhost:5000/api/users/login",
-        formData
-      );
+      const response = await axios.post("http://localhost:5000/api/users/login", formData);
+      const { token, user } = response.data;
+      sessionStorage.setItem("token", token);
+      sessionStorage.setItem("user", JSON.stringify(user));
 
-      // Axios automatically parses JSON
-      const { data } = response;
-
-      // Store token in sessionStorage (session-based)
-      sessionStorage.setItem("token", data.token);
-      sessionStorage.setItem("user", JSON.stringify(data.user));
-
-      // Check if there's a redirect path, otherwise default to /app
-      const redirectTo = location.state?.redirectTo || "/app";
-      navigate(redirectTo);
+      navigate(location.state?.redirectTo || "/app");
     } catch (error) {
-      // Axios provides better error handling
       const errorMessage = error.response?.data?.message || "Login failed";
       setError(errorMessage);
     } finally {
       setLoading(false);
+    }
+  };
+
+  const handleGoogleLogin = async (credentialResponse) => {
+    try {
+      const { credential } = credentialResponse;
+      const res = await axios.post("http://localhost:5000/api/users/google-login", {
+        credential,
+      });
+
+      const { token, user } = res.data;
+      sessionStorage.setItem("token", token);
+      sessionStorage.setItem("user", JSON.stringify(user));
+
+      navigate(location.state?.redirectTo || "/app");
+    } catch (err) {
+      console.error(err);
+      setError("Google login failed. Please try again.");
     }
   };
 
@@ -59,14 +68,9 @@ function Login() {
       >
         <h1 style={{ color: COLORS.primary }}>Welcome Back</h1>
         <p style={{ color: COLORS.textMuted }}>
-          Log in to your account to access your resume tools and continue
-          building your professional profile.
+          Log in to your account to access your resume tools and continue building your professional profile.
         </p>
-        <img
-          src="/image1.png"
-          alt="Person at desk"
-          className="login-illustration"
-        />
+        <img src="/image1.png" alt="Person at desk" className="login-illustration" />
       </motion.div>
 
       <motion.div
@@ -76,19 +80,11 @@ function Login() {
         transition={{ delay: 0.3, duration: 0.7, type: "spring" }}
       >
         <div className="login-header">
-          <span className="login-logo" style={{ color: COLORS.primary }}>
-            📄
-          </span>
-          <span
-            className="login-title"
-            style={{ color: COLORS.primary, fontWeight: 700 }}
-          >
-            CVortex
-          </span>
+          <span className="login-logo" style={{ color: COLORS.primary }}>📄</span>
+          <span className="login-title" style={{ color: COLORS.primary, fontWeight: 700 }}>CVortex</span>
         </div>
         <h2 style={{ color: COLORS.primary }}>Login to your account</h2>
 
-        {/* Show which section user is trying to access */}
         {location.state?.redirectTo && (
           <div
             style={{
@@ -107,7 +103,6 @@ function Login() {
           </div>
         )}
 
-        {/* Error Display */}
         {error && (
           <div
             style={{
@@ -129,9 +124,7 @@ function Login() {
             type="email"
             placeholder="Enter your email"
             value={formData.email}
-            onChange={(e) =>
-              setFormData({ ...formData, email: e.target.value })
-            }
+            onChange={(e) => setFormData({ ...formData, email: e.target.value })}
             required
             disabled={loading}
           />
@@ -141,17 +134,13 @@ function Login() {
             type="password"
             placeholder="Enter your password"
             value={formData.password}
-            onChange={(e) =>
-              setFormData({ ...formData, password: e.target.value })
-            }
+            onChange={(e) => setFormData({ ...formData, password: e.target.value })}
             required
             disabled={loading}
           />
 
           <div className="login-forgot">
-            <a href="#" style={{ color: COLORS.secondary }}>
-              Forgot Password?
-            </a>
+            <a href="#" style={{ color: COLORS.secondary }}>Forgot Password?</a>
           </div>
 
           <motion.button
@@ -162,39 +151,28 @@ function Login() {
               cursor: loading ? "not-allowed" : "pointer",
             }}
             disabled={loading}
-            whileHover={
-              !loading
-                ? {
-                    scale: 1.05,
-                    boxShadow: "0 4px 24px rgba(99,102,241,0.15)",
-                  }
-                : {}
-            }
+            whileHover={!loading ? { scale: 1.05, boxShadow: "0 4px 24px rgba(99,102,241,0.15)" } : {}}
             whileTap={!loading ? { scale: 0.97 } : {}}
           >
             {loading ? "Logging in..." : "Login"}
           </motion.button>
         </form>
 
-        <div className="login-divider">
-          <span>or</span>
-        </div>
+        <div className="login-divider"><span>or</span></div>
 
-        <motion.button
-          className="login-google"
-          style={{ borderColor: COLORS.secondary, color: COLORS.secondary }}
-          whileHover={{ scale: 1.03, background: "#E0F2FE" }}
-          whileTap={{ scale: 0.97 }}
-          disabled={loading}
-        >
-          Continue with Google
-        </motion.button>
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          <GoogleLogin
+            onSuccess={handleGoogleLogin}
+            onError={() => setError("Google login failed.")}
+            size="large"
+            theme="filled_black"
+            width="100%"
+          />
+        </div>
 
         <div className="login-signup">
           <span style={{ color: COLORS.textMuted }}>Don't have an account?</span>
-          <a href="/signup" style={{ color: COLORS.secondary }}>
-            Sign up
-          </a>
+          <a href="/signup" style={{ color: COLORS.secondary }}>Sign up</a>
         </div>
       </motion.div>
     </motion.div>
