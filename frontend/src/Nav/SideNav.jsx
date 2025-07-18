@@ -37,6 +37,7 @@ const SideNav = ({ isSidebarOpen, setIsSidebarOpen }) => {
         {/* <NavItem icon={<User size={18} />} label="Sign Up" path="/app/signup" isOpen={isSidebarOpen} activePath={activePath} /> */}
         <NavItem icon={<Settings size={18} />} label="Settings" path="/app/settings" isOpen={isSidebarOpen} activePath={activePath} />
         <NavItem icon={<HelpCircle size={18} />} label="Help" path="/app/help" isOpen={isSidebarOpen} activePath={activePath} />
+        <NavItem icon={<GlobeIcon size={18} />} label="Contributors" path="/contributors" isOpen={isSidebarOpen} activePath={activePath} />
       </nav>
     </aside>
   );

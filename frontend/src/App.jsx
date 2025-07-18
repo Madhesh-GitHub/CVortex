@@ -20,6 +20,7 @@ import Dashboard from './pages/Dashboard'
 import Login from './pages/Login'
 import PersonalInformation from './pages/PersonalInformation'
 import Education from './pages/Education'
+import Contributors from './pages/Contributors';
 import { Navigate } from "react-router-dom";
 
 
@@ -31,6 +32,7 @@ const App = () => {
         <Route path="/" element={<LandingPage />} />
         <Route path="signup" element={<SignUp />} />
         <Route path="login" element={<Login />} />
+        <Route path="contributors" element={<Contributors />} />
         <Route path="*" element={<LostPage />} />
 
         {/* Navbar Routes */}
