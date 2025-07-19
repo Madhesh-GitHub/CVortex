@@ -1,11 +1,10 @@
 import React from 'react';
-import { FiExternalLink, FiBookOpen, FiTrendingUp, FiUsers } from 'react-icons/fi';
+import { useNavigate } from 'react-router-dom';
+import { FiArrowRight, FiBookOpen, FiTrendingUp, FiUsers } from 'react-icons/fi';
 import './Blog.css';
 
 const Blog = () => {
-  const handleVisitBlog = () => {
-    window.open('http://localhost:3000', '_blank');
-  };
+  const navigate = useNavigate();
 
   const blogFeatures = [
     {
@@ -43,8 +42,11 @@ const Blog = () => {
       </div>
 
       <div className="blog-cta">
-        <button onClick={handleVisitBlog} className="blog-visit-btn">
-          <FiExternalLink size={20} />
+        <button 
+          onClick={() => navigate('/blog')} 
+          className="blog-visit-btn"
+        >
+          <FiArrowRight size={20} />
           Visit Our Blog
         </button>
       </div>
