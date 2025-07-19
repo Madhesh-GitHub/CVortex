@@ -20,37 +20,41 @@ export default function Dashboard() {
 
   const handleBrowse = () => fileInput.current.click();
 
- const handleAnalyze = async (e) => {
-  e.preventDefault();
+  const handleAnalyze = async (e) => {
+    e.preventDefault();
 
-  if (!fileInput.current.files[0]) {
-    alert("Please upload a resume file first.");
-    return;
-  }
-
-  const formData = new FormData();
-  formData.append("resume", fileInput.current.files[0]);
-
-  try {
-    const res = await fetch("http://localhost:5000/api/uploads", {
-      method: "POST",
-      body: formData,
-    });
-
-    const data = await res.json();
-
-    if (res.ok) {
-      console.log("Parsed Resume Text:", data.text);
-      alert("Resume analyzed successfully!");
-    } else {
-      alert(data.message || "Something went wrong!");
+    if (!fileInput.current.files[0]) {
+      alert("Please upload a resume file first.");
+      return;
     }
-  } catch (err) {
-    console.error("Upload error:", err);
-    alert("Failed to analyze resume.");
-  }
-};
 
+    const formData = new FormData();
+    formData.append("resume", fileInput.current.files[0]);
+    
+    // 🔥 ADD THIS LINE - Send job description
+    formData.append("jobDescription", jobDesc);
+
+    try {
+      const res = await fetch("http://localhost:5000/api/uploads", {
+        method: "POST",
+        body: formData,
+      });
+
+      const data = await res.json();
+
+      if (res.ok) {
+        console.log("✅ Parsed Resume Data:", data);
+        console.log("📝 Session ID:", data.sessionId);
+        console.log("📄 Files created:", data.files);
+        alert("Resume analyzed successfully!");
+      } else {
+        alert(data.message || "Something went wrong!");
+      }
+    } catch (err) {
+      console.error("Upload error:", err);
+      alert("Failed to analyze resume.");
+    }
+  };
 
   return (
     <motion.div
