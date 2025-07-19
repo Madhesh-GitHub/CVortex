@@ -4,7 +4,7 @@ import dotenv from "dotenv";
 import userRoute from "./Routes/userRoute.js";
 import { connectDB } from "./Configure/db.js";
 import config from "./Configure/config.js";
-
+import uploadRoutes from "./Routes/uploadRoute.js";
 // Load environment variables
 dotenv.config();
 
@@ -16,8 +16,8 @@ app.use(cors());
 app.use(express.json());
 
 // Routes
+app.use("/api/uploads", uploadRoutes);
 app.use("/api/users", userRoute);
-
 // 404 handler
 app.use((req, res, next) => {
   res.status(404).json({ message: "Endpoint not found" });

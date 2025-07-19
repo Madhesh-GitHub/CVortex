@@ -20,10 +20,37 @@ export default function Dashboard() {
 
   const handleBrowse = () => fileInput.current.click();
 
-  const handleAnalyze = (e) => {
-    e.preventDefault();
-    alert(`Resume: ${fileName || "No file"}\nJob Description: ${jobDesc || "None"}`);
-  };
+ const handleAnalyze = async (e) => {
+  e.preventDefault();
+
+  if (!fileInput.current.files[0]) {
+    alert("Please upload a resume file first.");
+    return;
+  }
+
+  const formData = new FormData();
+  formData.append("resume", fileInput.current.files[0]);
+
+  try {
+    const res = await fetch("http://localhost:5000/api/uploads", {
+      method: "POST",
+      body: formData,
+    });
+
+    const data = await res.json();
+
+    if (res.ok) {
+      console.log("Parsed Resume Text:", data.text);
+      alert("Resume analyzed successfully!");
+    } else {
+      alert(data.message || "Something went wrong!");
+    }
+  } catch (err) {
+    console.error("Upload error:", err);
+    alert("Failed to analyze resume.");
+  }
+};
+
 
   return (
     <motion.div
