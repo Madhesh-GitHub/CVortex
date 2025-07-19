@@ -18,12 +18,17 @@
     "dotenv": "^17.2.0",
     "express": "^5.1.0",
     "express-session": "^1.18.2",
+    "fs": "^0.0.1-security",
     "google-auth-library": "^10.1.0",
     "jsonwebtoken": "^9.0.2",
+    "mammoth": "^1.9.1",
     "mongoose": "^8.16.3",
+    "multer": "^2.0.2",
     "nodemon": "^3.1.10",
     "passport": "^0.7.0",
     "passport-google-oauth20": "^2.0.0",
+    "path": "^0.12.7",
+    "pdf-parse": "^1.1.1",
     "validator": "^13.15.15"
   }
 }
