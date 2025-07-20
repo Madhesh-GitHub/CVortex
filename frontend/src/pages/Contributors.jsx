@@ -1,4 +1,8 @@
 import React from 'react';
+import { motion } from 'framer-motion';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
+
+// Images
 import nandhini from '../assets/Nandhini.jpg';
 import dhanush from '../assets/Dhanush.jpg';
 import payel from '../assets/Payel.jpg';
@@ -14,53 +18,135 @@ import vaishali from '../assets/Vaishali.jpg';
 import shiva from '../assets/Shiva.jpg';
 
 const contributors = [
-  { name: "Madhesh K", github: "https://github.com/Madhesh-GitHub", photo: madhesh },
-  { name: "Shilpa", github: "https://github.com/shilpa053020", photo: shilpa },
-  { name: "Deepika A", github: "https://github.com/DeepikaA777", photo: deepika },
-  { name: "Uvajanani", github: "https://github.com/Uvajanani", photo: uvajanani },
-  { name: "Alagu Nandhini", github: "https://github.com/alagunandhini", photo: nandhini },
-  { name: "Payel", github: "https://github.com/Payel647", photo: payel },
-  { name: "Sanjay Ramesh", github: "https://github.com/sanjay-ramesh94", photo: sanjay },
-  { name: "Monisa", github: "https://github.com/Monisa46", photo: monisa },
-  { name: "Nikitha S Nair", github: "https://github.com/NikithaSNair", photo: nikitha },
-  { name: "Karthikeya", github: "https://github.com/karthikeyavb", photo: karthik },
-  { name: "Dhanush Suresh", github: "https://github.com/Dhanush33-alts", photo: dhanush },
-  { name: "Shiva Gurumurthy", github: "https://github.com/ShivaGurumurthy", photo: shiva },
-  { name: "Vaishali Kadam", github: "https://github.com/Vaishali-Kadam", photo: vaishali },
+  {
+    name: "Madhesh K",
+    github: "https://github.com/Madhesh-GitHub",
+    linkedin: "https://www.linkedin.com/in/its-madhesh/",
+    photo: madhesh
+  },
+  {
+    name: "Shilpa",
+    github: "https://github.com/shilpa053020",
+    linkedin: "https://www.linkedin.com/in/shilpa05",
+    photo: shilpa
+  },
+  {
+    name: "Deepika A",
+    github: "https://github.com/DeepikaA777",
+    linkedin: "https://www.linkedin.com/in/deepika-a-21754b302/",
+    photo: deepika
+  },
+  {
+    name: "Uvajanani",
+    github: "https://github.com/Uvajanani",
+    linkedin: "https://www.linkedin.com/in/uvajanani/",
+    photo: uvajanani
+  },
+  {
+    name: "Alagu Nandhini",
+    github: "https://github.com/alagunandhini",
+    linkedin: "https://www.linkedin.com/in/alagunandhini/",
+    photo: nandhini
+  },
+  {
+    name: "Payel",
+    github: "https://github.com/Payel647",
+    linkedin: "https://www.linkedin.com/in/payel-mallick-9292a92a3/",
+    photo: payel
+  },
+  {
+    name: "Sanjay Ramesh",
+    github: "https://github.com/sanjay-ramesh94",
+    linkedin: "https://www.linkedin.com/in/sanjay-ramesh-i-9aa720291/",
+    photo: sanjay
+  },
+  {
+    name: "Monisa",
+    github: "https://github.com/Monisa46",
+    linkedin: "https://www.linkedin.com/in/monisa46",
+    photo: monisa
+  },
+  {
+    name: "Nikitha S Nair",
+    github: "https://github.com/NikithaSNair",
+    linkedin: "https://www.linkedin.com/in/nikitha-s-nair-b111882b6/",
+    photo: nikitha
+  },
+  {
+    name: "Karthikeya",
+    github: "https://github.com/karthikeyavb",
+    linkedin: "https://www.linkedin.com/in/bala-karthikeya-08716b2b2/",
+    photo: karthik
+  },
+  {
+    name: "Dhanush Suresh",
+    github: "https://github.com/Dhanush33-alt",
+    linkedin: "https://www.linkedin.com/in/dhanush-suresh-957b0426a/",
+    photo: dhanush
+  },
+  {
+    name: "Shiva Gurumurthy",
+    github: "https://github.com/ShivaGurumurthy",
+    linkedin: "https://www.linkedin.com/in/shiva-gurumurthy-221278298/",
+    photo: shiva
+  },
+  {
+    name: "Vaishali Kadam",
+    github: "https://github.com/Vaishali-Kadam",
+    linkedin: "https://www.linkedin.com/in/vaishali-kadam-529295305/",
+    photo: vaishali
+  },
 ];
 
 export default function Contributors() {
   return (
-    <div className="bg-background min-h-screen px-6 py-10">
+    <div className="min-h-screen px-6 py-12 bg-gradient-to-br from-[#fdfbfb] to-[#ebedee]">
       <div className="text-center mb-12">
-        <h1 className="text-4xl font-bold text-primary">Contributors</h1>
-        <p className="mt-2 text-textMuted max-w-xl mx-auto">
-          Thanks to everyone who contributed to this project!
-        </p>
+        <h1 className="text-5xl font-bold text-gray-800 tracking-tight mb-3">Contributors</h1>
+        <p className="text-gray-600 max-w-xl mx-auto">We appreciate every contributor who helped shape this project.</p>
       </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
-          {contributors.map((person, idx) => (
-            <div
-              key={idx}
-              className="flex flex-col items-center bg-white rounded-lg shadow-md p-6 hover:shadow-xl hover:scale-105 transition-transform duration-300 w-52"
-            >
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-10 place-items-center">
+        {contributors.map((person, idx) => (
+          <motion.div
+            key={idx}
+            whileHover={{ scale: 1.07 }}
+            whileTap={{ scale: 0.98 }}
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: idx * 0.05 }}
+            className="bg-white/30 backdrop-blur-lg border border-white/20 shadow-xl rounded-xl p-5 w-60 text-center transition-all"
+          >
+            <div className="overflow-hidden rounded-lg">
               <img
                 src={person.photo}
                 alt={person.name}
-                className="h-48 w-48 rounded-lg object-cover max-w-full"
+                className="h-48 w-48 object-cover rounded-lg mx-auto transition-transform duration-500 hover:scale-105"
               />
-              <h3 className="mt-4 font-semibold text-textPrimary">{person.name}</h3>
+            </div>
+            <h3 className="mt-4 font-semibold text-gray-800 text-base">{person.name}</h3>
+
+            <div className="mt-2 flex items-center justify-center gap-4">
               <a
                 href={person.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-1 text-secondary hover:underline"
+                className="text-gray-700 hover:text-black text-xl"
               >
-                GitHub Profile
+                <FaGithub />
+              </a>
+              <a
+                href={person.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-600 hover:text-blue-800 text-xl"
+              >
+                <FaLinkedin />
               </a>
             </div>
-          ))}
-        </div>
+          </motion.div>
+        ))}
       </div>
+    </div>
   );
 }
