@@ -94,7 +94,7 @@ useEffect(() => {
       const backendTitles = res.data.map(b => b.title);
       const filteredSamples = sampleBlogs.filter(sb => !backendTitles.includes(sb.title));
 
-      setBlogs([...res.data, ...filteredSamples]);
+      setBlogs([...filteredSamples, ...res.data]);
     } catch (error) {
       console.error("Failed to fetch blogs from server", error);
       setBlogs(sampleBlogs); // fallback
