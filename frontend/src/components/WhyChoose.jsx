@@ -1,4 +1,5 @@
 import { FiSearch, FiLayout, FiBarChart2, FiTarget, FiCpu, FiShield } from 'react-icons/fi';
+import { motion } from 'framer-motion';
 
 const features = [
   {
@@ -33,6 +34,19 @@ const features = [
   },
 ];
 
+const cardVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: (i) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: i * 0.2,
+      duration: 0.6,
+      ease: 'easeOut',
+    },
+  }),
+};
+
 const Whychoose = () => {
   return (
     <section className="bg-gradient-to-br from-[#fdfbfb] to-[#ebedee] py-20">
@@ -47,16 +61,21 @@ const Whychoose = () => {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-8 sm:px-16 mt-14 max-w-7xl mx-auto">
         {features.map((feature, idx) => (
-          <div
+          <motion.div
             key={idx}
             className="bg-white/70 backdrop-blur-md border border-gray-200 rounded-2xl p-6 shadow transition-transform transform hover:-translate-y-1 hover:shadow-xl hover:border-indigo-500"
+            custom={idx}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={cardVariants}
           >
             <div className="flex items-center gap-3 text-indigo-600 mb-4">
               {feature.icon}
               <h3 className="text-lg font-semibold text-gray-800">{feature.title}</h3>
             </div>
             <p className="text-sm text-gray-600">{feature.description}</p>
-          </div>
+          </motion.div>
         ))}
       </div>
     </section>
