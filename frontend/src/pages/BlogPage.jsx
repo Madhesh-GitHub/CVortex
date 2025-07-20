@@ -1,15 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowLeft, PlusCircle, Search } from 'lucide-react';
 import BlogList from '../components/Blog/BlogList';
 import BlogWriteForm from '../components/Blog/BlogWriteForm';
 import { COLORS } from '../styles/colors';
+import axios from 'axios'; 
 
 // Sample blog data
 const sampleBlogs = [
   {
     id: 1,
+       isSample: true,
     title: "10 ATS-Friendly Resume Tips That Actually Work",
     description: "Discover proven strategies to optimize your resume for Applicant Tracking Systems and increase your chances of landing interviews.",
     author: "ATS Expert",
@@ -20,6 +22,7 @@ const sampleBlogs = [
   },
   {
     id: 2,
+       isSample: true,
     title: "How to Beat the ATS: Keywords That Matter",
     description: "Learn which keywords recruiters are looking for and how to naturally incorporate them into your resume without keyword stuffing.",
     author: "Career Coach",
@@ -30,6 +33,7 @@ const sampleBlogs = [
   },
   {
     id: 3,
+        isSample: true,
     title: "Resume Formatting: Do's and Don'ts for ATS",
     description: "Understand the formatting rules that can make or break your resume's success with Applicant Tracking Systems.",
     author: "Resume Writer",
@@ -40,6 +44,7 @@ const sampleBlogs = [
   },
   {
     id: 4,
+       isSample: true,
     title: "Success Story: From 0 to 5 Interviews in 2 Weeks",
     description: "Read how Sarah transformed her resume using our ATS optimization tips and landed multiple interviews in just 2 weeks.",
     author: "Success Stories",
@@ -50,6 +55,7 @@ const sampleBlogs = [
   },
   {
     id: 5,
+       isSample: true,
     title: "Industry-Specific Resume Keywords for 2025",
     description: "Get the latest keyword trends for different industries and learn how to tailor your resume for specific job roles.",
     author: "Industry Expert",
@@ -60,6 +66,7 @@ const sampleBlogs = [
   },
   {
     id: 6,
+       isSample: true,
     title: "Common ATS Mistakes That Kill Your Chances",
     description: "Avoid these critical mistakes that prevent your resume from passing through ATS filters and reaching human recruiters.",
     author: "ATS Expert",
@@ -72,10 +79,32 @@ const sampleBlogs = [
 
 const BlogPage = () => {
   const navigate = useNavigate();
-  const [blogs, setBlogs] = useState(sampleBlogs);
+  const [blogs, setBlogs] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [isWriteFormOpen, setIsWriteFormOpen] = useState(false);
+  const [editingBlog, setEditingBlog] = useState(null);
+
+
+useEffect(() => {
+  const fetchBlogs = async () => {
+    try {
+      const res = await axios.get('http://localhost:5000/api/blogs');
+
+      const backendTitles = res.data.map(b => b.title);
+      const filteredSamples = sampleBlogs.filter(sb => !backendTitles.includes(sb.title));
+
+      setBlogs([...res.data, ...filteredSamples]);
+    } catch (error) {
+      console.error("Failed to fetch blogs from server", error);
+      setBlogs(sampleBlogs); // fallback
+    }
+  };
+
+  fetchBlogs();
+}, []);
+
+
 
   // Get unique categories
   const categories = ['All', ...new Set(blogs.map(blog => blog.category))];
@@ -91,13 +120,49 @@ const BlogPage = () => {
     return matchesSearch && matchesCategory;
   });
 
-  const handleDeleteBlog = (id) => {
-    setBlogs(blogs.filter(blog => blog.id !== id));
-  };
+const handleDeleteBlog = async (id) => {
+ const isSample = blogs.find(blog => blog.id === id); // sample blogs have `id`
+
+  if (isSample) {
+    setBlogs(prev => prev.filter(blog => blog.id !== id));
+    alert('Sample blog deleted (frontend only)');
+    return;
+  }
+
+  try {
+    // Delete from backend
+    await axios.delete(`http://localhost:5000/api/blogs/delete/${id}`);
+
+    // Remove from frontend
+    setBlogs((prevBlogs) => prevBlogs.filter(blog => blog._id !== id && blog.id !== id));
+
+    alert('Blog deleted successfully!');
+  } catch (error) {
+    console.error('Failed to delete blog:', error);
+    alert('Failed to delete blog. Please try again.');
+  }
+};
 
   const handleWriteBlog = () => {
+      setEditingBlog(null); // reset editing
     setIsWriteFormOpen(true);
   };
+
+  const handleEditBlog = (blog) => {
+  setEditingBlog(blog);
+  setIsWriteFormOpen(true);
+
+
+};const handleUpdateBlog = (updatedBlog) => {
+  setBlogs(prev =>
+    prev.map(blog => blog._id === updatedBlog._id ? updatedBlog : blog)
+  );
+  console.log('Updated blog successfully:', updatedBlog);
+  setIsWriteFormOpen(false);
+};
+
+
+
 
   const handleSaveBlog = (newBlog) => {
     setBlogs(prev => [newBlog, ...prev]);
@@ -196,6 +261,7 @@ const BlogPage = () => {
           blogs={filteredBlogs}
           onDeleteBlog={handleDeleteBlog}
           onWriteBlog={handleWriteBlog}
+           onEditBlog={handleEditBlog}
         />
       </div>
 
@@ -204,6 +270,9 @@ const BlogPage = () => {
         isOpen={isWriteFormOpen}
         onClose={() => setIsWriteFormOpen(false)}
         onSave={handleSaveBlog}
+          editingBlog={editingBlog}              
+          onUpdateBlog={handleUpdateBlog}
+
       />
     </motion.div>
   );
