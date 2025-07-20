@@ -63,7 +63,7 @@ const contributors = [
   {
     name: "Monisa",
     github: "https://github.com/Monisa46",
-    linkedin: "https://www.linkedin.com/in/monisa46",
+    linkedin: "https://www.linkedin.com/in/monisa-r-17a41228b/",
     photo: monisa
   },
   {
