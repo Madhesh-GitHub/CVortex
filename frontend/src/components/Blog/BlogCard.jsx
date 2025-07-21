@@ -97,4 +97,4 @@ const BlogCard = ({ post, onDelete,onEdit, showDelete = false, isSample = false 
   );
 };
 
-export default BlogCard
+export default BlogCard;
