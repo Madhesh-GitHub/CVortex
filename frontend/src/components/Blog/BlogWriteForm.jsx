@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { X, Save, Eye, Tag, User, Calendar, Clock } from 'lucide-react';
+import axios from 'axios';
 
-const BlogWriteForm = ({ isOpen, onClose, onSave }) => {
+const BlogWriteForm = ({ isOpen, onClose, onSave,editingBlog, onUpdateBlog  }) => {
   const [formData, setFormData] = useState({
     title: '',
     description: '',
@@ -24,6 +25,32 @@ const BlogWriteForm = ({ isOpen, onClose, onSave }) => {
     'Career Development'
   ];
 
+// to update the form fields
+  useEffect(() => {
+  if (editingBlog) {
+    setFormData({
+      title: editingBlog.title || '',
+      description: editingBlog.description || '',
+      content: editingBlog.content || '',
+      author: editingBlog.author || 'ATS Expert',
+      category: editingBlog.category || 'Resume Optimization',
+      tags: editingBlog.tags?.join(', ') || '',
+      readTime: editingBlog.readTime || '5 min read'
+    });
+  } else {
+    setFormData({
+      title: '',
+      description: '',
+      content: '',
+      author: 'ATS Expert',
+      category: 'Resume Optimization',
+      tags: '',
+      readTime: '5 min read'
+    });
+  }
+  setIsPreview(false); // reset preview every open
+}, [editingBlog, isOpen]);
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({
@@ -32,28 +59,37 @@ const BlogWriteForm = ({ isOpen, onClose, onSave }) => {
     }));
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    
-    if (!formData.title || !formData.description || !formData.content) {
-      alert('Please fill in all required fields');
-      return;
+ const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  if (!formData.title || !formData.description || !formData.content) {
+    alert('Please fill in all required fields');
+    return;
+  }
+
+  const blogData = {
+    title: formData.title,
+    description: formData.description,
+    content: formData.content,
+    author: formData.author,
+    category: formData.category,
+    tags: formData.tags.split(',').map(tag => tag.trim()).filter(tag => tag),
+    readTime: formData.readTime
+  };
+
+  try {
+    if (editingBlog?._id) {
+      //  UPDATE the blog via PUT request
+      const res = await axios.put(`http://localhost:5000/api/blogs/update/${editingBlog._id}`, blogData);
+      alert('Blog updated successfully!');
+      if (onUpdateBlog) onUpdateBlog(res.data);
+    } else {
+      //  CREATE new blog via POST
+      const res = await axios.post('http://localhost:5000/api/blogs/create', blogData);
+      alert('Blog created successfully!');
+      if (onSave) onSave(res.data);
     }
 
-    const newBlog = {
-      id: Date.now(),
-      title: formData.title,
-      description: formData.description,
-      content: formData.content,
-      author: formData.author,
-      category: formData.category,
-      tags: formData.tags.split(',').map(tag => tag.trim()).filter(tag => tag),
-      date: new Date().toISOString().split('T')[0],
-      readTime: formData.readTime
-    };
-
-    onSave(newBlog);
-    
     // Reset form
     setFormData({
       title: '',
@@ -64,10 +100,15 @@ const BlogWriteForm = ({ isOpen, onClose, onSave }) => {
       tags: '',
       readTime: '5 min read'
     });
-    
+
     setIsPreview(false);
     onClose();
-  };
+
+  } catch (error) {
+    console.error('Error creating blog:', error);
+    alert('Error creating blog. Please try again.');
+  }
+};
 
   const handleClose = () => {
     setIsPreview(false);
@@ -87,7 +128,7 @@ const BlogWriteForm = ({ isOpen, onClose, onSave }) => {
         {/* Header */}
         <div className="flex items-center justify-between p-6 border-b border-gray-200">
           <h2 className="text-2xl font-bold text-gray-900">
-            {isPreview ? 'Preview Blog Post' : 'Write New Blog Post'}
+             {isPreview ? 'Preview Blog Post' : editingBlog? 'Edit Blog Post': 'Write New Blog Post'}
           </h2>
           <div className="flex items-center gap-2">
             <button

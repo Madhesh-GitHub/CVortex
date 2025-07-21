@@ -1,8 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Calendar, Clock, User, Tag, Trash2 } from 'lucide-react';
+import { Pencil } from 'lucide-react';
 
-const BlogCard = ({ post, onDelete, showDelete = false }) => {
+
+const BlogCard = ({ post, onDelete,onEdit, showDelete = false, isSample = false }) => {
   return (
     <motion.article
       whileHover={{ y: -5 }}
@@ -13,19 +15,35 @@ const BlogCard = ({ post, onDelete, showDelete = false }) => {
           <span className="inline-block bg-indigo-100 text-indigo-800 text-xs font-medium px-3 py-1 rounded-full">
             {post.category}
           </span>
-          {showDelete && onDelete && (
-            <button
-              onClick={() => {
-                if (window.confirm('Are you sure you want to delete this blog post?')) {
-                  onDelete(post.id);
-                }
-              }}
-              className="text-red-500 hover:text-red-700 transition-colors p-1 rounded-full hover:bg-red-50"
-              title="Delete post"
-            >
-              <Trash2 className="w-4 h-4" />
-            </button>
-          )}
+        {showDelete && (
+  <div className="flex items-center gap-2">
+{onEdit && !isSample && (
+  <button
+    onClick={() => onEdit(post)}
+    className="text-blue-500 hover:text-blue-700 transition-colors p-1 rounded-full hover:bg-blue-50"
+    title="Edit post"
+  >
+    <Pencil className="w-4 h-4" />
+  </button>
+)}
+
+
+    {onDelete && (
+      <button
+        onClick={() => {
+          if (window.confirm('Are you sure you want to delete this blog post?')) {
+            onDelete(post._id || post.id);
+          }
+        }}
+        className="text-red-500 hover:text-red-700 transition-colors p-1 rounded-full hover:bg-red-50"
+        title="Delete post"
+      >
+        <Trash2 className="w-4 h-4" />
+      </button>
+    )}
+  </div>
+)}
+
         </div>
         
         <h3 className="text-xl font-bold text-gray-900 mb-3 line-clamp-2 hover:text-indigo-600 transition-colors">
