@@ -20,6 +20,7 @@
     "express-session": "^1.18.2",
     "fs": "^0.0.1-security",
     "google-auth-library": "^10.1.0",
+    "groq-sdk": "^0.27.0",
     "jsonwebtoken": "^9.0.2",
     "mammoth": "^1.9.1",
     "mongoose": "^8.16.3",
