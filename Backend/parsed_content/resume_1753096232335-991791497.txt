@@ -1,0 +1,62 @@
+
+
+Uvajanani R P
+Software Developer|Java|C++|MERN Stack Developer
++91 8438961443#uvajanani24@gmail.comïlinkedin.com/in/uvajananiportfolio/Uvajanani
+Education
+K. Ramakrishnan College of Engineering, TiruchirapalliCGPA : 9.14
+Bachelor of Engineering in Computer Science and EngineeringNov. 2022 – May 2026
+Projects
+AI-Powered Overthinking Recovery App|React, Node.js, MongoDB, FlaskMar.  2025 – May 2025
+•
+Developed a full-stack mental wellness platform withAI-driven emotion detectionfrom speech and text,
+integrated viaFlask APIs, improving emotion recognition accuracy by 85%.
+•
+Designed gamified tools such asmeditation modulesandpersonalized storytelling, increasing user
+engagement and session duration by 30%.
+•
+Optimized backend APIs in the Overthinking Recovery App, reducing responselatency by 45%using
+asynchronous operations and query optimization.
+FindWay|Node.js, Express.js, React, MongoDB, Stripe APIOct.  2024 – Jan.  2025
+•
+Developed afood delivery platformwithproduct listings,detailed descriptions,cart, andwishlist
+functionality, increasing user engagement by 20%.
+•
+Implemented anadmin paneland integratedStripeforsecure payments, boosting seller productivity by 40%.
+•
+Involved in completeSDLCfrom requirement gathering to deployment and support in this app.
+•
+Followed TDD principles and wroteunit test casesusingPostmanduring development.
+Experience
+CodSoft - StartupJune 2024 – July 2024
+Web Development InternRemote
+•
+Built a fully responsive portfolio website to showcase personal projects, attracting over 50+ unique visitors in the
+first month of launch.
+•
+Designed and built a travel website showcasing destinations, packages, and travel details with a user-friendly
+interface.
+Technical Skills
+Programming Languages:Java, Python, C++, C
+Frontend:React.js, Redux, JavaScript, HTML, CSS, Tailwind CSS
+Backend:Node.js, Express.js, Mongoose, Flask, JWT, Socket.IO, REST APIs
+Database:MongoDB, MySQL
+Tools:Version Control - Git, Postman, Eclipse, Docker, Canva
+Computer Science:Data Structures and Algorithms, Operating Systems, Computer Networks, DBMS,
+Object-Oriented Programming
+Coding Profiles
+LeetCode:Solved 460+ problems with a max rat-
+ing of 1469, ranked in the top 69.87%
+GeeksforGeeks:Solved  540+  problems,  scored
+1671 with Institution Rank 1
+Coding Ninjas:College topper 4 times by solving
+340+ coding problems and 320+ MCQs
+CodeChef:Participated   in   4+   contests   to
+strengthen CP concepts
+Achievements
+•SecuredGlobal Rank 343 out of 369,000+in theGFG 160 Days Challenge, demonstrating
+long-term consistency and advanced problem-solving skills.
+•Achieved3rd placein anIntra-college Debugging Contestconducted by the Department of AI,
+competing among 30+ participants.
+•Mastered over500+ data structures and algorithms (DSA)problems acrossStriver SDE Sheetand
+CFC Sheet, enhancing coding proficiency and improving debugging capabilities by20%within 12 months
