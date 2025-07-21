@@ -2,12 +2,16 @@ import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { COLORS } from "../styles/colors";
 import "./Dashboard.css";
+import { useNavigate } from "react-router-dom";
 
 export default function Dashboard() {
   // UploadResume logic
   const fileInput = useRef();
   const [fileName, setFileName] = useState("");
   const [jobDesc, setJobDesc] = useState("");
+  const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
+
 
   const handleFileChange = (e) => {
     if (e.target.files[0]) setFileName(e.target.files[0].name);
@@ -27,7 +31,7 @@ export default function Dashboard() {
       alert("Please upload a resume file first.");
       return;
     }
-
+setLoading(true);
     const formData = new FormData();
     formData.append("resume", fileInput.current.files[0]);
     
@@ -41,12 +45,31 @@ export default function Dashboard() {
       });
 
       const data = await res.json();
+      console.log("🔁 Response:", res);
+console.log("📦 Response body:", data);
 
       if (res.ok) {
         console.log("✅ Parsed Resume Data:", data);
         console.log("📝 Session ID:", data.sessionId);
         console.log("📄 Files created:", data.files);
-        alert("Resume analyzed successfully!");
+        setLoading(true);
+               setTimeout(() => {
+navigate("/app/score", {
+  state: {
+    parsedData: {
+      files: {
+        resumeParsed: `resume_${data.sessionId}.txt`,
+        jdParsed: jobDesc ? `job_desc_${data.sessionId}.txt` : null,
+      },
+    },
+  },
+});
+
+
+
+
+      }, 3000);
+        // alert("Resume analyzed successfully!");
       } else {
         alert(data.message || "Something went wrong!");
       }
@@ -55,6 +78,8 @@ export default function Dashboard() {
       alert("Failed to analyze resume.");
     }
   };
+ 
+
 
   return (
     <motion.div
@@ -65,6 +90,14 @@ export default function Dashboard() {
       transition={{ duration: 0.7, ease: "easeOut" }}
     >
       <div className="dashboard-main">
+        {loading && (
+  <div className="content-loader-overlay">
+    <div className="content-loader-text">
+      ⏳ Analyzing your resume...
+    </div>
+  </div>
+)}
+
         <motion.div
           className="dashboard-content"
           initial={{ y: 40, opacity: 0 }}
@@ -74,6 +107,8 @@ export default function Dashboard() {
           {/* UploadResume */}
           <section className="upload-section">
             <h2 style={{ color: COLORS.primary }}>Upload Your Resume</h2>
+           
+
             <form className="upload-form" onSubmit={handleAnalyze}>
               <div
                 className="upload-dropzone"
