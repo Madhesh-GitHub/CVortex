@@ -4,7 +4,7 @@ export default function ATSScoreChecker() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#F9FAFB] to-[#E0EAFF] text-gray-800 font-sans px-6 py-20 space-y-32">
       
-      {/* 🚀 Title Section */}
+      {/*  Title Section */}
       <div className="text-center max-w-4xl mx-auto space-y-6">
         <h2 className="text-6xl md:text-6xl font-extrabold leading-tight tracking-tight">
           <span className="text-7xl text-transparent bg-clip-text bg-gradient-to-r from-purple-700 to-blue-500">
@@ -16,7 +16,6 @@ export default function ATSScoreChecker() {
         </p>
       </div>
 
-      {/* 🧾 What is ATS */}
 <section className="space-y-16 max-w-6xl mx-auto">
         <h3 className="text-center text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-700 to-blue-500">
     What is ATS?
@@ -41,7 +40,6 @@ export default function ATSScoreChecker() {
 </section>
 
 
-      {/* ⚙️ ATS Steps */}
       <section className="space-y-14">
         <h3 className="text-center text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-700 to-blue-500">
           How ATS Works?
@@ -64,7 +62,7 @@ export default function ATSScoreChecker() {
         </div>
       </section>
 
-      {/* 📊 Score Table */}
+      {/*  Score Table */}
       <section className="space-y-12 max-w-5xl mx-auto">
         <h3 className="text-center text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-700 to-blue-500">
           ATS Score Meaning
@@ -96,7 +94,6 @@ export default function ATSScoreChecker() {
         </div>
       </section>
 
-      {/* 🧠 ATS Checkpoints */}
       <section className="space-y-14 max-w-7xl mx-auto">
         <h3 className="text-center text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-700 to-blue-500">
           What We Check For
@@ -136,7 +133,6 @@ export default function ATSScoreChecker() {
         </div>
       </section>
 
-      {/* 📚 ATS Deep Dive: Why & How */}
 <section className="space-y-16 max-w-6xl mx-auto">
   <h3 className="text-center text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-700 to-blue-500">
     Why It’s Important?
@@ -190,6 +186,101 @@ export default function ATSScoreChecker() {
     ))}
   </div>
 </section>
+
+{/* ✅ 10 Steps to Make an ATS-Friendly Resume */}
+<section className="max-w-6xl mx-auto mt-24 px-4 md:px-8 space-y-16">
+  <div className="text-center">
+    <h3 className="text-4xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-purple-700 to-blue-500">
+      10 Steps to Make an ATS-Friendly Resume
+    </h3>
+    <p className="text-gray-600 mt-4 text-lg max-w-3xl mx-auto">
+      Follow these proven steps to ensure your resume gets through applicant tracking systems successfully.
+    </p>
+  </div>
+
+  {/* Scrollable horizontal container */}
+  <div className="flex overflow-x-auto space-x-6 pb-4 scrollbar-thin scrollbar-thumb-purple-400 scrollbar-track-transparent">
+    {[
+      {
+        title: "Use a Clean, Simple Layout",
+        desc: "Avoid columns, tables, text boxes, and graphics. Use a single-column layout with clear headings.",
+      },
+      {
+        title: "Use Standard Fonts",
+        desc: "Stick with fonts like Arial, Calibri, Times New Roman, or Helvetica. Font size: 10.5pt–12pt.",
+      },
+      {
+        title: "Save as PDF (if allowed)",
+        desc: "PDF preserves layout, but follow instructions in the job post (e.g., use .docx if asked).",
+      },
+      {
+        title: "Include Keywords from Job Description",
+        desc: "Match your skills to the exact words used in the job post, like 'React.js' or 'REST API'.",
+      },
+      {
+        title: "Use Standard Section Titles",
+        desc: "Use terms like ‘Summary’, ‘Skills’, ‘Experience’, ‘Education’ — avoid creative titles.",
+      },
+      {
+        title: "Avoid Fancy Elements",
+        desc: "No icons, tables, headers/footers, images, or logos. Keep it plain and readable.",
+      },
+      {
+        title: "Use Reverse Chronological Order",
+        desc: "List most recent roles/education first. Helps ATS and recruiters scan quickly.",
+      },
+      {
+        title: "Bullet Points for Achievements",
+        desc: "Start each point with an action verb. Be concise, measurable, and tech-focused.",
+      },
+      {
+        title: "Use a Professional File Name",
+        desc: "Name your file like: JohnDoe_Resume_2025.pdf. Avoid ‘FinalNewCVLatest.pdf’.",
+      },
+      {
+        title: "Test Your Resume in an ATS Checker",
+        desc: (
+          <>
+            Try free tools like{" "}
+            <a
+              href="https://www.jobscan.co"
+              className="text-blue-600 underline"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Jobscan
+            </a>{" "}
+            or{" "}
+            <a
+              href="https://www.resumeworded.com"
+              className="text-blue-600 underline"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Resume Worded
+            </a>
+            .
+          </>
+        ),
+      },
+    ].map((step, index) => (
+      <div
+        key={index}
+        className="min-w-[300px] flex-shrink-0 bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100"
+      >
+        <div className="flex items-start gap-4">
+          <span className="text-2xl text-purple-600 font-bold">{index + 1}.</span>
+          <div>
+            <h4 className="font-semibold text-lg text-gray-800">{step.title}</h4>
+            <p className="text-gray-600 text-[15px] mt-1">{step.desc}</p>
+          </div>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
+
+
 
 
       {/* 🎯 CTA Buttons */}
