@@ -1,0 +1,36 @@
+About the Role:
+We are seeking a passionate and curious Software Engineer Intern to join our development team. You will work on real-world software solutions, contribute to the development cycle, and gain hands-on experience across the software development lifecycle – from planning and design to coding and deployment.
+
+Key Responsibilities:
+Collaborate with cross-functional teams to design and build software solutions
+
+Write clean, scalable, and maintainable code
+
+Participate in code reviews, debugging, and testing
+
+Assist in developing APIs, tools, or applications
+
+Research and implement new technologies as required
+
+Document code, features, and processes
+
+Required Skills:
+Solid understanding of at least one programming language (e.g., Java, Python, JavaScript, C++)
+
+Familiarity with web frameworks or backend technologies (e.g., Node.js, Django, Spring Boot)
+
+Strong fundamentals in data structures, algorithms, and OOP
+
+Basic experience with Git/GitHub, debugging tools, and databases
+
+Ability to understand and write clean, efficient code
+
+Good communication and problem-solving skills
+
+Preferred Qualifications:
+Currently pursuing a degree in Computer Science, Engineering, or a related field
+
+Knowledge of software development methodologies (Agile, Scrum)
+
+Familiarity with front-end technologies (e.g., React, HTM
+
