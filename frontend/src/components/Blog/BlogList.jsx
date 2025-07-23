@@ -1,9 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
+
 import { motion } from "framer-motion";
 import { PlusCircle } from "lucide-react";
 import BlogCard from "./BlogCard";
+import BlogDetail from './BlogDetail';
 
-const BlogList = ({ blogs, onDeleteBlog, onWriteBlog ,onEditBlog}) => {
+const BlogList = ({ blogs, onDeleteBlog, onWriteBlog, onEditBlog }) => {
+  const [selectedPost, setSelectedPost] = useState(null);
+
+  const handleReadMore = (post) => {
+    setSelectedPost(post);
+  };
+  const handleCloseDetails = () => {
+    setSelectedPost(null);
+  };
+
   return (
     <section className="py-16 px-4 bg-gray-50">
       <div className="max-w-6xl mx-auto">
@@ -60,24 +71,29 @@ const BlogList = ({ blogs, onDeleteBlog, onWriteBlog ,onEditBlog}) => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {blogs.map((post, index) => (
               <motion.div
-               key={post._id || post.id}
+                key={post._id || post.id}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <BlogCard 
-                  post={post} 
+                <BlogCard
+                  post={post}
                   onDelete={onDeleteBlog}
-                    onEdit={onEditBlog} 
+                  onEdit={onEditBlog}
                   showDelete={true}
-                    isSample={!!post.isSample}
+                  isSample={!!post.isSample}
+                  onReadMore={handleReadMore}
                 />
               </motion.div>
             ))}
+
           </div>
         )}
       </div>
+      {selectedPost && (
+        <BlogDetail post={selectedPost} onClose={() => setSelectedPost(null)} />
+      )}
     </section>
   );
 };
