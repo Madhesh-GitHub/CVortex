@@ -5,12 +5,15 @@ import userRoute from "./Routes/userRoute.js";
 import { connectDB } from "./Configure/db.js";
 import config from "./Configure/config.js";
 import uploadRoutes from "./Routes/uploadRoute.js";
+
 import blogRoute from "./Routes/blogRoute.js";
 import resumeRoute from "./Routes/resumeRoute.js"; // ← Handles all resume operations
+
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
 import { dirname } from "path";
+
 
 // Load environment variables
 dotenv.config();
@@ -19,21 +22,25 @@ dotenv.config();
 const app = express();
 
 // Get directory paths
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 const filePath = path.join(__dirname, "uploads/data.txt");
 
 // Middlewares
+
 app.use(cors());
 app.use(express.json());
 
 // Routes
 app.use("/api/uploads", uploadRoutes);
 app.use("/api/users", userRoute);
+
 app.use("/api/blogs", blogRoute);
 app.use("/api", resumeRoute); // ← Handles /api/resume/score, /api/latest, /api/generate-ats-resume
 
 // Save route (from main branch)
+
 app.post("/save", (req, res) => {
   const { step, data } = req.body;
 
@@ -42,6 +49,7 @@ app.post("/save", (req, res) => {
   }
 
   const formatted = `\n=== ${step.toUpperCase()} DATA ===\n` +
+
     Object.entries(data)
       .map(([key, val]) => {
         if (Array.isArray(val)) {
@@ -56,6 +64,7 @@ app.post("/save", (req, res) => {
       })
       .join("\n");
 
+
   fs.appendFile(filePath, formatted + "\n", (err) => {
     if (err) {
       console.error("Error writing file:", err);
@@ -64,6 +73,7 @@ app.post("/save", (req, res) => {
     res.send("Data saved successfully to TXT");
   });
 });
+
 
 // 404 handler
 app.use((req, res, next) => {
@@ -76,7 +86,10 @@ app.use((err, req, res, next) => {
   res.status(500).json({ message: "Something went wrong", error: err.message });
 });
 
+
 // Start server after DB connection
+
+
 const startServer = async () => {
   try {
     await connectDB();

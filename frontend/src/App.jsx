@@ -23,7 +23,9 @@ import Education from './pages/Education'
 import Contributors from './pages/Contributors'
 import BlogPage from './pages/BlogPage'
 import ATSResumeTips from './pages/ATSResumeTips'
+
 import GenerateAtsResume from './pages/GenerateAtsResume'
+
 
 import { Navigate } from "react-router-dom";
 
@@ -48,6 +50,7 @@ const App = () => {
           <Route path="score" element={<ResumeScore />} />
           <Route path="improve" element={<ImproveResume />} />
           <Route path="generate-ats-resume" element={<GenerateAtsResume />} />
+
         </Route>
 
         {/* Resume Builder Routes */}
