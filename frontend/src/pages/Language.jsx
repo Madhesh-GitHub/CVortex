@@ -31,10 +31,29 @@ const Language = () => {
     const handleBack = () => {
         navigate("/builder/achievements");
     };
+    const saveToServer = async () => {
+    try {
+        const response = await fetch("http://localhost:5000/save", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                step: "Languages",
+                data: languages,
+            }),
+        });
 
-    const handleNext = () => {
-        navigate("/builder/CertificatePage");
-    };
+        const result = await response.text();
+        console.log(" Saved:", result);
+    } catch (error) {
+        console.error(" Save failed:", error);
+    }
+};
+   const handleNext = async () => {
+    await saveToServer();  //  Save data to backend
+    navigate("/builder/CertificatePage"); 
+};
 
     return (
         <div className=" min-h-screen p-6 mt-8">

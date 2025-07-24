@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
-import 'react-circular-progressbar/dist/styles.css';
+// import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
+// import 'react-circular-progressbar/dist/styles.css';
 import { motion } from 'framer-motion';
 
 const ResumeScore = () => {
