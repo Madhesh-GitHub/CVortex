@@ -6,7 +6,7 @@ import { connectDB } from "./Configure/db.js";
 import config from "./Configure/config.js";
 import uploadRoutes from "./Routes/uploadRoute.js";
 import blogRoute from "./Routes/blogRoute.js"
-import scoreRoute from "./Routes/scoreRoute.js";
+import resumeRoute from "./Routes/resumeRoute.js"; // ← This handles all resume operations now
 
 
 // Load environment variables
@@ -22,8 +22,8 @@ app.use(express.json());
 // Routes
 app.use("/api/uploads", uploadRoutes);
 app.use("/api/users", userRoute);
-app.use("/api/blogs",blogRoute);
-app.use("/api/resume", scoreRoute);
+app.use("/api/blogs", blogRoute);
+app.use("/api", resumeRoute); // ← This now handles /api/resume/score AND /api/latest AND /api/generate-ats-resume
 
 
 // 404 handler

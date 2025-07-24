@@ -1,0 +1,179 @@
+{
+  "name": "Madhesh K",
+  "email": "thisismadhesh@gmail.com",
+  "phone": "8778606263",
+  "location": "Tamil Nadu, India",
+  "linkedin": "LinkedIn Profile",
+  "github": "GitHub Profile",
+  "portfolio": "",
+  "careerObjective": "Innovative and driven second-year B.E. Computer Science and Engineering student skilled in Python, Java, and Fullstack development. Experienced in creating impactful software projects like Chatbot systems, ML models, Web designing and Data Visualizations. Seeking an internship to apply technical expertise and leadership in building creative solutions.",
+  "education": [
+    {
+      "institution": "Kpr Institute of Engineering and Technology",
+      "degree": "Bachelor of Engineering in Computer Science and Engineering",
+      "duration": "2023-2027",
+      "grade": "9.2/10",
+      "location": "Coimbatore, Tamil Nadu, India"
+    },
+    {
+      "institution": "Vidhyaa Vikas Matric. Hr. Sec. School",
+      "degree": "Higher Secondary Schooling",
+      "duration": "MAR 2023",
+      "grade": "93.8",
+      "location": "Tirupur, Tamil Nadu, India"
+    }
+  ],
+  "skills": {
+    "Programming Languages": [
+      "Python",
+      "Java",
+      "C",
+      "C++",
+      "Go"
+    ],
+    "Web Technologies": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "Flask",
+      "Bootstrap",
+      "React",
+      "Node",
+      "Django",
+      "Express"
+    ],
+    "Databases": [
+      "SQL",
+      "PostgreSQL",
+      "MongoDB"
+    ],
+    "Tools": [
+      "Jupyter Notebook",
+      "Colab",
+      "Selenium Web driver",
+      "Canva",
+      "Figma",
+      "Postman"
+    ],
+    "Other": [
+      "Blockchain Technology",
+      "Solidity",
+      "Machine Learning",
+      "Hugging Face",
+      "LangChain",
+      "Supervised Learning",
+      "Git",
+      "GitHub"
+    ]
+  },
+  "experience": [],
+  "internships": [
+    {
+      "company": "Infoware",
+      "position": "Python Developer Intern",
+      "duration": "JAN 2025 – FEB 2025",
+      "type": "Internship",
+      "description": [
+        "Designed and developed cutting edge software solutions using python",
+        "Worked and developed 3 project solutions - namely Amazon Web Scraper, Google map Businesses Scrapper and Web Tracker Application",
+        "Skills: Python, Selenium, Web Scraping, HTML, CSS, Flask"
+      ]
+    },
+    {
+      "company": "Vodafone Intelligent Solutions",
+      "position": "Blockchain Student-Intern",
+      "duration": "JAN 2025 – FEB 2025",
+      "type": "Internship",
+      "description": [
+        "Strengthened technical expertise in Blockchain, Smart Contracts, and Decentralized Applications (DApps)",
+        "Gained hands-on exposure to real-world applications of this disruptive technology",
+        "Skills: Solidity, Smart Contracts, DApp creation"
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "name": "TaskVerse",
+      "duration": "FEB 2025 – APR 2025",
+      "technologies": "React, Python, Django, PostgreSQL, Tailwind CSS, Figma",
+      "links": {
+        "demo": "",
+        "github": "[Project Link]"
+      },
+      "description": [
+        "Developing a comprehensive web-based productivity tool to enhance the students or professionals productivity and efficiency",
+        "It has 4 unique features, task management and habit tracking service, project collaboration service, file conversion service and IDE service"
+      ]
+    },
+    {
+      "name": "Student Information Chatbot",
+      "duration": "OCT 2024 – NOV 2024",
+      "technologies": "Python, Flask, PostgreSQL, SpaCy",
+      "links": {
+        "demo": "",
+        "github": "[Project Link]"
+      },
+      "description": [
+        "Developed a chatbot that provides students with their marks via a user-friendly interface",
+        "Designed a professional web interface using Flask for integration",
+        "Utilized PostgreSQL for managing student data and implemented NLP features using SpaCy"
+      ]
+    },
+    {
+      "name": "Pneumonia Detector",
+      "duration": "SEP 2024 – OCT 2024",
+      "technologies": "Python, TensorFlow, Flask",
+      "links": {
+        "demo": "",
+        "github": ""
+      },
+      "description": [
+        "Built an ML model to classify X-ray images for pneumonia detection with high accuracy",
+        "Conducted data preprocessing and model training using TensorFlow, ResNet50"
+      ]
+    },
+    {
+      "name": "Diabetes Predictor",
+      "duration": "DEC 2024 – DEC 2024",
+      "technologies": "Machine Learning, Python, Logistic Regression, Web development, Data Science",
+      "links": {
+        "demo": "",
+        "github": "[Project Link]"
+      },
+      "description": [
+        "Developed a web-based Diabetes Predictor application using Flask and Python, integrated with a machine learning model which made using Logistic Regression for accurate health diagnostics"
+      ]
+    }
+  ],
+  "achievements": [
+    "Won 1st Prize in Java League in the national level java coding contest at Sri Eshwar College of Engineering, Tamil Nadu, on Feb 2025",
+    "Won 3rd Prize in Code Survival in the national level coding contest at Sri Eshwar College of Engineering, Tamil Nadu on Feb 2025",
+    "Won 1st Prize in Code Hunt in the national level coding contest at Coimbatore Institute of Technology, Tamil Nadu on Feb 2025"
+  ],
+  "certifications": [
+    "Python Programming course on Udemy",
+    "Programming in Java course on NPTEL - 71%",
+    "Supervised Machine Learning course on Coursera offered by Deeplearning.AI - 100%",
+    "Git and GitHub Course offered by Google through Coursera",
+    "Programming with Go – Basics course from Coursera",
+    "Programming in JavaScript course offered by Meta through Coursera"
+  ],
+  "technicalProfiles": [
+    {
+      "platform": "LeetCode",
+      "username": "",
+      "details": "solved about more than 350 problems"
+    }
+  ],
+  "leadership": [
+    "Team Lead for college projects like TaskVerse, Student Info Chatbot, Pneumonia Detector and Power BI Reports"
+  ],
+  "activities": [
+    "Active participant in hackathons and coding contests"
+  ],
+  "hobbies": [],
+  "languages": [
+    "Tamil - Native Proficiency",
+    "English - Professional Proficiency"
+  ]
+}

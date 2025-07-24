@@ -1,0 +1,107 @@
+
+
+Madhesh K 
+Tamil Nadu, India | 8778606263| thisismadhesh@gmail.com | LinkedIn Profile  | GitHub Profile | Leetcode 
+Profile  
+SUMMARY 
+Innovative and driven second-year B.E. Computer Science and Engineering student skilled in Python, Java, and 
+Fullstack development. Experienced in creating impactful software projects like Chatbot systems, ML models, 
+Web designing and Data Visualizations. Seeking an internship to apply technical expertise and leadership in 
+building creative solutions. 
+EDUCATION 
+Kpr Institute of Engineering and Technology, Coimbatore, Tamil Nadu, India. 2023-2027 
+Bachelor of Engineering in Computer Science and Engineering, CGPA, 9.2/10 
+ 
+Vidhyaa Vikas Matric. Hr. Sec. School, Tirupur, Tamil Nadu, India. MAR 2023 
+Higher Secondary Schooling, Percentage, 93.8 
+SKILLS  
+• Programming Languages: Python, Java, C and C++(basics), Go(basics) 
+• Web Technologies: HTML, CSS, JavaScript, Flask, Bootstrap, React, Node, Django, Express 
+• Data Tools: SQL, PostgreSQL, MongoDB, Power BI 
+• Machine Learning: Hugging Face, LangChain (basic knowledge), Supervised Learning 
+• Version Control: Git, GitHub 
+• Other Tools: Jupyter Notebook,  Colab, Selenium Web driver, Canva, Figma, Postman 
+• Problem solving: Leetcode, Geeks for Geeks, Code ninjas, Hackerrank – solved about more than 
+350 problems 
+• Data Structures and Algorithms: Java and Python 
+• Other skills: Blockchain Technology(basics), Solidity(basics) 
+ 
+INTERNSHIP EXPERIENCES 
+Infoware | Python Developer Intern                           JAN 2025 – FEB 2025 
+• At Infoware, I was selected for the Python Developer role. There I designed and developed the cutting 
+edge software solutions using python. 
+• During my internship period I worked and developed 3 project solutions - namely Amazon Web 
+Scraper, Google map Businesses Scrapper and Web Tracker Application. 
+• Skills: Python, Selenium, Web Scraping, HTML, CSS, Flask. 
+• Intern Project Link: [Python projects Link] 
+ 
+Vodafone Intelligent Solutions | Blockchain Student-Intern          JAN 2025 – FEB 2025 
+• AICTE-recognized Blockchain Internship with Connecting Dreams Foundation (CDF), VOIS for Tech, and 
+Vodafone Idea Foundation. 
+• This immersive experience strengthened my technical expertise in Blockchain, Smart Contracts, and 
+Decentralized Applications (DApps) while giving me hands-on exposure to real-world applications of 
+this disruptive technology. 
+• Skills: Solidity(basics), Smart Contracts, DApp creation 
+• Intern Project Link: [Blockchain Project Link] 
+ 
+ 
+ 
+
+  
+PROJECTS 
+Project 1: TaskVerse (Full stack) | [Project Link]  
+Skills: React, Python, Django, PostgreSQL, Tailwind CSS, Figma FEB 2025 – APR 2025 
+• Developing a comprehensive  web-based  productivity  tool  to  enhance  the  students  or  professionals 
+productivity and efficiency 
+• It has 4 unique features, task management and habit tracking service, project collaboration service, file 
+conversion service and IDE service. 
+• It is a fully stacked application, we are currently working on. 
+ 
+Project 2: Student Information Chatbot (Full stack) |  [Project Link] 
+Skills: Python, Flask, PostgreSQL, SpaCy, Webdevelopment, Problem Solving OCT 2024 – NOV 2024 
+• Developed a chatbot that provides students with their marks via a user-friendly interface. 
+• Designed a professional web interface using Flask for integration. 
+• Utilized PostgreSQL for managing student data and implemented NLP features using SpaCy. 
+ 
+Project 3: Pneumonia Detector (Deep Learning) 
+Skills: Python, TensorFlow, Flask SEP 2024 – OCT 2024 
+• Built an ML model to classify X-ray images for pneumonia detection with high accuracy. 
+• Conducted data preprocessing and model training using TensorFlow, ResNet50. 
+ 
+Project 5: Diabetes Predictor (Machine Learning) | [Project Link]                                            DEC 2024 – DEC 2024                                                              
+Skills: Machine Learning, Python, Logistic Regression, Web development, Data Science     
+• Developed a web-based Diabetes Predictor application using Flask and Python, integrated with a 
+machine learning model which made using Logistic Regression for accurate health diagnostics.s 
+ 
+ACHIEVEMENTS 
+▪ Won 1
+st
+ Prize in Java League in the national level java coding contest at Sri Eshwar College of 
+Engineering, Tamil Nadu, on Feb 2025. 
+▪ Won 3
+rd
+ Prize in Code Survival in the national level coding contest at Sri Eshwar College of Engineering, 
+Tamil Nadu on Feb 2025. 
+▪ Won 1
+st
+ Prize in Code Hunt in the national level coding contest at Coimbatore Institute of Technology, 
+Tamil Nadu on Feb 2025. 
+ 
+CERTIFICATIONS 
+▪ Completed Python Programming course on Udemy. 
+▪ Completed Programming in Java course on NPTEL and got 71% 
+▪ Completed Supervised Machine Learning course on Coursera offered by Deeplearning.AI, gaining with 
+100% grade. 
+▪ Completed Git and GitHub Course offered by Google through Coursera. 
+▪ Programming with Go – Basics course from Coursera. 
+▪ Programming in JavaScript course offered by Meta through Coursera. 
+ 
+EXTRACURRICULAR EVENTS 
+• Team Lead for college projects like TaskVerse, Student Info Chatbot, Pneumonia Detector and Power 
+BI Reports. 
+• Active participant in hackathons and coding contests. 
+ 
+LANGUAGES 
+• Tamil – Native Proficiency 
+• English – Professional Proficiency 
+ 
