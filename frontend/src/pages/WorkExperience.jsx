@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { use, useState } from "react";
+import axios from "axios";
 
 const WorkExperience = () => {
   const [formData, setFormData] = useState({
@@ -18,10 +19,32 @@ const WorkExperience = () => {
     }));
   };
 
-  const handleSave = () => {
-    console.log("Saved:", formData);
-    // Add backend or localStorage save logic here
-  };
+  const handleSave = async () => {
+  const { jobTitle, companyName, startDate, responsibilities } = formData;
+
+  console.log("formData:", formData); 
+
+  if (
+    !jobTitle?.trim() ||
+    !companyName?.trim() ||
+    !startDate?.trim() ||
+    !responsibilities?.trim()
+  ) {
+    alert("Please fill in all required fields (*) before saving.");
+    return;
+  }
+
+  try {
+    const response = await axios.post("http://localhost:5000/save", {
+      step: "work_experience",
+      data: formData,
+    });
+    alert("Work experience saved successfully!");
+  } catch (error) {
+    console.error("Save failed:", error);
+    alert("Failed to save. Please check your server.");
+  }
+};
 
   const handleDelete = () => {
     setFormData({

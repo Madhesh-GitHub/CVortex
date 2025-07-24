@@ -30,6 +30,40 @@ const proficiencyLabels = ["Beginner", "Intermediate", "Advanced", "Expert"];
   const handleSlider = (skill, value) => {
     setProficiencies({ ...proficiencies, [skill]: value });
   };
+  
+  const handleContinue = async () => {
+  const combinedSkills = {
+    technicalSkills: technicalSkills.map(skill => ({
+      name: skill,
+      proficiency: proficiencyLabels[(proficiencies[skill] || 1) - 1],
+    })),
+    softSkills,
+    industrySkills,
+  };
+
+  try {
+    const response = await fetch("http://localhost:5000/save", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        step: "skills",
+        data: combinedSkills,
+      }),
+    });
+
+    if (!response.ok) {
+      throw new Error("Failed to save skills");
+    }
+
+    // Navigate only after successful save
+    navigate("/builder/achievements");
+  } catch (error) {
+    console.error("Error saving skills:", error);
+    alert("Failed to save skills data.");
+  }
+};
 
   return (
     <>
@@ -188,7 +222,7 @@ const proficiencyLabels = ["Beginner", "Intermediate", "Advanced", "Expert"];
 
       <div className="flex justify-between pt-6">
         <button className="text-blue-600 underline" onClick={()=>navigate('/builder/education')}>← Back to Education</button>
-        <button className="bg-[#1f4882] text-white px-6 py-2 rounded hover:bg-blue-700" onClick={()=>navigate('/builder/achievements')}>
+        <button className="bg-[#1f4882] text-white px-6 py-2 rounded hover:bg-blue-700" onClick={handleContinue}>
           Continue to Achievements →
         </button>
       </div>
