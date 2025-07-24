@@ -60,3 +60,20 @@ description:
 
 === ACHIEVEMENTS DATA ===
 0: {"id":1753371170473,"title":"ee","date":"hh","description":"ee","keywords":"gg"}
+
+=== PERSONAL DATA ===
+firstName: Madhesh
+lastName: K
+email: madheshk7239087@gmail.com
+phone: 8782727
+linkedIn: adjvjasvdjakvd
+portfolio: 27jhhvdjvasd
+headline: ghjk
+street: 
+apartment: 
+city: 
+state: 
+zip: 
+country: 
+remote: false
+relocate: false
