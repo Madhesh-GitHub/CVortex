@@ -1,0 +1,62 @@
+
+=== PERSONAL DATA ===
+firstName: DIPAK
+lastName: Mallick
+email: 
+phone: 
+linkedIn: 
+portfolio: 
+headline: 
+street: Bashudev Pur Tribeni
+apartment: 
+city: Tribeni
+state: West Bengal
+zip: 712503
+country: India
+remote: true
+relocate: true
+
+=== WORK_EXPERIENCE DATA ===
+jobTitle: software
+companyName: google
+startDate: 2025-07-10
+endDate: 
+isCurrent: true
+responsibilities: gdhh
+
+=== EDUCATION DATA ===
+degree: B.tech
+institution: ma
+location: Basudev Pur Tribeni Hooghly 
+gpa: 8
+startDate: 05/2025
+endDate: 05/2025
+coursework: gg
+honors: hh
+
+=== SKILLS DATA ===
+technicalSkills: {"name":"JavaScript","proficiency":"Intermediate"}
+softSkills: Team Leadership
+industrySkills: Agile Development
+
+=== ACHIEVEMENTS DATA ===
+0: {"id":1753371087646,"title":"gg","date":"gg","description":"tt","keywords":"tt"}
+
+=== AWARDS DATA ===
+0: {"id":1753371108505,"name":"fffhh","organization":"hh","date":"gg","level":"Department","description":"ff"}
+
+=== LANGUAGES DATA ===
+0: {"language":"English","proficiency":"Native"}
+1: {"language":"","proficiency":"Native"}
+
+=== CERTIFICATE DATA ===
+title: 
+issuer: ww
+issueDate: 
+expiryDate: 
+credentialId: 
+credentialUrl: 
+description: 
+
+=== ACHIEVEMENTS DATA ===
+0: {"id":1753371170473,"title":"ee","date":"hh","description":"ee","keywords":"gg"}

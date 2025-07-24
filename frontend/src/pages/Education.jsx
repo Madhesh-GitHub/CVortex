@@ -19,25 +19,51 @@ const Education = () => {
     setNewEdu({ ...newEdu, [name]: value });
   };
 
-  const handleSave = () => {
-    if (!newEdu.degree || !newEdu.institution || !newEdu.startDate || !newEdu.endDate) {
-      alert("Please fill all required fields");
-      return;
+const handleSave = async () => {
+  if (!newEdu.degree || !newEdu.institution || !newEdu.startDate || !newEdu.endDate) {
+    alert("Please fill all required fields");
+    return;
+  }
+
+  const updatedEducationData = [...educationData, newEdu];
+  setEducationData(updatedEducationData);
+
+  try {
+    const response = await fetch("http://localhost:5000/save", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        step: "education",
+        data: newEdu,
+      }),
+    });
+
+    if (!response.ok) {
+      throw new Error("Failed to save data");
     }
 
-    setEducationData([...educationData, newEdu]);
+    alert("Data saved successfully!");
+  } catch (error) {
+    console.error("Error saving education data:", error);
+    alert("Error saving data");
+  }
 
-    setNewEdu({
-      degree: "",
-      institution: "",
-      location: "",
-      gpa: "",
-      startDate: "",
-      endDate: "",
-      coursework: "",
-      honors: "",
-    });
-  };
+  setNewEdu({
+    degree: "",
+    institution: "",
+    location: "",
+    gpa: "",
+    startDate: "",
+    endDate: "",
+    coursework: "",
+    honors: "",
+  });
+};
+
+
+  
 
   const handleCancel = () => {
     setNewEdu({
