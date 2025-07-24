@@ -2,13 +2,13 @@
 === PERSONAL DATA ===
 firstName: DIPAK
 lastName: Mallick
-email: PAYEL@gmail.com
-phone: 9123871582
-linkedIn: https://www.linkedin.com/in/payel-mallick-9292a92a3/
-portfolio: https://www.linkedin.com/in/payel-mallick-9292a92a3/
-headline: software engineer
+email: 
+phone: 
+linkedIn: 
+portfolio: 
+headline: 
 street: Bashudev Pur Tribeni
-apartment: aou78
+apartment: 
 city: Tribeni
 state: West Bengal
 zip: 712503
@@ -19,41 +19,44 @@ relocate: true
 === WORK_EXPERIENCE DATA ===
 jobTitle: software
 companyName: google
-startDate: 2025-07-16
+startDate: 2025-07-10
 endDate: 
 isCurrent: true
-responsibilities: dd
+responsibilities: gdhh
 
 === EDUCATION DATA ===
 degree: B.tech
 institution: ma
 location: Basudev Pur Tribeni Hooghly 
-gpa: 10
+gpa: 8
 startDate: 05/2025
 endDate: 05/2025
-coursework: w
-honors: w
+coursework: gg
+honors: hh
 
 === SKILLS DATA ===
-technicalSkills: {"name":"React.js","proficiency":"Intermediate"}
+technicalSkills: {"name":"JavaScript","proficiency":"Intermediate"}
 softSkills: Team Leadership
 industrySkills: Agile Development
 
 === ACHIEVEMENTS DATA ===
-0: {"id":1753351630920,"title":"ww","date":"ww","description":"ww","keywords":"ww"}
+0: {"id":1753371087646,"title":"gg","date":"gg","description":"tt","keywords":"tt"}
 
 === AWARDS DATA ===
-0: {"id":1753351646121,"name":"ww","organization":"ww","date":"ww","level":"Department","description":"ww"}
+0: {"id":1753371108505,"name":"fffhh","organization":"hh","date":"gg","level":"Department","description":"ff"}
 
 === LANGUAGES DATA ===
 0: {"language":"English","proficiency":"Native"}
-1: {"language":"ww","proficiency":"Native"}
+1: {"language":"","proficiency":"Native"}
 
 === CERTIFICATE DATA ===
-title: ww
+title: 
 issuer: ww
-issueDate: ww
-expiryDate: ww
-credentialId: ww
-credentialUrl: ww
-description: ww
+issueDate: 
+expiryDate: 
+credentialId: 
+credentialUrl: 
+description: 
+
+=== ACHIEVEMENTS DATA ===
+0: {"id":1753371170473,"title":"ee","date":"hh","description":"ee","keywords":"gg"}
