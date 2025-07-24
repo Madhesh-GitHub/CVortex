@@ -1,0 +1,72 @@
+
+
+MADHESHK
+thisismadhesh@gmail.com | +91 8778606263 |linkedin.com/in/its-madhesh/
+EDUCATION
+KPRINSTITUTIONS
+B.E in Computer Science
+and Engineering 2023 - 2027
+CGPA:9.26/10
+VIDHYAAVIKAS
+HSC - 2023
+PERCENTAGE:94%
+SKILLS
+LANGUAGES
+Advanced:Python
+Intermediate:Java,C++,C
+Basics:Go
+WEBTECHNOLOGIES
+HTML,CSS,JavaScript,Flask,Bootstrap,
+Postgres,SQL
+OTHERS
+MachineLearning(Supervised),PowerBI,
+GitandGitHub
+SOFTSKILLS
+TeamLeadership
+COURSEWORK
+GRADUATE
+DataStructuresandAlgorithms
+DatabaseManagementSystems
+Object-OrientedProgramming
+CERTIFICATIONS
+Python Programming
+Platform: Udemy
+Supervised Machine Learning
+Platform: Coursera
+Git and GitHub
+Platform: Coursera
+Java Programming
+Platform: NPTEL
+LANGUAGES
+Tamil,English
+PROJECTS
+CLASSBOTV1|(Project Link)
+Oct 2024 – Present
+•Designedandimplementedachatbotforstudentinformationretrieval.
+•IntegratedPostgreSQLtomanageandquerystudentdataefficiently.
+•UtilizedSpaCyfornaturallanguageprocessingtounderstanduserqueries.
+•TechStack:Python,Flask,PostgreSQL,SpaCy,HTML,CSS,JavaScript
+DIABETESPREDICTOR|(Project Link)
+Dec 2024 – Dec 2024
+•Engineeredamachinelearningpipelineforpredictingdiabetesriskbasedon
+medicaldata.
+•ImplementedLogisticRegressionusingGradientDescenttobuildthelearning
+modelfromscratch.
+•CreatedanHTMLformandconnectedittothemodelusingFlask.
+•TechStack:Python,SupervisedMachineLearning,Flask,HTML,CSS
+ACHIEVEMENTS
+CODING
+•Solvedtotally300+problemsin(Leetcode,GeeksforGeeks)
+•AchievedGoldandSilverBadgesinHackerRank
+EVENTS
+•PresentedtheClassBotv1projectatIEEEProjectExpo
+TECHPROFILELINKS
+•Portfolio:MadheshK
+•GitHub:Madhesh-GitHub
+•Leetcode:MadheshK
+•HackerRank:MadheshK
+•GeeksforGeeks:MadheshK
+INTERESTS
+ArtificialIntelligenceandMachineLearning
+WebDevelopment
+Open-SourceContribution

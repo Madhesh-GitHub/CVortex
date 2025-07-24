@@ -1,0 +1,109 @@
+{
+  "name": "Alagu Nandhini M",
+  "email": "alagunadhini@gmail.com",
+  "phone": "8870000446",
+  "location": "sivanganga",
+  "linkedin": "",
+  "github": "github.com/sivanganga",
+  "portfolio": "",
+  "careerObjective": "I am an enthusiastic full stack developer with a strong interest in building user-friendly and responsive websites. I have hands-on experience with the MERN stack and enjoy working on both frontend and backend development.",
+  "education": [
+    {
+      "institution": "Mount Zion College of Engineering And Technology",
+      "degree": "Bachelor of Engineering in Computer Science Engineering",
+      "duration": "2023-2027",
+      "grade": "8.63",
+      "location": "Pudhukkottai"
+    }
+  ],
+  "skills": {
+    "Programming Languages": [],
+    "Web Technologies": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "React.js",
+      "Bootstrap",
+      "Tailwind CSS"
+    ],
+    "Databases": [
+      "MongoDB",
+      "MySQL"
+    ],
+    "Tools": [
+      "Git & GitHub",
+      "Postman"
+    ],
+    "Other": [
+      "Node.js",
+      "Express.js",
+      "RESTful APIs",
+      "Prisma"
+    ]
+  },
+  "experience": [],
+  "internships": [],
+  "projects": [
+    {
+      "name": "Learning Platform - EasyLearn",
+      "duration": "",
+      "technologies": "React.js, Tailwind CSS",
+      "links": {
+        "demo": "",
+        "github": ""
+      },
+      "description": [
+        "Created a responsive platform with course listings, instructor profiles, and student testimonials.",
+        "Focused on intuitive layout and fully mobile-optimized UI using Tailwind CSS."
+      ]
+    },
+    {
+      "name": "Hair Care Product Website",
+      "duration": "",
+      "technologies": "HTML, CSS, JavaScript, Bootstrap",
+      "links": {
+        "demo": "",
+        "github": ""
+      },
+      "description": [
+        "Developed a responsive e-commerce platform for natural hair care products.",
+        "Implemented product listings, search and filter functionality, and mobile-first design to ensure seamless user experience."
+      ]
+    },
+    {
+      "name": "Weather Forecast App",
+      "duration": "",
+      "technologies": "React.js, Tailwind CSS OpenWeatherMap API",
+      "links": {
+        "demo": "",
+        "github": ""
+      },
+      "description": [
+        "Built a real-time weather application using React.",
+        "Utilized API integration to display weather data and implemented reusable components and state management for dynamic UI updates."
+      ]
+    },
+    {
+      "name": "User Management System - CRUD",
+      "duration": "",
+      "technologies": "React.js, Node.js, Express.js, Prisma, MySQL, Tailwind CSS",
+      "links": {
+        "demo": "",
+        "github": ""
+      },
+      "description": [
+        "Built a full-stack CRUD app to add, view, edit, and delete users.",
+        "Used Prisma with MySQL for backend and React with Axios for frontend."
+      ]
+    }
+  ],
+  "achievements": [],
+  "certifications": [
+    "Introduction to Web Development with HTML, CSS, and JavaScript - Meta (Coursera) - Issued Feb 2025"
+  ],
+  "technicalProfiles": [],
+  "leadership": [],
+  "activities": [],
+  "hobbies": [],
+  "languages": []
+}

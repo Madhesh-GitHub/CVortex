@@ -4,6 +4,12 @@ import { Groq } from 'groq-sdk';
 import dotenv from 'dotenv';
 
 dotenv.config();
+
+
+console.log('🔑 GROQ API Key loaded:', process.env.GROQ_API_KEY ? 'Yes' : 'No');
+console.log('🔑 Key preview:', process.env.GROQ_API_KEY ? process.env.GROQ_API_KEY.substring(0, 10) + '...' : 'Not found');
+
+
 const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
 
 export const scoreResume = async (req, res) => {
