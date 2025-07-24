@@ -22,6 +22,7 @@ import PersonalInformation from './pages/PersonalInformation'
 import Education from './pages/Education'
 import Contributors from './pages/Contributors'
 import BlogPage from './pages/BlogPage'
+import ATSResumeTips from './pages/ATSResumeTips'
 
 import { Navigate } from "react-router-dom";
 
@@ -35,6 +36,7 @@ const App = () => {
         <Route path="signup" element={<SignUp />} />
         <Route path="login" element={<Login />} />
         <Route path="blog" element={<BlogPage />} />
+        <Route path="ats-tips" element = {<ATSResumeTips />} />
         <Route path="contributors" element={<Contributors />} />
         <Route path="*" element={<LostPage />} />
 

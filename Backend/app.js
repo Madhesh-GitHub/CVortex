@@ -5,6 +5,8 @@ import userRoute from "./Routes/userRoute.js";
 import { connectDB } from "./Configure/db.js";
 import config from "./Configure/config.js";
 import uploadRoutes from "./Routes/uploadRoute.js";
+import blogRoute from "./Routes/blogRoute.js"
+import scoreRoute from "./Routes/scoreRoute.js";
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
@@ -25,7 +27,6 @@ app.use(express.json());
 // Routes
 app.use("/api/uploads", uploadRoutes);
 app.use("/api/users", userRoute);
-
 // Save route 
 app.post("/save", (req, res) => {
   const { step, data } = req.body;
@@ -57,8 +58,8 @@ app.post("/save", (req, res) => {
     res.send("Data saved successfully to TXT");
   });
 });
-
-
+app.use("/api/blogs",blogRoute);
+app.use("/api/resume", scoreRoute);
 // 404 handler
 app.use((req, res) => {
   res.status(404).json({ message: "Endpoint not found" });

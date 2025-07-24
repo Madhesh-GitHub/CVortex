@@ -1,0 +1,46 @@
+
+
+DARAPUREDDY RENUKA
+Rdarapureddyrenuka123@gmail.com —Ó9182417917 — LinkedIn — Portfolio
+Career Objective
+Motivated and detail-oriented Computer Science undergraduate with strong programming and analytical skills. Seeking
+internships to apply knowledge in real-world tech environments.
+Education
+B.Tech in Computer Science, Shri Vishnu Engineering College for Women, JNTUKCGPA: 9.56
+Intermediate, Educare Junior College, Nagaram97.2% (2023)
+SSC, Educare English Medium School, Nagaram99.5% (2021)
+Internship
+AICTE Virtual Internship on Artificial Intelligence (TechSaksham – Microsoft & SAP)Dec 2024 – Jan
+2025
+•Gained practical exposure to AI tools, industry use cases, and collaborative projects.
+Projects
+AgriConnect – Waste to Worth[Live Demo] [GitHub]
+An online platform connecting agri/industrial waste producers with buyers. Built entirely with Next.js for both frontend
+and backend, with PostgreSQL as the database. Features include waste listing, dashboards, location mapping, and secure
+contact sharing.
+Tech Stack: Next.js, PostgreSQL, Google Maps API
+Food Waste Management Web App[GitHub]
+•Platform for connecting restaurants and NGOs to reduce food wastage.
+•Features: food donation tracking, NGO registration, and availability alerts.
+•Stack: PHP, JavaScript, MySQL
+Placement Query Chatbot[GitHub]
+•Chatbot for automating placement FAQs using JSON logic and Python backend.
+•Frontend: HTML, CSS, JS — Backend: Python, MySQL
+Technical Skills
+Languages:Python, C, JavaWeb:HTML, CSS, JavaScript, PHP, Next.js
+Databases:MySQL, PostgreSQLTools:GitHub, Canva, Excel
+Certifications
+Google Data Analytics (Coursera)   IBM Machine Learning (Coursera)   IBM Data Analytics (Coursera)
+Java Programming, Introduction to Data Science (Infosys Springboard)
+Exploratory Data Analysis for Machine Learning (IBM – Coursera)
+Technical Profiles
+CodeChef   LeetCode
+Achievements
+•Secured EAPCET Rank:5737
+•Amazon-Future Engineer(AFE) Scholar
+Leadership & Activities
+Campus Coordinator,Hindu Future India Club
+•Led workshops, poster campaigns, and student sessions.
+Paper Presentations:Screenless Display, Anti-Drug Campaigns
+Hobbies:Painting, Drawing, Badminton
+1

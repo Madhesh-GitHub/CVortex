@@ -1,86 +1,111 @@
-import { FiSearch, FiLayout, FiBarChart2, FiTarget, FiCpu, FiShield } from 'react-icons/fi';
+import React, { useRef } from 'react';
+import {
+  FiSearch,
+  FiLayout,
+  FiBarChart2,
+  FiTarget,
+  FiCpu,
+  FiShield,
+} from 'react-icons/fi';
+import { motion, useInView } from 'framer-motion';
+import './WhyChoose.css';
 
-const Whychoose = () => {
-    return (
-        <>
-        <div className="min-h-[80vh] bg-[#F9FAFB]">
-            <h1 className="px-4 lg:px-10 text-2xl md:text-4xl font-bold text-[#1F2937] text-center mb-2 pt-14">
-                Why Choose our ATS Resume Checker
-            </h1>
-            <p className="px-10 md:px-0 text-sm md:text-xl text-[#6B7280] text-center mb-5">
-                Join thousands of job seekers who have improved their application success rate
-            </p>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 p-10 max-w-8xl gap-6 px-18 mx-auto">
-                {/* box-1 */}
-                <div className="bg-white p-6 rounded-lg shadow-sm border border-[#E5E7EB] hover:shadow-md hover:border-[#6366F1] transition-all duration-300">
-                    <div className='text-xl text-[#6366F1] flex gap-3 items-center mb-3'>
-                        <FiSearch size={24} />
-                        <h3 className="text-[#1F2937] font-semibold">Keyword Optimization</h3>
-                    </div>
-                    <p className="text-[#6B7280] pb-5 lg:pb-10">
-                        Our AI identifies industry-specific keywords missing from your resume and suggests optimal placement.
-                    </p>
-                </div>
+const containerVariants = {
+  visible: {
+    transition: {
+      staggerChildren: 0.2,
+    },
+  },
+};
 
-                {/* box-2 */}
-                <div className="bg-white p-6 rounded-lg shadow-sm border border-[#E5E7EB] hover:shadow-md hover:border-[#6366F1] transition-all duration-300">
-                    <div className='text-xl text-[#6366F1] flex gap-3 items-center mb-3'>
-                        <FiLayout size={24} />
-                        <h3 className="text-[#1F2937] font-semibold">Format Analysis</h3>
-                    </div>
-                    <p className="text-[#6B7280] pb-5 lg:pb-10">
-                        We check your resume's formatting to ensure it's readable by all ATS platforms without information loss.
-                    </p>
-                </div>
+const cardVariants = {
+  hidden: { opacity: 0, y: 40, scale: 0.95 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      type: 'spring',
+      stiffness: 70,
+      damping: 18,
+    },
+  },
+};
 
-                {/* box-3 */}
-                <div className="bg-white p-6 rounded-lg shadow-sm border border-[#E5E7EB] hover:shadow-md hover:border-[#6366F1] transition-all duration-300">
-                    <div className='text-xl text-[#6366F1] flex gap-3 items-center mb-3'>
-                        <FiBarChart2 size={24} />
-                        <h3 className="text-[#1F2937] font-semibold">Performance Metrics</h3>
-                    </div>
-                    <p className="text-[#6B7280] pb-5 lg:pb-10">
-                        Track your resume's improvement over time with detailed analytics and scoring metrics.
-                    </p>
-                </div>
+const features = [
+  {
+    icon: <FiSearch size={24} />,
+    title: 'Keyword Optimization',
+    description:
+      'Our AI identifies industry-specific keywords missing from your resume and suggests optimal placement.',
+  },
+  {
+    icon: <FiLayout size={24} />,
+    title: 'Format Analysis',
+    description:
+      "We check your resume's formatting to ensure it's readable by all ATS platforms without information loss.",
+  },
+  {
+    icon: <FiBarChart2 size={24} />,
+    title: 'Performance Metrics',
+    description:
+      "Track your resume's improvement over time with detailed analytics and scoring metrics.",
+  },
+  {
+    icon: <FiTarget size={24} />,
+    title: 'Job-Specific Tailoring',
+    description:
+      'Customize your resume for specific job descriptions to maximize your match percentage.',
+  },
+  {
+    icon: <FiCpu size={24} />,
+    title: 'AI-Powered Suggestions',
+    description:
+      'Get intelligent content recommendations to strengthen your professional narrative.',
+  },
+  {
+    icon: <FiShield size={24} />,
+    title: 'Privacy Protection',
+    description:
+      'Your resume data is encrypted and never shared with third parties or potential employers.',
+  },
+];
 
-                {/* box-4 */}
-                <div className="bg-white p-6 rounded-lg shadow-sm border border-[#E5E7EB] hover:shadow-md hover:border-[#6366F1] transition-all duration-300">
-                    <div className='text-xl text-[#6366F1] flex gap-3 items-center mb-3'>
-                        <FiTarget size={24} />
-                        <h3 className="text-[#1F2937] font-semibold">Job-Specific Tailoring</h3>
-                    </div>
-                    <p className="text-[#6B7280] pb-5 lg:pb-10">
-                        Customize your resume for specific job descriptions to maximize your match percentage.
-                    </p>
-                </div>
+const WhyChoose = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { triggerOnce: false, amount: 0.2 });
 
-                {/* box-5 */}
-                <div className="bg-white p-6 rounded-lg shadow-sm border border-[#E5E7EB] hover:shadow-md hover:border-[#6366F1] transition-all duration-300">
-                    <div className='text-xl text-[#6366F1] flex gap-3 items-center mb-3'>
-                        <FiCpu size={24} />
-                        <h3 className="text-[#1F2937] font-semibold">AI-Powered Suggestions</h3>
-                    </div>
-                    <p className="text-[#6B7280] pb-5 lg:pb-10">
-                        Get intelligent content recommendations to strengthen your professional narrative.
-                    </p>
-                </div>
+  return (
+    <motion.section
+      className="why-choose-section"
+      ref={ref}
+      initial="hidden"
+      animate={isInView ? 'visible' : 'hidden'}
+      variants={containerVariants}
+    >
+      <motion.h2 className="why-heading" variants={cardVariants}>
+        Why Choose Our ATS Resume Checker
+      </motion.h2>
+      <motion.p className="why-subtext" variants={cardVariants}>
+        Join thousands of job seekers who have improved their application success rate.
+      </motion.p>
 
-                {/* box-6 */}
-                <div className="bg-white p-6 rounded-lg shadow-sm border border-[#E5E7EB] hover:shadow-md hover:border-[#6366F1] transition-all duration-300">
-                    <div className='text-xl text-[#6366F1] flex gap-3 items-center mb-3'>
-                        <FiShield size={24} />
-                        <h3 className="text-[#1F2937] font-semibold">Privacy Protection</h3>
-                    </div>
-                    <p className="text-[#6B7280] pb-5 lg:pb-10">
-                        Your resume data is encrypted and never shared with third parties or potential employers.
-                    </p>
-                </div>
-            </div>
-        </div>
-        </>
-    )
-}
+      <div className="feature-grid">
+        {features.map((feature, idx) => (
+          <motion.div
+            key={idx}
+            className="feature-card"
+            variants={cardVariants}
+            whileHover={{ scale: 1.05 }}
+          >
+            <div className="icon-wrapper text-indigo-600">{feature.icon}</div>
+            <h3 className="feature-title">{feature.title}</h3>
+            <p className="feature-desc">{feature.description}</p>
+          </motion.div>
+        ))}
+      </div>
+    </motion.section>
+  );
+};
 
-export default Whychoose
+export default WhyChoose;
