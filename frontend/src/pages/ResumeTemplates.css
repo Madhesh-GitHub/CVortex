@@ -1,0 +1,63 @@
+.templates-container {
+  padding: 2rem;
+  background: #f5f7fa;
+  /* Remove max-width and margin for full width */
+  padding-left: 3vw;
+  padding-right: 3vw;
+}
+.templates-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  text-align: center;
+  /* background-color: white; */
+}
+.template-card {
+  border: 1px solid #eee;
+  border-radius: 8px;
+  padding: 1rem;
+  width: 250px;
+  text-align: center;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.template-card-content {
+  flex: 1 1 auto;
+  margin-bottom: 1rem;
+}
+
+.template-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+.download-btn {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background: #007bff;
+  color: #fff;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background 0.2s;
+  flex-shrink: 0;
+}
+.download-btn:hover {
+  background: #0056b3;
+}
+.template-card p {
+  color: #000;
+} 
+.template-card h2{
+  color: #000;
+} 
+.templates-container h1 {
+  color: #000;
+  text-align: center;
+}
