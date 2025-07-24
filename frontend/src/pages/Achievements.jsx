@@ -24,28 +24,51 @@ const AchievementsPage = () => {
     level: '',
     description: ''
   });
+const saveToServer = async (stepName, stepData) => {
+  try {
+    const response = await fetch("http://localhost:5000/save", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        step: stepName,
+        data: stepData
+      })
+    });
 
-  const handleAddAchievement = () => {
-    if (newAchievement.title && newAchievement.date) {
-      setAchievements([...achievements, {
-        id: Date.now(),
-        ...newAchievement
-      }]);
-      setNewAchievement({ title: '', date: '', description: '', keywords: '' });
-      setShowAddAchievement(false);
-    }
-  };
+    const result = await response.text();
+    console.log("Server response:", result);
+  } catch (error) {
+    console.error("Error saving data to server:", error);
+  }
+};
+
+ const handleAddAchievement = () => {
+  if (newAchievement.title && newAchievement.date) {
+    const updatedAchievements = [...achievements, { id: Date.now(), ...newAchievement }];
+    setAchievements(updatedAchievements);
+    setNewAchievement({ title: '', date: '', description: '', keywords: '' });
+    setShowAddAchievement(false);
+    
+    // Send data to backend
+    saveToServer("Achievements", updatedAchievements);
+  }
+};
+
 
   const handleAddAward = () => {
-    if (newAward.name && newAward.organization) {
-      setAwards([...awards, {
-        id: Date.now(),
-        ...newAward
-      }]);
-      setNewAward({ name: '', organization: '', date: '', level: '', description: '' });
-      setShowAddAward(false);
-    }
-  };
+  if (newAward.name && newAward.organization) {
+    const updatedAwards = [...awards, { id: Date.now(), ...newAward }];
+    setAwards(updatedAwards);
+    setNewAward({ name: '', organization: '', date: '', level: '', description: '' });
+    setShowAddAward(false);
+    
+    // Send data to backend
+    saveToServer("Awards", updatedAwards);
+  }
+};
+
 
   const removeAchievement = (id) => {
     setAchievements(achievements.filter(item => item.id !== id));
@@ -310,7 +333,7 @@ const AchievementsPage = () => {
             <Link to="/skills" className="bg-gray-300 text-gray-700 px-6 py-3 rounded-lg hover:bg-gray-400">
               Back to Skills
             </Link>
-            <Link to="/languages" className="bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-600">
+            <Link to="/builder/languages" className="bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-600">
               Continue to Languages
             </Link>
           </div>

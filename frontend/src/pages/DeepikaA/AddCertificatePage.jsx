@@ -5,6 +5,48 @@ const AddCertificatePage = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const navigate = useNavigate();
 
+  const [formData, setFormData] = useState({
+    title: '',
+    issuer: '',
+    issueDate: '',
+    expiryDate: '',
+    credentialId: '',
+    credentialUrl: '',
+    description: '',
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const res = await fetch('http://localhost:5000/save', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          step: 'certificate',
+          data: formData,
+        }),
+      });
+
+      const text = await res.text();
+      console.log("Response:", text);
+
+      if (res.ok) {
+        navigate('/CertificatePage');
+      } else {
+        alert("Failed to save");
+      }
+    } catch (err) {
+      console.error("Error:", err);
+      alert("Error saving certificate");
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-100 to-purple-100">
       {/* Navbar */}
@@ -34,12 +76,15 @@ const AddCertificatePage = () => {
       <div className="p-6 max-w-4xl mx-auto bg-white rounded-xl shadow-lg mt-10 mb-10">
         <h1 className="text-xl font-bold text-indigo-600 mb-6">Add New Certificate</h1>
 
-        <form className="space-y-5">
+        <form className="space-y-5" onSubmit={handleSubmit}>
           <div className="grid md:grid-cols-2 gap-4">
             <div>
               <label className="block text-sm font-medium text-gray-800">Certificate Name*</label>
               <input
                 type="text"
+                name="title"
+                value={formData.title}
+                onChange={handleChange}
                 placeholder="e.g., Project Management Professional (PMP)"
                 className="w-full mt-1 p-2 border rounded text-sm"
               />
@@ -51,6 +96,9 @@ const AddCertificatePage = () => {
               <label className="block text-sm font-medium text-gray-800">Issuing Organization*</label>
               <input
                 type="text"
+                name="issuer"
+                value={formData.issuer}
+                onChange={handleChange}
                 placeholder="e.g., Project Management Institute"
                 className="w-full mt-1 p-2 border rounded text-sm"
               />
@@ -62,6 +110,9 @@ const AddCertificatePage = () => {
               <label className="block text-sm font-medium text-gray-800">Issue Date*</label>
               <input
                 type="text"
+                name="issueDate"
+                value={formData.issueDate}
+                onChange={handleChange}
                 placeholder="MM/YYYY"
                 className="w-full mt-1 p-2 border rounded text-sm"
               />
@@ -70,6 +121,9 @@ const AddCertificatePage = () => {
               <label className="block text-sm font-medium text-gray-800">Expiration Date</label>
               <input
                 type="text"
+                name="expiryDate"
+                value={formData.expiryDate}
+                onChange={handleChange}
                 placeholder="MM/YYYY or No Expiration"
                 className="w-full mt-1 p-2 border rounded text-sm"
               />
@@ -80,6 +134,9 @@ const AddCertificatePage = () => {
             <label className="block text-sm font-medium text-gray-800">Credential ID</label>
             <input
               type="text"
+              name="credentialId"
+              value={formData.credentialId}
+              onChange={handleChange}
               placeholder="e.g., ABC123XYZ (optional)"
               className="w-full mt-1 p-2 border rounded text-sm"
             />
@@ -89,6 +146,9 @@ const AddCertificatePage = () => {
             <label className="block text-sm font-medium text-gray-800">Credential URL</label>
             <input
               type="text"
+              name="credentialUrl"
+              value={formData.credentialUrl}
+              onChange={handleChange}
               placeholder="https://... (optional)"
               className="w-full mt-1 p-2 border rounded text-sm"
             />
@@ -97,6 +157,9 @@ const AddCertificatePage = () => {
           <div>
             <label className="block text-sm font-medium text-gray-800">Description</label>
             <textarea
+              name="description"
+              value={formData.description}
+              onChange={handleChange}
               placeholder="Briefly describe what this certification represents..."
               className="w-full mt-1 p-2 border rounded text-sm"
               rows={4}
@@ -115,7 +178,7 @@ const AddCertificatePage = () => {
           </div>
 
           {/* Action Buttons */}
-          <div className="flex justify-between items-center mt-6">
+            <div className="flex justify-between items-center mt-6">
             <button
               type="button" onClick={() => navigate('/CertificatePage')}
               className="px-5 py-2 bg-gray-200 border text-gray-800 rounded hover:opacity-80 transition"
