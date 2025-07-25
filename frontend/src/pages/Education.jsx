@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-
+import { useNavigate } from "react-router";
 const Education = () => {
   const [educationData, setEducationData] = useState([]);
-
   const [newEdu, setNewEdu] = useState({
     degree: "",
     institution: "",
@@ -13,13 +12,39 @@ const Education = () => {
     coursework: "",
     honors: "",
   });
-
+  const navigate = useNavigate();
   const handleChange = (e) => {
     const { name, value } = e.target;
     setNewEdu({ ...newEdu, [name]: value });
   };
+const validateForm = () => {
+  const { degree, institution, startDate, endDate, gpa } = newEdu;
+
+  if (!degree.trim() || !institution.trim() || !startDate.trim() || !endDate.trim()) {
+    alert("Please fill in all required fields (*) before saving.");
+    return false;
+  }
+
+  const gpaRegex = /^(\d+(\.\d+)?)(\/(\d+(\.\d+)?))?$/;  
+  if (gpa && (isNaN(gpa) || gpa < 0 || gpa > 10)) {
+  setError("Please enter a valid GPA between 0.0 and 10.0.");
+  return false;
+  }
+  const dateRegex = /^(0[1-9]|1[0-2])\/\d{4}$/;
+  if (!dateRegex.test(startDate)) {
+    alert("Start Date must be in MM/YYYY format.");
+    return false;
+  }
+  if (!dateRegex.test(endDate) && endDate.toLowerCase() !== "present") {
+    alert("End Date must be in MM/YYYY format or 'Present'.");
+    return false;
+  }
+
+  return true;
+};
 
 const handleSave = async () => {
+  if (!validateForm()) return;
   if (!newEdu.degree || !newEdu.institution || !newEdu.startDate || !newEdu.endDate) {
     alert("Please fill all required fields");
     return;
@@ -45,6 +70,7 @@ const handleSave = async () => {
     }
 
     alert("Data saved successfully!");
+    navigate("/builder/skills");
   } catch (error) {
     console.error("Error saving education data:", error);
     alert("Error saving data");

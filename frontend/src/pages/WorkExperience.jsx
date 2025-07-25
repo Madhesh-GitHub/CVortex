@@ -1,6 +1,6 @@
 import React, { use, useState } from "react";
 import axios from "axios";
-
+import { useNavigate } from "react-router";
 const WorkExperience = () => {
   const [formData, setFormData] = useState({
     jobTitle: "",
@@ -10,7 +10,7 @@ const WorkExperience = () => {
     isCurrent: false,
     responsibilities: "",
   });
-
+  const navigate = useNavigate();
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
     setFormData((prev) => ({
@@ -40,6 +40,7 @@ const WorkExperience = () => {
       data: formData,
     });
     alert("Work experience saved successfully!");
+    navigate("/builder/education");
   } catch (error) {
     console.error("Save failed:", error);
     alert("Failed to save. Please check your server.");
