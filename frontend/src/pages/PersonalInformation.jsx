@@ -3,13 +3,40 @@ import { useNavigate } from "react-router-dom";
 
 export default function PersonalInformation() {
   const navigate = useNavigate();
-
+  const [errors, setErrors] = useState({});
   const [formData, setFormData] = useState({
     firstName: "", lastName: "", email: "", phone: "",
     linkedIn: "", portfolio: "", headline: "",
     street: "", apartment: "", city: "", state: "",
     zip: "", country: "", remote: false, relocate: false,
   });
+  const validateForm = () => {
+  const newErrors = {};
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const phoneRegex = /^\+?\d{7,15}$/;
+
+  if (!formData.firstName.trim()) newErrors.firstName = "First name is required.";
+  if (!formData.lastName.trim()) newErrors.lastName = "Last name is required.";
+  if (!formData.email.trim()) {
+    newErrors.email = "Email is required.";
+  } else if (!emailRegex.test(formData.email)) {
+    newErrors.email = "Invalid email format.";
+  }
+
+  if (!formData.phone.trim()) {
+    newErrors.phone = "Phone number is required.";
+  } else if (!phoneRegex.test(formData.phone)) {
+    newErrors.phone = "Invalid phone format.";
+  }
+
+  if (!formData.city.trim()) newErrors.city = "City is required.";
+  if (!formData.state.trim()) newErrors.state = "State/Province is required.";
+  if (!formData.zip.trim()) newErrors.zip = "ZIP code is required.";
+  if (!formData.country.trim()) newErrors.country = "Country is required.";
+
+  setErrors(newErrors);
+  return Object.keys(newErrors).length === 0;
+};
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -28,12 +55,14 @@ export default function PersonalInformation() {
     const result = await response.text();
     alert(result);
   };
-
   const handleNext = async () => {
-    await handleSave();
-    navigate("/builder/experience", { state: formData });
-  };
-
+  if (!validateForm()) {
+    alert("Please fill all required fields correctly.");
+    return;
+  }
+  await handleSave();
+  navigate("/builder/experience", { state: formData });
+};
   return (
     <div className="min-h-screen bg-[#f9f4ef] flex flex-col items-center py-8">
       {/* Form Card */}
@@ -294,8 +323,7 @@ export default function PersonalInformation() {
            >
             Save Progress
           </button>
-
-            </div>
+          </div>
           </div>
         </form>
       </div>
