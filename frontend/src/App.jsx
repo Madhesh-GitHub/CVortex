@@ -23,8 +23,8 @@ import Education from './pages/Education'
 import Contributors from './pages/Contributors'
 import BlogPage from './pages/BlogPage'
 import ATSResumeTips from './pages/ATSResumeTips'
-
 import GenerateAtsResume from './pages/GenerateAtsResume'
+import ResumeTemplates from './pages/ResumeTemplates'
 
 
 import { Navigate } from "react-router-dom";
@@ -42,6 +42,7 @@ const App = () => {
         <Route path="ats-tips" element = {<ATSResumeTips />} />
         <Route path="contributors" element={<Contributors />} />
         <Route path="*" element={<LostPage />} />
+        <Route path="demo-templates" element={<ResumeTemplates />} />
 
         {/* Navbar Routes */}
         <Route path="/app" element={<Navbar />}>

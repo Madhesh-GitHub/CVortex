@@ -24,7 +24,7 @@ function Footer() {
         <div className="footer-section">
           <h4>Resources</h4>
           <ul>
-            <li><a href="#help">Help Center</a></li>
+            <li><Link to="/demo-templates">Demo Templates</Link></li>
             <li><a href="#guide">Resume Guide</a></li>
             <li><Link to="/ats-tips">ATS Tips</Link></li>
             <li><Link to="/blog">Blog</Link></li>
