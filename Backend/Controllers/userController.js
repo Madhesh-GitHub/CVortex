@@ -140,7 +140,7 @@ export const verifyOTP = async (req, res) => {
       return res.status(400).json({ message: "Invalid or expired OTP" });
     }
 
-    res.status(200).json({ message: "OTP verified", success: true }); // ✅ Important!
+    res.status(200).json({ message: "OTP verified", success: true });
   } catch (err) {
     res.status(500).json({ message: "Server error", error: err.message });
   }
@@ -158,7 +158,6 @@ export const resetPassword = async (req, res) => {
     const hashedPassword = await bcrypt.hash(newPassword, 10);
     user.password = hashedPassword;
 
-    // Optionally remove OTP fields
     user.verifyOtp = undefined;
     user.verifyOtpExpireAt = undefined;
 
