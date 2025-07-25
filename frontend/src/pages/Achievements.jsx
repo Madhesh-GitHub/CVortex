@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Plus, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
-
+import { useNavigate } from 'react-router-dom';
 const AchievementsPage = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const [achievements, setAchievements] = useState([]);
@@ -9,7 +9,7 @@ const AchievementsPage = () => {
 
   const [showAddAchievement, setShowAddAchievement] = useState(false);
   const [showAddAward, setShowAddAward] = useState(false);
-  
+  const navigate = useNavigate();
   const [newAchievement, setNewAchievement] = useState({
     title: '',
     date: '',
@@ -24,50 +24,59 @@ const AchievementsPage = () => {
     level: '',
     description: ''
   });
-const saveToServer = async (stepName, stepData) => {
+const isValidDate = (dateStr) => {
+  if (!dateStr) return true; 
+  return !isNaN(Date.parse(dateStr));
+};
+
+const handleAddAchievement = () => {
+  if (!newAchievement.title || !isValidDate(newAchievement.date)) {
+    alert("Please enter a valid title and date (e.g., June 2022)");
+    return;
+  }
+
+  const updatedAchievements = [...achievements, { id: Date.now(), ...newAchievement }];
+  setAchievements(updatedAchievements);
+  setNewAchievement({ title: '', date: '', description: '', keywords: '' });
+  setShowAddAchievement(false);
+};
+const handleAddAward = () => {
+  if (!newAward.name || !newAward.organization || !isValidDate(newAward.date)) {
+    alert("Please fill name, organization, and a valid date (e.g., Nov 2022)");
+    return;
+  }
+
+  const updatedAwards = [...awards, { id: Date.now(), ...newAward }];
+  setAwards(updatedAwards);
+  setNewAward({ name: '', organization: '', date: '', level: '', description: '' });
+  setShowAddAward(false);
+};
+const saveAllDataAndNavigate = async () => {
   try {
+    const combinedData = {
+      achievements,
+      awards
+    };
+
     const response = await fetch("http://localhost:5000/save", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        step: stepName,
-        data: stepData
+        step: "AchievementsAndAwards",
+        data: combinedData
       })
     });
 
-    const result = await response.text();
-    console.log("Server response:", result);
-  } catch (error) {
-    console.error("Error saving data to server:", error);
+    if (!response.ok) throw new Error("Failed to save");
+    navigate("/builder/languages");
+  } catch (err) {
+    alert("⚠️ Failed to save. Try again.");
+    console.error(err);
   }
 };
 
- const handleAddAchievement = () => {
-  if (newAchievement.title && newAchievement.date) {
-    const updatedAchievements = [...achievements, { id: Date.now(), ...newAchievement }];
-    setAchievements(updatedAchievements);
-    setNewAchievement({ title: '', date: '', description: '', keywords: '' });
-    setShowAddAchievement(false);
-    
-    // Send data to backend
-    saveToServer("Achievements", updatedAchievements);
-  }
-};
-
-
-  const handleAddAward = () => {
-  if (newAward.name && newAward.organization) {
-    const updatedAwards = [...awards, { id: Date.now(), ...newAward }];
-    setAwards(updatedAwards);
-    setNewAward({ name: '', organization: '', date: '', level: '', description: '' });
-    setShowAddAward(false);
-    
-    // Send data to backend
-    saveToServer("Awards", updatedAwards);
-  }
-};
 
 
   const removeAchievement = (id) => {
@@ -330,12 +339,11 @@ const saveToServer = async (stepName, stepData) => {
           </div>
 
           <div className="flex justify-between mt-8">
-            <Link to="/skills" className="bg-gray-300 text-gray-700 px-6 py-3 rounded-lg hover:bg-gray-400">
+            <Link to="/builder/skills" className="bg-gray-300 text-gray-700 px-6 py-3 rounded-lg hover:bg-gray-400">
               Back to Skills
             </Link>
-            <Link to="/builder/languages" className="bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-600">
-              Continue to Languages
-            </Link>
+            <button onClick={saveAllDataAndNavigate} className="bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-600"> Continue to Languages
+            </button>
           </div>
         </div>
       </div>

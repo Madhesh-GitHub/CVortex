@@ -19,35 +19,68 @@ const AddCertificatePage = () => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
+  const validateForm = () => {
+  const { title, issuer, issueDate } = formData;
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  if (!title.trim()) {
+    alert("Certificate name is required.");
+    return false;
+  }
+  if (!issuer.trim()) {
+    alert("Issuing organization is required.");
+    return false;
+  }
 
-    try {
-      const res = await fetch('http://localhost:5000/save', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          step: 'certificate',
-          data: formData,
-        }),
-      });
+  // Validate issueDate (MM/YYYY)
+  const datePattern = /^(0[1-9]|1[0-2])\/\d{4}$/;
+  if (!datePattern.test(issueDate.trim())) {
+    alert("Issue date must be in MM/YYYY format.");
+    return false;
+  }
+  // If expiryDate provided, validate it
+  if (
+    formData.expiryDate.trim() !== "" &&
+    !datePattern.test(formData.expiryDate.trim()) &&
+    formData.expiryDate.toLowerCase().trim() !== "no expiration"
+  ) {
+    alert(" Expiration date must be MM/YYYY or 'No Expiration'.");
+    return false;
+  }
 
-      const text = await res.text();
-      console.log("Response:", text);
+  return true;
+};
 
-      if (res.ok) {
-        navigate('/CertificatePage');
-      } else {
-        alert("Failed to save");
-      }
-    } catch (err) {
-      console.error("Error:", err);
-      alert("Error saving certificate");
+ const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  if (!validateForm()) return;
+
+  try {
+    const res = await fetch('http://localhost:5000/save', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        step: 'certificate',
+        data: formData,
+      }),
+    });
+
+    const text = await res.text();
+    console.log("Response:", text);
+
+    if (res.ok) {
+      navigate('/CertificatePage');
+    } else {
+      alert("Failed to save");
     }
-  };
+  } catch (err) {
+    console.error("Error:", err);
+    alert("Error saving certificate");
+  }
+};
 
-  return (
+
+return (
     <div className="min-h-screen bg-gradient-to-br from-blue-100 to-purple-100">
       {/* Navbar */}
       <nav className="bg-white shadow-md px-6 py-4">
