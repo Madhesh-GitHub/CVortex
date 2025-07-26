@@ -10,39 +10,38 @@ const router = express.Router();
 router.post("/resume/score", async (req, res) => {
   try {
     console.log('📊 Score request received:', req.body);
-    
-    const { resumeFile, jdFile } = req.body;
 
-    if (!resumeFile || !jdFile) {
-      return res.status(400).json({ 
+    const resumeFileRaw = req.body?.resumeFile;
+    const jdFileRaw = req.body?.jdFile;
+
+    if (!resumeFileRaw) {
+      return res.status(400).json({
         success: false,
-        message: "Missing resumeFile or jdFile" 
+        message: "Missing resumeFile",
       });
     }
 
-    // Extract just the filename if full path is provided
-    const resumeFilename = resumeFile.includes('\\') ? 
-      resumeFile.split('\\').pop() : resumeFile;
-    const jdFilename = jdFile.includes('\\') ? 
-      jdFile.split('\\').pop() : jdFile;
+    // Clean filenames
+    const resumeFilename = resumeFileRaw.split("\\").pop();
+    const jdFilename = jdFileRaw ? jdFileRaw.split("\\").pop() : null;
 
-    console.log('📄 Processing files:', { resumeFilename, jdFilename });
+    console.log("📄 Processing files:", { resumeFilename, jdFilename });
 
-    // Call the existing scoreResume function with corrected request
+    // Overwrite cleaned values
     req.body.resumeFile = resumeFilename;
     req.body.jdFile = jdFilename;
-    
-    await scoreResume(req, res);
 
+    await scoreResume(req, res);
   } catch (error) {
-    console.error('❌ Error in resume scoring:', error);
+    console.error("❌ Error in resume scoring:", error);
     res.status(500).json({
       success: false,
-      message: 'Error scoring resume',
-      error: error.message
+      message: "Error scoring resume",
+      error: error.message,
     });
   }
 });
+
 
 // Generate ATS Resume endpoint
 router.get("/generate-ats-resume/:filename", async (req, res) => {
