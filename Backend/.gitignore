@@ -11,4 +11,6 @@ dist/
 build/
 
 .env
+parsed_content/
+parsed_json/
 
