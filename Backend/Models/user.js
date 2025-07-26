@@ -18,6 +18,15 @@ const userSchema = new mongoose.Schema({
         required: false,   // ⬅️ Password is now optional (for Google login users)
         minlength: 6,
     },
+    verifyOtp: {
+        type: String, 
+        default: ''
+    },
+
+    verifyOtpExpireAt: {
+        type: Number, 
+        deafult: 0
+    }
 }, {
     timestamps: true,
 });

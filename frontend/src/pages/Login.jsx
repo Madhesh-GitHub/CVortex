@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useLocation, Link } from "react-router-dom";
 import { COLORS } from "../styles/colors";
 import axios from "axios";
 import "./Login.css";
@@ -140,7 +140,9 @@ function Login() {
           />
 
           <div className="login-forgot">
-            <a href="#" style={{ color: COLORS.secondary }}>Forgot Password?</a>
+            <Link to="/forgot-password" style={{ color: COLORS.secondary }}>
+              Forgot Password?
+            </Link>
           </div>
 
           <motion.button

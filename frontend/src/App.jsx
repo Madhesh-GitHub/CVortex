@@ -25,7 +25,9 @@ import BlogPage from './pages/BlogPage'
 import ATSResumeTips from './pages/ATSResumeTips'
 import GenerateAtsResume from './pages/GenerateAtsResume'
 import ResumeTemplates from './pages/ResumeTemplates'
-
+import ForgotPassword from './pages/ForgotPassword'
+import VerifyEmail from './pages/VerifyEmail';
+import ResetPassword from './pages/ResetPassword';
 
 import { Navigate } from "react-router-dom";
 
@@ -38,6 +40,9 @@ const App = () => {
         <Route path="/" element={<LandingPage />} />
         <Route path="signup" element={<SignUp />} />
         <Route path="login" element={<Login />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="/verify-email" element={<VerifyEmail/>}/>
+        <Route path="/reset-password" element={<ResetPassword/>}/>
         <Route path="blog" element={<BlogPage />} />
         <Route path="ats-tips" element = {<ATSResumeTips />} />
         <Route path="contributors" element={<Contributors />} />
