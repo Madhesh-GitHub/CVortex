@@ -25,7 +25,7 @@ function Footer() {
           <h4>Resources</h4>
           <ul>
             <li><Link to="/demo-templates">Demo Templates</Link></li>
-            <li><a href="#guide">Resume Guide</a></li>
+            <li><Link to="/resume-guide">Resume Guide</Link></li>
             <li><Link to="/ats-tips">ATS Tips</Link></li>
             <li><Link to="/blog">Blog</Link></li>
           </ul>
