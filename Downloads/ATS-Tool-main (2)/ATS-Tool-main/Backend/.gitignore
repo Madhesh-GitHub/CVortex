@@ -1,0 +1,16 @@
+node_modules/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# Build output
+dist/
+
+build/
+
+.env
+parsed_content/
+parsed_json/
+

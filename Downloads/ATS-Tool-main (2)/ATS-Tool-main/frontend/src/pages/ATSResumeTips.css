@@ -1,0 +1,264 @@
+.ats-tips-container {
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2vw 2vw 4vw 2vw;
+  box-sizing: border-box;
+  background-color: white;
+}
+
+.tips-header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 40px 20px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 12px;
+  }
+  
+  .tips-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    font-weight: 700;
+  }
+  
+  .tips-header p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+  }
+  
+  .tips-navigation {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  
+  .nav-button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    background: #f8f9fa;
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    color:#000000
+    
+  }
+  
+  .nav-button:hover {
+    background: #e9ecef;
+    transform: translateY(-2px);
+  }
+  
+  .nav-button.active {
+    background: #007bff;
+    color: rgb(0, 0, 0);
+    border-color: #007bff;
+  }
+  
+  .nav-icon {
+    font-size: 1.2rem;
+  }
+  
+  .tips-content {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+  
+  .active-tips-section h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: #2c3e50;
+    border-bottom: 3px solid #007bff;
+    padding-bottom: 10px;
+  }
+  
+  .tips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    margin-bottom: 40px;
+  }
+  
+  .tip-card {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border-left: 4px solid #007bff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .tip-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  }
+  
+  .tip-card h3 {
+    color: #2c3e50;
+    margin-bottom: 12px;
+    font-size: 1.3rem;
+  }
+  
+  .tip-description {
+    font-weight: 500;
+    margin-bottom: 15px;
+    color: #34495e;
+  }
+  
+  .tip-details {
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 6px;
+    border-left: 3px solid #28a745;
+  }
+  
+  .tip-details small {
+    color: #6c757d;
+    font-size: 0.9rem;
+  }
+  
+  .mistakes-section {
+    background: linear-gradient(135deg, #ffe6e6 0%, #ffd6d6 100%); /* Soft red gradient */
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+    margin-bottom: 32px;
+  }
+  
+  .mistakes-section h2,
+  .checklist-section h2 {
+    color: #dc3545;
+    margin-bottom: 25px;
+    font-size: 1.8rem;
+  }
+  
+  .checklist-section h2 {
+    color: #28a745;
+  }
+  
+  .mistakes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+  }
+  
+  .mistake-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 15px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    color: #000000; /* Example: bright red for mistakes */
+  }
+  
+  .mistake-icon {
+    font-size: 1.1rem;
+  }
+  
+   .checklist-container {
+    background: linear-gradient(135deg, #e6ffe6 0%, #d6fff6 100%);  
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+    margin-top: 12px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 15px;
+  }
+   
+  .checklist-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 15px;
+    background: white;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    color: #000000; /* Example: green for checklist items */
+  }
+  
+  .checklist-item:hover {
+    background: #e8f5e8;
+  }
+  
+  .checklist-item input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #28a745;
+  }
+  
+  .pro-tips {
+    background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+    padding: 30px;
+    border-radius: 12px;
+  }
+  
+  .pro-tips h2 {
+    color: #8b4513;
+    margin-bottom: 25px;
+    font-size: 1.8rem;
+  }
+  
+  .pro-tips-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  
+  .pro-tip {
+    background: rgba(255,255,255,0.9);
+    padding: 20px;
+    border-radius: 8px;
+    border-left: 4px solid #ff6b35;
+  }
+  
+  .pro-tip h3 {
+    color: #d2691e;
+    margin-bottom: 10px;
+  }
+  
+  .pro-tip p {
+    color: #5d4037;
+  }
+  
+  .checklist-outer-container {
+    background: linear-gradient(135deg, #e6ffe6 0%, #d6fff6 100%); /* Soft green gradient */
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+    margin-bottom: 32px;
+  }
+  
+  @media (max-width: 768px) {
+    .tips-header h1 {
+      font-size: 2rem;
+    }
+    
+    .tips-navigation {
+      flex-direction: column;
+    }
+    
+    .nav-button {
+      justify-content: center;
+    }
+    
+    .tips-grid,
+    .mistakes-grid,
+    .checklist-container,
+    .pro-tips-content {
+      grid-template-columns: 1fr;
+    }
+  }
+  
