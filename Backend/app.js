@@ -1,20 +1,20 @@
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
-import userRoute from "./Routes/userRoute.js";
-import { connectDB } from "./Configure/db.js";
-import config from "./Configure/config.js";
-import uploadRoutes from "./Routes/uploadRoute.js";
-
-import blogRoute from "./Routes/blogRoute.js";
-import resumeRoute from "./Routes/resumeRoute.js"; // ← Handles all resume operations
-import resumeBuilderRoutes from "./Routes/resumeBuilderRoutes.js";
-
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
 import { dirname } from "path";
 
+// Config files
+import config from "./Configure/config.js";
+import { connectDB } from "./Configure/db.js";
+
+// Routes
+import userRoute from "./Routes/userRoute.js";
+import uploadRoutes from "./Routes/uploadRoute.js";
+import blogRoute from "./Routes/blogRoute.js";
+import resumeRoute from "./Routes/resumeRoute.js";
 
 // Load environment variables
 dotenv.config();
@@ -22,27 +22,22 @@ dotenv.config();
 // Initialize Express app
 const app = express();
 
-// Get directory paths
-
+// Directory handling for file saving
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 const filePath = path.join(__dirname, "uploads/data.txt");
 
 // Middlewares
-
 app.use(cors());
 app.use(express.json());
 
-// Routes
-app.use("/api/uploads", uploadRoutes);
+// API Routes
 app.use("/api/users", userRoute);
+app.use("/api/uploads", uploadRoutes);
+app.use("/api/blogs", blogRoute); // ✅ Blog routes like /api/blogs/user/:userId
+app.use("/api", resumeRoute);     // Resume routes like /api/resume/score
 
-app.use("/api/blogs", blogRoute);
-app.use("/api", resumeRoute); // ← Handles /api/resume/score, /api/latest, /api/generate-ats-resume
-app.use('/api/resume-builder', resumeBuilderRoutes);
-
-// Save route (from main branch)
-
+// Save route for main branch
 app.post("/save", (req, res) => {
   const { step, data } = req.body;
 
@@ -51,7 +46,6 @@ app.post("/save", (req, res) => {
   }
 
   const formatted = `\n=== ${step.toUpperCase()} DATA ===\n` +
-
     Object.entries(data)
       .map(([key, val]) => {
         if (Array.isArray(val)) {
@@ -66,7 +60,6 @@ app.post("/save", (req, res) => {
       })
       .join("\n");
 
-
   fs.appendFile(filePath, formatted + "\n", (err) => {
     if (err) {
       console.error("Error writing file:", err);
@@ -75,7 +68,6 @@ app.post("/save", (req, res) => {
     res.send("Data saved successfully to TXT");
   });
 });
-
 
 // 404 handler
 app.use((req, res, next) => {
@@ -88,10 +80,7 @@ app.use((err, req, res, next) => {
   res.status(500).json({ message: "Something went wrong", error: err.message });
 });
 
-
-// Start server after DB connection
-
-
+// Connect to DB and start server
 const startServer = async () => {
   try {
     await connectDB();

@@ -1,22 +1,33 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Calendar, Clock, User, Tag, Trash2 } from 'lucide-react';
-import { Pencil } from 'lucide-react';
+import { Calendar, Clock, User, Tag, Trash2, Pencil } from 'lucide-react';
+import moment from 'moment';
 
+const BlogCard = ({
+  post,
+  onDelete,
+  onEdit,
+  showDelete = false,
+  isSample = false,
+  onReadMore,
+}) => {
+  const formattedDate = post.date ? moment(post.date).format('MMM DD, YYYY') : 'N/A';
 
-const BlogCard = ({ post, onDelete, onEdit, showDelete = false, isSample = false, onReadMore }) => {
   return (
     <motion.article
       whileHover={{ y: -5 }}
       className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition-shadow duration-300"
     >
       <div className="p-6">
+        {/* Category and actions */}
         <div className="flex items-start justify-between mb-3">
           <span className="inline-block bg-indigo-100 text-indigo-800 text-xs font-medium px-3 py-1 rounded-full">
-            {post.category}
+            {post.category || 'Uncategorized'}
           </span>
+
           {showDelete && (
             <div className="flex items-center gap-2">
+              {/* Edit Button */}
               {onEdit && !isSample && (
                 <button
                   onClick={() => onEdit(post)}
@@ -27,7 +38,7 @@ const BlogCard = ({ post, onDelete, onEdit, showDelete = false, isSample = false
                 </button>
               )}
 
-
+              {/* Delete Button */}
               {onDelete && (
                 <button
                   onClick={() => {
@@ -43,44 +54,50 @@ const BlogCard = ({ post, onDelete, onEdit, showDelete = false, isSample = false
               )}
             </div>
           )}
-
         </div>
 
+        {/* Title */}
         <h3 className="text-xl font-bold text-gray-900 mb-3 line-clamp-2 hover:text-indigo-600 transition-colors">
-          {post.title}
+          {post.title || 'Untitled Post'}
         </h3>
 
+        {/* Description */}
         <p className="text-gray-600 mb-4 line-clamp-3 leading-relaxed">
-          {post.description}
+          {post.description || 'No description provided.'}
         </p>
 
+        {/* Meta Info */}
         <div className="flex items-center text-sm text-gray-500 mb-4 space-x-4">
           <div className="flex items-center space-x-1">
             <User className="w-4 h-4" />
-            <span>{post.author}</span>
+            <span>{post.author || 'ATS Expert'}</span>
           </div>
           <div className="flex items-center space-x-1">
             <Calendar className="w-4 h-4" />
-            <span>{post.date}</span>
+            <span>{formattedDate}</span>
           </div>
           <div className="flex items-center space-x-1">
             <Clock className="w-4 h-4" />
-            <span>{post.readTime}</span>
+            <span>{post.readTime || '5 min read'}</span>
           </div>
         </div>
 
-        <div className="flex flex-wrap gap-2 mb-4">
-          {post.tags.map((tag, index) => (
-            <span
-              key={index}
-              className="inline-flex items-center text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-full"
-            >
-              <Tag className="w-3 h-3 mr-1" />
-              {tag}
-            </span>
-          ))}
-        </div>
+        {/* Tags */}
+        {post.tags?.length > 0 && (
+          <div className="flex flex-wrap gap-2 mb-4">
+            {post.tags.map((tag, index) => (
+              <span
+                key={index}
+                className="inline-flex items-center text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-full"
+              >
+                <Tag className="w-3 h-3 mr-1" />
+                {tag}
+              </span>
+            ))}
+          </div>
+        )}
 
+        {/* Read More Button */}
         <motion.button
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}

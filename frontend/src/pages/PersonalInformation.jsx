@@ -1,326 +1,332 @@
-import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useResumeBuilder } from '../contexts/ResumeBuilderContext';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-const PersonalInformation = () => {
+export default function PersonalInformation() {
   const navigate = useNavigate();
-  const { saveStepData, formData, loading } = useResumeBuilder();
-  
-  const [personalInfo, setPersonalInfo] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    phone: '',
-    linkedIn: '',
-    portfolio: '',
-    headline: '',
-    street: '',
-    apartment: '',
-    city: '',
-    state: '',
-    zip: '',
-    country: '',
-    remote: false,
-    relocate: false
+  const [errors, setErrors] = useState({});
+  const [formData, setFormData] = useState({
+    firstName: "", lastName: "", email: "", phone: "",
+    linkedIn: "", portfolio: "", headline: "",
+    street: "", apartment: "", city: "", state: "",
+    zip: "", country: "", remote: false, relocate: false,
   });
+  const validateForm = () => {
+  const newErrors = {};
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const phoneRegex = /^\+?\d{7,15}$/;
 
-  // Load existing data if available
-  useEffect(() => {
-    if (formData.personalInfo) {
-      setPersonalInfo(formData.personalInfo);
-    }
-  }, [formData]);
+  if (!formData.firstName.trim()) newErrors.firstName = "First name is required.";
+  if (!formData.lastName.trim()) newErrors.lastName = "Last name is required.";
+  if (!formData.email.trim()) {
+    newErrors.email = "Email is required.";
+  } else if (!emailRegex.test(formData.email)) {
+    newErrors.email = "Invalid email format.";
+  }
 
-  const handleInputChange = (e) => {
+  if (!formData.phone.trim()) {
+    newErrors.phone = "Phone number is required.";
+  } else if (!phoneRegex.test(formData.phone)) {
+    newErrors.phone = "Invalid phone format.";
+  }
+
+  if (!formData.city.trim()) newErrors.city = "City is required.";
+  if (!formData.state.trim()) newErrors.state = "State/Province is required.";
+  if (!formData.zip.trim()) newErrors.zip = "ZIP code is required.";
+  if (!formData.country.trim()) newErrors.country = "Country is required.";
+
+  setErrors(newErrors);
+  return Object.keys(newErrors).length === 0;
+};
+
+  const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
-    setPersonalInfo(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: type === 'checkbox' ? checked : value
+      [name]: type === "checkbox" ? checked : value,
     }));
   };
 
-  const handleNext = async () => {
-    // Validate required fields
-    if (!personalInfo.firstName || !personalInfo.lastName || !personalInfo.email) {
-      alert('Please fill in all required fields (First Name, Last Name, Email)');
-      return;
-    }
-
-    // Save data to backend
-    const success = await saveStepData('personalInfo', personalInfo);
-    
-    if (success) {
-      navigate('/builder/experience'); // This matches your existing route
-    } else {
-      alert('Failed to save personal information. Please try again.');
-    }
+  const handleSave = async () => {
+    const response = await fetch("http://localhost:5000/save", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ step: "personal", data: formData }),
+    });
+    const result = await response.text();
+    alert(result);
   };
-
+  const handleNext = async () => {
+  if (!validateForm()) {
+    alert("Please fill all required fields correctly.");
+    return;
+  }
+  await handleSave();
+  navigate("/builder/experience", { state: formData });
+};
   return (
-    // Remove the sidebar wrapper - use only the main content
-    <div className="max-w-4xl mx-auto p-6">
-      <h2 className="text-2xl font-bold text-gray-900 mb-2">Personal Information</h2>
-      <p className="text-gray-600 mb-6">Complete your contact details to help recruiters reach you easily.</p>
-      
-      {/* ATS Tip */}
-      <div className="bg-blue-50 border-l-4 border-blue-400 p-4 mb-6">
-        <h3 className="font-semibold text-blue-800">ATS Optimization Tip</h3>
-        <p className="text-blue-700 text-sm">
-          Use your legal name and provide complete contact information. ATS systems scan for these details first to match you with the right position.
+    <div className="min-h-screen bg-[#f9f4ef] flex flex-col items-center py-8">
+      {/* Form Card */}
+      <div className="w-full max-w-4xl bg-white shadow-lg rounded-lg p-6">
+        <h2 className="text-xl font-bold text-[#5a4b81] mb-4 text-[30px]">
+          Personal Information
+        </h2>
+        <p className="text-gray-600 mb-4">
+          Complete your contact details to help recruiters reach you easily.
         </p>
-      </div>
 
-      {/* Form */}
-      <div className="bg-white rounded-lg shadow-sm border p-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {/* First Name */}
+        {/* ATS Optimization Tip */}
+        <div className="bg-[#f0f4ff] border-l-4 border-[#5a4b81] p-4 mb-6">
+          <p className="text-[#5a4b81] font-bold text-[20px]">
+            ATS Optimization Tip
+          </p>
+          <p className="text-gray-700">
+            Use your legal name and provide complete contact information. ATS
+            systems scan for these details first to match you with the right
+            position.
+          </p>
+        </div>
+
+        {/* Form Fields */}
+        <form className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {/* Name */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
-              First Name *
-            </label>
+            <label className="block text-sm font-medium text-gray-700 mb-1">First Name*</label>
             <input
               type="text"
               name="firstName"
-              value={personalInfo.firstName}
-              onChange={handleInputChange}
+              value={formData.firstName}
+              onChange={handleChange}
               placeholder="Enter your first name"
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full border rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#5a4b81]"
               required
             />
           </div>
-
-          {/* Last Name */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
-              Last Name *
-            </label>
+            <label className="block text-sm font-medium text-gray-700 mb-1">Last Name*</label>
             <input
               type="text"
               name="lastName"
-              value={personalInfo.lastName}
-              onChange={handleInputChange}
+              value={formData.lastName}
+              onChange={handleChange}
               placeholder="Enter your last name"
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full border rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#5a4b81]"
               required
             />
           </div>
 
           {/* Email */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
-              Email Address *
-            </label>
+            <label className="block text-sm font-medium text-gray-700 mb-1">Email Address*</label>
             <input
               type="email"
               name="email"
-              value={personalInfo.email}
-              onChange={handleInputChange}
+              value={formData.email}
+              onChange={handleChange}
               placeholder="name@example.com"
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full border rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#5a4b81]"
+              required
+            />
+          </div>
+          {/* Phone */}
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">Phone Number*</label>
+            <input
+              type="text"
+              name="phone"
+              value={formData.phone}
+              onChange={handleChange}
+              placeholder="+1 (555) 123-4567"
+              className="w-full border rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#5a4b81]"
               required
             />
           </div>
 
-          {/* Phone */}
+          {/* LinkedIn & Portfolio */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
-              Phone Number *
-            </label>
-            <input
-              type="tel"
-              name="phone"
-              value={personalInfo.phone}
-              onChange={handleInputChange}
-              placeholder="+1 (555) 123-4567"
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-          </div>
-
-          {/* LinkedIn */}
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
-              LinkedIn Profile
-            </label>
+            <label className="block text-sm font-medium text-gray-700 mb-1">LinkedIn Profile</label>
             <input
               type="url"
               name="linkedIn"
-              value={personalInfo.linkedIn}
-              onChange={handleInputChange}
+              value={formData.linkedIn}
+              onChange={handleChange}
               placeholder="linkedin.com/in/yourprofile"
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full border rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#5a4b81]"
             />
           </div>
-
-          {/* Portfolio */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
-              Portfolio/Website
-            </label>
+            <label className="block text-sm font-medium text-gray-700 mb-1">Portfolio/Website</label>
             <input
               type="url"
               name="portfolio"
-              value={personalInfo.portfolio}
-              onChange={handleInputChange}
+              value={formData.portfolio}
+              onChange={handleChange}
               placeholder="yourwebsite.com"
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full border rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#5a4b81]"
             />
           </div>
-        </div>
 
-        {/* Professional Headline */}
-        <div className="mt-6">
-          <label className="block text-sm font-medium text-gray-700 mb-2">
-            Professional Headline
-          </label>
-          <input
-            type="text"
-            name="headline"
-            value={personalInfo.headline}
-            onChange={handleInputChange}
-            placeholder="e.g., Senior Marketing Manager"
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
-        </div>
-
-        {/* Address Information */}
-        <div className="mt-8">
-          <h3 className="text-lg font-semibold text-gray-900 mb-4">Address Information</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Street Address
-              </label>
-              <input
-                type="text"
-                name="street"
-                value={personalInfo.street}
-                onChange={handleInputChange}
-                placeholder="123 Main Street"
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
-            </div>
-
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Apartment/Suite
-              </label>
-              <input
-                type="text"
-                name="apartment"
-                value={personalInfo.apartment}
-                onChange={handleInputChange}
-                placeholder="Apt 4B"
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
-            </div>
-
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                City
-              </label>
-              <input
-                type="text"
-                name="city"
-                value={personalInfo.city}
-                onChange={handleInputChange}
-                placeholder="New York"
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
-            </div>
-
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                State/Province
-              </label>
-              <input
-                type="text"
-                name="state"
-                value={personalInfo.state}
-                onChange={handleInputChange}
-                placeholder="NY"
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
-            </div>
-
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                ZIP/Postal Code
-              </label>
-              <input
-                type="text"
-                name="zip"
-                value={personalInfo.zip}
-                onChange={handleInputChange}
-                placeholder="10001"
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
-            </div>
-
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Country
-              </label>
-              <input
-                type="text"
-                name="country"
-                value={personalInfo.country}
-                onChange={handleInputChange}
-                placeholder="United States"
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
-            </div>
+          {/* Professional Headline */}
+          <div className="md:col-span-2">
+            <label className="block text-sm font-medium text-gray-700 mb-1">Professional Headline</label>
+            <input
+              type="text"
+              name="headline"
+              value={formData.headline}
+              onChange={handleChange}
+              placeholder="e.g., Senior Marketing Manager"
+              className="w-full border rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#5a4b81]"
+            />
           </div>
 
-          {/* Work Preferences */}
-          <div className="mt-6 space-y-4">
-            <div className="flex items-center">
+          {/* Address Info */}
+          <div className="md:col-span-2">
+            <h3 className="text-lg font-semibold text-[#5a4b81] mt-4 mb-2">Address Information</h3>
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">Street Address</label>
+            <input
+              type="text"
+              name="street"
+              value={formData.street}
+              onChange={handleChange}
+              placeholder="123 Main Street"
+              className="w-full border rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#5a4b81]"
+            />
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">Apartment/Suite</label>
+            <input
+              type="text"
+              name="apartment"
+              value={formData.apartment}
+              onChange={handleChange}
+              placeholder="Apt #4B"
+              className="w-full border rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#5a4b81]"
+            />
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">City*</label>
+            <input
+              type="text"
+              name="city"
+              value={formData.city}
+              onChange={handleChange}
+              placeholder="New York"
+              className="w-full border rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#5a4b81]"
+              required
+            />
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">State/Province*</label>
+            <input
+              type="text"
+              name="state"
+              value={formData.state}
+              onChange={handleChange}
+              placeholder="NY"
+              className="w-full border rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#5a4b81]"
+              required
+            />
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">ZIP/Postal Code*</label>
+            <input
+              type="text"
+              name="zip"
+              value={formData.zip}
+              onChange={handleChange}
+              placeholder="10001"
+              className="w-full border rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#5a4b81]"
+              required
+            />
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">Country*</label>
+            <input
+              type="text"
+              name="country"
+              value={formData.country}
+              onChange={handleChange}
+              placeholder="United States"
+              className="w-full border rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#5a4b81]"
+              required
+            />
+          </div>
+
+          {/* Checkboxes */}
+          <div className="md:col-span-2 flex flex-col space-y-2">
+            <label className="flex items-center">
               <input
                 type="checkbox"
                 name="remote"
-                checked={personalInfo.remote}
-                onChange={handleInputChange}
-                className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
+                checked={formData.remote}
+                onChange={handleChange}
+                className="mr-2"
               />
-              <label className="ml-2 block text-sm text-gray-700">
-                Open to remote work
-              </label>
-            </div>
-
-            <div className="flex items-center">
+              I am open to remote work opportunities
+            </label>
+            <label className="flex items-center">
               <input
                 type="checkbox"
                 name="relocate"
-                checked={personalInfo.relocate}
-                onChange={handleInputChange}
-                className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
+                checked={formData.relocate}
+                onChange={handleChange}
+                className="mr-2"
               />
-              <label className="ml-2 block text-sm text-gray-700">
-                Willing to relocate
-              </label>
-            </div>
+              I am willing to relocate
+            </label>
           </div>
-        </div>
 
-        {/* Navigation Buttons */}
-        <div className="flex justify-between mt-8 pt-6 border-t">
-          <button
-            onClick={() => navigate('/builder')}
-            className="px-6 py-2 text-gray-600 bg-gray-200 rounded-md hover:bg-gray-300 transition-colors"
-          >
-            Back to Dashboard
+          {/* Buttons */}
+          <div className="md:col-span-2 flex flex-col space-y-6 mt-4">
+            <div className="w-full">
+              <h2 className="text-sm font-semibold text-[#5a4b81] mb-2">
+                Section Completion
+              </h2>
+
+              <div className="flex items-center justify-between mb-3">
+                <p className="text-xs text-gray-700 whitespace-nowrap">
+                  75% Complete
+                </p>
+
+                <div className="flex-1 mx-4 h-2 bg-gray-200 rounded-full relative overflow-hidden">
+                  <div
+                    className="h-2 bg-[#5a4b81] rounded-full"
+                    style={{ width: "75%" }}
+                  ></div>
+                </div>
+
+                <p className="text-xs text-gray-700 whitespace-nowrap">
+                  3/4 Required Fields
+                </p>
+
+               <button className="ml-4 bg-[#5a4b81] text-white text-sm px-4 py-2 rounded-lg whitespace-nowrap hover:opacity-90" onClick={(e) => {
+                 e.preventDefault();
+                 handleNext();
+             }}
+             >
+             Next: Work Experience
+            </button>
+
+              </div>
+            </div>
+
+            <div className="flex justify-between items-center">
+              <button className="border border-gray-400 text-gray-700 px-4 py-2 rounded-lg text-sm bg-white hover:bg-gray-100">
+                Back to Dashboard
+              </button>
+
+              <button className="bg-[#5a4b81] text-white px-4 py-2 rounded-lg text-sm hover:opacity-90" onClick={(e) => {
+              e.preventDefault();
+              handleNext();
+              }}
+           >
+            Save Progress
           </button>
-          
-          <button
-            onClick={handleNext}
-            disabled={loading}
-            className="px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors disabled:opacity-50"
-          >
-            {loading ? 'Saving...' : 'Next: Work Experience →'}
-          </button>
-        </div>
+          </div>
+          </div>
+        </form>
       </div>
     </div>
   );
-};
-
-export default PersonalInformation;
+}
