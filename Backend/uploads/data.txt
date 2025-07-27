@@ -1,20 +1,6 @@
-=== PERSONAL DATA ===
-firstName: Madhesh
-lastName: K
-email: thisismadhesh@gmail.com
-phone: 8782727
-linkedIn: DWEANDKQ
-portfolio: 
-headline: 
-street: 
-apartment: 
-city: 
-state: 
-zip: 
-country: 
-remote: false
-relocate: false
 
+=== LANGUAGES DATA ===
+0: {"language":"English","proficiency":"Native"}
 === CERTIFICATE DATA ===
 0: {
   title: UI/UX Design Mastery
@@ -44,7 +30,3 @@ relocate: false
   description: Demonstrates knowledge of data science principles and analytics techniques.
 }
 
-
-=== ACHIEVEMENTSANDAWARDS DATA ===
-achievements: {"id":1753607456518,"title":"HI ","date":"June 3534","description":"HIIII","keywords":""}
-awards: 
