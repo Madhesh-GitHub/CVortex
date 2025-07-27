@@ -8,6 +8,7 @@ import uploadRoutes from "./Routes/uploadRoute.js";
 
 import blogRoute from "./Routes/blogRoute.js";
 import resumeRoute from "./Routes/resumeRoute.js"; // ← Handles all resume operations
+import resumeBuilderRoutes from "./Routes/resumeBuilderRoutes.js";
 
 import fs from "fs";
 import path from "path";
@@ -38,6 +39,7 @@ app.use("/api/users", userRoute);
 
 app.use("/api/blogs", blogRoute);
 app.use("/api", resumeRoute); // ← Handles /api/resume/score, /api/latest, /api/generate-ats-resume
+app.use('/api/resume-builder', resumeBuilderRoutes);
 
 // Save route (from main branch)
 

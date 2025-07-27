@@ -56,20 +56,22 @@ const AddCertificatePage = () => {
   if (!validateForm()) return;
 
   try {
-    const res = await fetch('http://localhost:5000/save', {
+    // Save to backend first
+    const res = await fetch('http://localhost:5000/api/resume-builder/save-step', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        step: 'certificate',
+        step: 'certificates',
         data: formData,
       }),
     });
 
-    const text = await res.text();
-    console.log("Response:", text);
+    const result = await res.json();
+    console.log("Response:", result);
 
     if (res.ok) {
-      navigate('/CertificatePage');
+      // Navigate to preview instead of back to CertificatePage
+      navigate('/builder/resume-preview');
     } else {
       alert("Failed to save");
     }
@@ -213,17 +215,18 @@ return (
           {/* Action Buttons */}
             <div className="flex justify-between items-center mt-6">
             <button
-              type="button" onClick={() => navigate('/CertificatePage')}
+              type="button" 
+              onClick={() => navigate('/builder/CertificatePage')}
               className="px-5 py-2 bg-gray-200 border text-gray-800 rounded hover:opacity-80 transition"
             >
-              Cancel
+              Back to Certificates
             </button>
             <div className="flex gap-4">
-              <button type="submit" className="px-5 py-2 bg-indigo-500 text-white rounded hover:bg-indigo-600">
-                Next: Preview Resume
-              </button>
-              <button type="submit" className="px-5 py-2 bg-indigo-500 text-white rounded hover:bg-indigo-600">
-                Add Certificate
+              <button 
+                type="submit" 
+                className="px-5 py-2 bg-indigo-500 text-white rounded hover:bg-indigo-600"
+              >
+                Add & Go to Preview
               </button>
             </div>
           </div>

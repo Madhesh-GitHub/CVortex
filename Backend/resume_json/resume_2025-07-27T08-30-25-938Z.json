@@ -1,0 +1,87 @@
+{
+  "personalInfo": {
+    "firstName": "Madhesh",
+    "lastName": "K",
+    "email": "thisismadhesh@gmail.com",
+    "phone": "8782727",
+    "linkedIn": "DWEANDKQ",
+    "portfolio": "27jhhvdjvasd",
+    "headline": "ghjk"
+  },
+  "workExperience": [
+    {
+      "jobTitle": "dxftcgvhbjnkm",
+      "companyName": "dfxcgvhbjn",
+      "startDate": "2025-07-08",
+      "endDate": "2025-07-30",
+      "isCurrent": false,
+      "responsibilities": "werdtyuuusB jbjbdhavdaib asb aslb a da akdb la ba ao hq dwqh dwqh q w gdwul"
+    }
+  ],
+  "education": [
+    {
+      "degree": "rtvbhjnk",
+      "institution": "vhbjn",
+      "location": "Tamil Nadu",
+      "gpa": "8",
+      "startDate": "12/2023",
+      "endDate": "Present",
+      "coursework": "1234567ijnbvcdfhn vghn",
+      "honors": ""
+    }
+  ],
+  "skills": {
+    "technicalSkills": [
+      {
+        "name": "React.js",
+        "proficiency": "Beginner"
+      },
+      {
+        "name": "Node.js",
+        "proficiency": "Beginner"
+      },
+      {
+        "name": "MongoDB",
+        "proficiency": "Beginner"
+      },
+      {
+        "name": "TypeScript",
+        "proficiency": "Beginner"
+      }
+    ],
+    "softSkills": [
+      "Problem Solving",
+      "Team Leadership",
+      "Time Management"
+    ],
+    "industrySkills": [
+      "Agile Development"
+    ]
+  },
+  "achievements": [
+    {
+      "id": 1753604784404,
+      "title": "tttdytFS",
+      "date": "June 2020",
+      "description": "qwerghn cghgjbk,m ",
+      "keywords": ""
+    }
+  ],
+  "languages": [
+    {
+      "language": "English",
+      "proficiency": "Native"
+    }
+  ],
+  "certificates": [
+    {
+      "title": "Python",
+      "issuer": "Udemy",
+      "issueDate": "12/2024",
+      "expiryDate": "No Expiration",
+      "credentialId": "",
+      "credentialUrl": "",
+      "description": ""
+    }
+  ]
+}

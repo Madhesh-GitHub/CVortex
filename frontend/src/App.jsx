@@ -30,12 +30,15 @@ import VerifyEmail from './pages/VerifyEmail';
 import ResetPassword from './pages/ResetPassword';
 import ResumeGuide from './pages/ResumeGuide'
 
+
 import { Navigate } from "react-router-dom";
+import { ResumeBuilderProvider } from './contexts/ResumeBuilderContext';
 
 
 const App = () => {
   return (
     <>
+    <ResumeBuilderProvider>
       <Routes>
         {/* Public Routes */}
         <Route path="/" element={<LandingPage />} />
@@ -77,6 +80,7 @@ const App = () => {
 
         </Route>
       </Routes>
+      </ResumeBuilderProvider>
     </>
   )
 }

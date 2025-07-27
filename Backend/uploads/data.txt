@@ -1,74 +1,11 @@
-
-=== PERSONAL DATA ===
-firstName: DIPAK
-lastName: Mallick
-email: 
-phone: 
-linkedIn: 
-portfolio: 
-headline: 
-street: Bashudev Pur Tribeni
-apartment: 
-city: Tribeni
-state: West Bengal
-zip: 712503
-country: India
-remote: true
-relocate: true
-
-=== WORK_EXPERIENCE DATA ===
-jobTitle: software
-companyName: google
-startDate: 2025-07-10
-endDate: 
-isCurrent: true
-responsibilities: gdhh
-
-=== EDUCATION DATA ===
-degree: B.tech
-institution: ma
-location: Basudev Pur Tribeni Hooghly 
-gpa: 8
-startDate: 05/2025
-endDate: 05/2025
-coursework: gg
-honors: hh
-
-=== SKILLS DATA ===
-technicalSkills: {"name":"JavaScript","proficiency":"Intermediate"}
-softSkills: Team Leadership
-industrySkills: Agile Development
-
-=== ACHIEVEMENTS DATA ===
-0: {"id":1753371087646,"title":"gg","date":"gg","description":"tt","keywords":"tt"}
-
-=== AWARDS DATA ===
-0: {"id":1753371108505,"name":"fffhh","organization":"hh","date":"gg","level":"Department","description":"ff"}
-
-=== LANGUAGES DATA ===
-0: {"language":"English","proficiency":"Native"}
-1: {"language":"","proficiency":"Native"}
-
-=== CERTIFICATE DATA ===
-title: 
-issuer: ww
-issueDate: 
-expiryDate: 
-credentialId: 
-credentialUrl: 
-description: 
-
-=== ACHIEVEMENTS DATA ===
-0: {"id":1753371170473,"title":"ee","date":"hh","description":"ee","keywords":"gg"}
-
 === PERSONAL DATA ===
 firstName: Madhesh
 lastName: K
-email: madheshk7239087@gmail.com
+email: thisismadhesh@gmail.com
 phone: 8782727
-linkedIn: adjvjasvdjakvd
-portfolio: 27jhhvdjvasd
-headline: ghjk
+linkedIn: DWEANDKQ
+portfolio: 
+headline: 
 street: 
 apartment: 
 city: 
@@ -77,3 +14,37 @@ zip:
 country: 
 remote: false
 relocate: false
+
+=== CERTIFICATE DATA ===
+0: {
+  title: UI/UX Design Mastery
+  issuer: Graphic Design Institute
+  issueDate: May 2022
+  expiryDate: May 2025
+  credentialId: 
+  credentialUrl: 
+  description: Validates expertise in designing user-centered digital products.
+}
+1: {
+  title: AWS Certified Cloud Practitioner
+  issuer: AWS
+  issueDate: January 2023
+  expiryDate: No Expiration
+  credentialId: 
+  credentialUrl: 
+  description: Certification for designing and building data processing systems on AWS.
+}
+2: {
+  title: Data Science & Analytics
+  issuer: HP Life
+  issueDate: August 2021
+  expiryDate: August 2023
+  credentialId: 
+  credentialUrl: 
+  description: Demonstrates knowledge of data science principles and analytics techniques.
+}
+
+
+=== ACHIEVEMENTSANDAWARDS DATA ===
+achievements: {"id":1753607456518,"title":"HI ","date":"June 3534","description":"HIIII","keywords":""}
+awards: 
