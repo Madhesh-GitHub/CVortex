@@ -21,8 +21,11 @@ function Login() {
     try {
       const response = await axios.post("http://localhost:5000/api/users/login", formData);
       const { token, user } = response.data;
+
+      // ✅ Store token, user, and userId
       sessionStorage.setItem("token", token);
       sessionStorage.setItem("user", JSON.stringify(user));
+      sessionStorage.setItem("userId", user.id);
 
       navigate(location.state?.redirectTo || "/app");
     } catch (error) {
@@ -41,8 +44,11 @@ function Login() {
       });
 
       const { token, user } = res.data;
+
+      // ✅ Store token, user, and userId
       sessionStorage.setItem("token", token);
       sessionStorage.setItem("user", JSON.stringify(user));
+      sessionStorage.setItem("userId", user.id);
 
       navigate(location.state?.redirectTo || "/app");
     } catch (err) {

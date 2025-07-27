@@ -24,3 +24,15 @@ export const remove = async (req, res) => {
   const { status, data } = await blogService.deleteBlog(req.params.id);
   res.status(status).json(data);
 };
+
+export const getUserBlogs = async (req, res) => {
+  const { userId } = req.params;
+  const result = await getBlogsByUserId(userId);
+  return res.status(result.status).json(result.data);
+};
+
+// ✅ Get blogs by user ID
+export const getByUserId = async (req, res) => {
+  const { status, data } = await blogService.getBlogsByUserId(req.params.userId);
+  res.status(status).json(data);
+};
