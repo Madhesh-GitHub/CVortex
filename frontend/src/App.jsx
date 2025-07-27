@@ -29,6 +29,7 @@ import ForgotPassword from './pages/ForgotPassword'
 import VerifyEmail from './pages/VerifyEmail';
 import ResetPassword from './pages/ResetPassword';
 import ResumeGuide from './pages/ResumeGuide'
+import JDAnalyzer from './pages/JDAnalyzer'
 
 
 import { Navigate } from "react-router-dom";
@@ -53,6 +54,7 @@ const App = () => {
         <Route path="*" element={<LostPage />} />
         <Route path="demo-templates" element={<ResumeTemplates />} />
         <Route path="resume-guide" element={<ResumeGuide />} />
+        <Route path="jd-analyzer" element={<JDAnalyzer />} />
 
         {/* Navbar Routes */}
         <Route path="/app" element={<Navbar />}>

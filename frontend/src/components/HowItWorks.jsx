@@ -59,7 +59,7 @@ function HowItWorks() {
         className="how-heading"
         variants={stepVariants}
       >
-        How It Works
+        How Resume Checker Works!
       </motion.h2>
 
       <motion.p

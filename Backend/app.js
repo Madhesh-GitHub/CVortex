@@ -9,6 +9,7 @@ import uploadRoutes from "./Routes/uploadRoute.js";
 import blogRoute from "./Routes/blogRoute.js";
 import resumeRoute from "./Routes/resumeRoute.js"; // ← Handles all resume operations
 import resumeBuilderRoutes from "./Routes/resumeBuilderRoutes.js";
+import jdRoutes from './Routes/jdRoutes.js'; // Make sure this is imported
 
 import fs from "fs";
 import path from "path";
@@ -36,10 +37,10 @@ app.use(express.json());
 // Routes
 app.use("/api/uploads", uploadRoutes);
 app.use("/api/users", userRoute);
-
 app.use("/api/blogs", blogRoute);
 app.use("/api", resumeRoute); // ← Handles /api/resume/score, /api/latest, /api/generate-ats-resume
 app.use('/api/resume-builder', resumeBuilderRoutes);
+app.use('/api/jd', jdRoutes); // Add this route if not already present
 
 // Save route (from main branch)
 
