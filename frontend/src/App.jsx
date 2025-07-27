@@ -13,6 +13,7 @@ import ATSResumeTips from './pages/ATSResumeTips';
 import Contributors from './pages/Contributors';
 import ResumeTemplates from './pages/ResumeTemplates';
 import ResumeGuide from './pages/ResumeGuide';
+import JDAnalyzer from './pages/JDAnalyzer';
 import LostPage from "./pages/LostPage";
 
 // Dashboard Pages
@@ -39,49 +40,55 @@ import Skills from './pages/Skills';
 // User Blog Dashboard
 import UserBlogDashboard from './pages/UserBlogDashboard';
 
+// Context Provider (ensure this exists)
+import { ResumeBuilderProvider } from './context/ResumeBuilderContext';
+
 const App = () => {
   return (
-    <Routes>
-      {/* Public Routes */}
-      <Route path="/" element={<LandingPage />} />
-      <Route path="/signup" element={<SignUp />} />
-      <Route path="/login" element={<Login />} />
-      <Route path="/forgot-password" element={<ForgotPassword />} />
-      <Route path="/verify-email" element={<VerifyEmail />} />
-      <Route path="/reset-password" element={<ResetPassword />} />
-      <Route path="/blog" element={<BlogPage />} />
-      <Route path="/ats-tips" element={<ATSResumeTips />} />
-      <Route path="/contributors" element={<Contributors />} />
-      <Route path="/demo-templates" element={<ResumeTemplates />} />
-      <Route path="/resume-guide" element={<ResumeGuide />} />
-      <Route path="*" element={<LostPage />} />
+    <ResumeBuilderProvider>
+      <Routes>
+        {/* Public Routes */}
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/signup" element={<SignUp />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="/verify-email" element={<VerifyEmail />} />
+        <Route path="/reset-password" element={<ResetPassword />} />
+        <Route path="/blog" element={<BlogPage />} />
+        <Route path="/ats-tips" element={<ATSResumeTips />} />
+        <Route path="/contributors" element={<Contributors />} />
+        <Route path="/demo-templates" element={<ResumeTemplates />} />
+        <Route path="/resume-guide" element={<ResumeGuide />} />
+        <Route path="/jd-analyzer" element={<JDAnalyzer />} />
+        <Route path="*" element={<LostPage />} />
 
-      {/* Navbar Routes */}
-      <Route path="/app" element={<Navbar />}>
-        <Route index element={<Navigate to="/app/upload" />} />
-        <Route path="upload" element={<Dashboard />} />
-        <Route path="score" element={<ResumeScore />} />
-        <Route path="improve" element={<ImproveResume />} />
-        <Route path="generate-ats-resume" element={<GenerateAtsResume />} />
-      </Route>
+        {/* Dashboard Routes */}
+        <Route path="/app" element={<Navbar />}>
+          <Route index element={<Navigate to="/app/upload" />} />
+          <Route path="upload" element={<Dashboard />} />
+          <Route path="score" element={<ResumeScore />} />
+          <Route path="improve" element={<ImproveResume />} />
+          <Route path="generate-ats-resume" element={<GenerateAtsResume />} />
+        </Route>
 
-      {/* Resume Builder Routes */}
-      <Route path="/builder" element={<ResumeBuilderNavBar />}>
-        <Route path="education" element={<Education />} />
-        <Route path="personal" element={<PersonalInformation />} />
-        <Route path="CertificatePage" element={<CertificatePage />} />
-        <Route path="AddCertificatePage" element={<AddCertificatePage />} />
-        <Route path="experience" element={<WorkExperience />} />
-        <Route path="languages" element={<Language />} />
-        <Route path="achievements" element={<Achievements />} />
-        <Route path="settings" element={<Settings />} />
-        <Route path="resume-preview" element={<ResumePreview />} />
-        <Route path="skills" element={<Skills />} />
-      </Route>
+        {/* Resume Builder Routes */}
+        <Route path="/builder" element={<ResumeBuilderNavBar />}>
+          <Route path="education" element={<Education />} />
+          <Route path="personal" element={<PersonalInformation />} />
+          <Route path="CertificatePage" element={<CertificatePage />} />
+          <Route path="AddCertificatePage" element={<AddCertificatePage />} />
+          <Route path="experience" element={<WorkExperience />} />
+          <Route path="languages" element={<Language />} />
+          <Route path="achievements" element={<Achievements />} />
+          <Route path="settings" element={<Settings />} />
+          <Route path="resume-preview" element={<ResumePreview />} />
+          <Route path="skills" element={<Skills />} />
+        </Route>
 
-      {/* User's Blog Dashboard */}
-      <Route path="/dashboard/blogs" element={<UserBlogDashboard />} />
-    </Routes>
+        {/* Blog Dashboard */}
+        <Route path="/dashboard/blogs" element={<UserBlogDashboard />} />
+      </Routes>
+    </ResumeBuilderProvider>
   );
 };
 

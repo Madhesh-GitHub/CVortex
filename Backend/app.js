@@ -15,6 +15,8 @@ import userRoute from "./Routes/userRoute.js";
 import uploadRoutes from "./Routes/uploadRoute.js";
 import blogRoute from "./Routes/blogRoute.js";
 import resumeRoute from "./Routes/resumeRoute.js";
+import resumeBuilderRoutes from "./Routes/resumeBuilderRoutes.js";
+import jdRoutes from './Routes/jdRoutes.js';
 
 // Load environment variables
 dotenv.config();
@@ -34,10 +36,12 @@ app.use(express.json());
 // API Routes
 app.use("/api/users", userRoute);
 app.use("/api/uploads", uploadRoutes);
-app.use("/api/blogs", blogRoute); // ✅ Blog routes like /api/blogs/user/:userId
-app.use("/api", resumeRoute);     // Resume routes like /api/resume/score
+app.use("/api/blogs", blogRoute);
+app.use("/api", resumeRoute);
+app.use("/api/resume-builder", resumeBuilderRoutes);
+app.use("/api/jd", jdRoutes);
 
-// Save route for main branch
+// Save Route
 app.post("/save", (req, res) => {
   const { step, data } = req.body;
 
