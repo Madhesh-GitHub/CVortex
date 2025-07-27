@@ -1,36 +1,43 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router";
+import Header from "../components/Header/Header";
 
 const ForgotPassword = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
 
   const handleSubmit = async (e) => {
-  e.preventDefault();
+    e.preventDefault();
 
-  const response = await fetch('http://localhost:5000/api/users/forgot-password', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ email }),
-  });
+    const response = await fetch(
+      "http://localhost:5000/api/users/forgot-password",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      }
+    );
 
-  const data = await response.json();
+    const data = await response.json();
 
-  if (response.ok) {
-    localStorage.setItem("resetEmail", email); // ✅ Save email here
-    alert(data.message);
-    navigate('/verify-email');
-  } else {
-    alert(data.message);
-  }
-};
-
+    if (response.ok) {
+      localStorage.setItem("resetEmail", email); // ✅ Save email here
+      alert(data.message);
+      navigate("/verify-email");
+    } else {
+      alert(data.message);
+    }
+  };
 
   return (
-    <div className="forgot">
-      <div className="min-h-screen flex items-center justify-center bg-white px-4">
+    <div className="forgot min-h-screen bg-white">
+      <div className="w-full">
+        <Header />
+      </div>
+
+      <div className="flex items-center justify-center w-full px-4 mt-[100px]">
         <div className="max-w-md w-full space-y-8 text-center border border-gray-200 rounded-xl shadow-sm p-8">
-          <h2 className="mt-6 text-2xl font-semibold text-gray-900">
+          <h2 className="mt-2 text-2xl font-semibold text-gray-900">
             Forgot your password?
           </h2>
           <p className="text-sm text-gray-500">

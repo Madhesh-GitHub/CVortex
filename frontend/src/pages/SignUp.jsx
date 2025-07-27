@@ -1,20 +1,20 @@
-import React, { useState } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
-import { Mail, Lock, User } from 'lucide-react';
-import { motion } from 'framer-motion';
-import illustration from '/image.png';
-import InputField from '../components/InputField';
-import AuthFooter from '../components/AuthFooter';
-import Header from '../components/Header/Header';
-import { COLORS } from '../styles/colors';
-import axios from 'axios';
+import React, { useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
+import { Mail, Lock, User } from "lucide-react";
+import { motion } from "framer-motion";
+import illustration from "/image.png";
+import InputField from "../components/InputField";
+import AuthFooter from "../components/AuthFooter";
+import Header from "../components/Header/Header";
+import { COLORS } from "../styles/colors";
+import axios from "axios";
 
 const SignUp = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    password: '',
-    confirmPassword: '',
+    name: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
   });
 
   const [errors, setErrors] = useState({});
@@ -31,33 +31,33 @@ const SignUp = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
     // Clear error when user starts typing
     if (errors[e.target.name]) {
-      setErrors({ ...errors, [e.target.name]: '' });
+      setErrors({ ...errors, [e.target.name]: "" });
     }
   };
 
   const validateForm = () => {
     const newErrors = {};
-    
+
     if (!formData.name.trim()) {
-      newErrors.name = 'Full name is required';
+      newErrors.name = "Full name is required";
     }
-    
+
     if (!formData.email.trim()) {
-      newErrors.email = 'Email is required';
+      newErrors.email = "Email is required";
     } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      newErrors.email = 'Please enter a valid email address';
+      newErrors.email = "Please enter a valid email address";
     }
-    
+
     if (!formData.password.trim()) {
-      newErrors.password = 'Password is required';
+      newErrors.password = "Password is required";
     } else if (formData.password.length < 6) {
-      newErrors.password = 'Password must be at least 6 characters long';
+      newErrors.password = "Password must be at least 6 characters long";
     }
-    
+
     if (!formData.confirmPassword.trim()) {
-      newErrors.confirmPassword = 'Please confirm your password';
+      newErrors.confirmPassword = "Please confirm your password";
     } else if (formData.password !== formData.confirmPassword) {
-      newErrors.confirmPassword = 'Passwords do not match';
+      newErrors.confirmPassword = "Passwords do not match";
     }
 
     return newErrors;
@@ -77,25 +77,28 @@ const SignUp = () => {
     }
 
     try {
-      const response = await axios.post('http://localhost:5000/api/users/signup', {
-        name: formData.name,
-        email: formData.email,
-        password: formData.password,
-      });
+      const response = await axios.post(
+        "http://localhost:5000/api/users/signup",
+        {
+          name: formData.name,
+          email: formData.email,
+          password: formData.password,
+        }
+      );
 
       const { data } = response;
 
       // Store token in sessionStorage (session-based)
-      sessionStorage.setItem('token', data.token);
-      sessionStorage.setItem('user', JSON.stringify(data.user));
-      
+      sessionStorage.setItem("token", data.token);
+      sessionStorage.setItem("user", JSON.stringify(data.user));
+
       // Check if there's a redirect path, otherwise default to /app
       const redirectTo = location.state?.redirectTo || "/app";
       navigate(redirectTo);
     } catch (error) {
       // Axios provides better error handling
-      const errorMessage = error.response?.data?.message || 'Signup failed';
-      if (errorMessage.includes('email')) {
+      const errorMessage = error.response?.data?.message || "Signup failed";
+      if (errorMessage.includes("email")) {
         setErrors({ email: errorMessage });
       } else {
         setErrors({ general: errorMessage });
@@ -108,24 +111,28 @@ const SignUp = () => {
   return (
     <>
       <Header />
-      <motion.div 
+      <motion.div
         className="flex flex-col md:flex-row bg-white rounded-2xl shadow-md overflow-hidden"
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, ease: "easeOut" }}
       >
         {/* Form Section */}
-        <motion.div 
-          className="w-full md:w-1/2 p-8"
+        <motion.div
+          className="w-full md:w-1/2 p-8 ml-[20px]"
           initial={{ x: -100, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ delay: 0.2, duration: 0.7, type: "spring" }}
         >
           <div className="text-center">
-            <h2 className="text-2xl font-bold" style={{ color: COLORS.primary }}>
-              <i className="fa-solid fa-file-lines text-xl" style={{ color: COLORS.primary }}></i> ATS Resume Checker
+            <img
+              src="logo.png"
+              alt="Logo"
+              className="h-20 w-auto max-w-[150px] object-contain mx-auto"
+            />
+            <h2 className="mt-[-10px] font-semibold" style={{ color: COLORS.primary }}>
+              Create your account
             </h2>
-            <p className="text-sm mt-1" style={{ color: COLORS.textMuted }}>Create your account</p>
           </div>
 
           {errors.general && (
@@ -135,78 +142,91 @@ const SignUp = () => {
           )}
 
           <form onSubmit={handleSubmit} className="space-y-5 mt-4">
-            <InputField
-              label="Full Name"
-              icon={User}
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              placeholder="Enter your full name"
-              error={!!errors.name}
-              errorMessage={errors.name}
-              disabled={loading}
-            />
-            
-            <InputField
-              label="Email Address"
-              icon={Mail}
-              type="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              placeholder="Enter your email address"
-              error={!!errors.email}
-              errorMessage={errors.email}
-              disabled={loading}
-            />
-            
-            <InputField
-              label="Password"
-              icon={Lock}
-              name="password"
-              value={formData.password}
-              onChange={handleChange}
-              placeholder="Create a password"
-              showToggle
-              showPassword={toggle.password}
-              onToggle={() =>
-                setToggle((prev) => ({ ...prev, password: !prev.password }))
-              }
-              error={!!errors.password}
-              errorMessage={errors.password}
-              disabled={loading}
-            />
-            
-            <InputField
-              label="Confirm Password"
-              icon={Lock}
-              name="confirmPassword"
-              value={formData.confirmPassword}
-              onChange={handleChange}
-              placeholder="Confirm your password"
-              showToggle
-              showPassword={toggle.confirmPassword}
-              onToggle={() =>
-                setToggle((prev) => ({
-                  ...prev,
-                  confirmPassword: !prev.confirmPassword,
-                }))
-              }
-              error={!!errors.confirmPassword}
-              errorMessage={errors.confirmPassword}
-              disabled={loading}
-            />
+             <InputField
+    label="Full Name"
+    icon={User}
+    name="name"
+    value={formData.name}
+    onChange={handleChange}
+    placeholder="Enter your full name"
+    error={!!errors.name}
+    errorMessage={errors.name}
+    disabled={loading}
+  />
+
+  <InputField
+    label="Email Address"
+    icon={Mail}
+    type="email"
+    name="email"
+    value={formData.email}
+    onChange={handleChange}
+    placeholder="Enter your email address"
+    error={!!errors.email}
+    errorMessage={errors.email}
+    disabled={loading}
+  />
+
+  <InputField
+    label="Password"
+    icon={Lock}
+    name="password"
+    value={formData.password}
+    onChange={handleChange}
+    placeholder="Create a password"
+    showToggle
+    showPassword={toggle.password}
+    onToggle={() =>
+      setToggle((prev) => ({ ...prev, password: !prev.password }))
+    }
+    error={!!errors.password}
+    errorMessage={errors.password}
+    disabled={loading}
+  />
+
+  <InputField
+    label="Confirm Password"
+    icon={Lock}
+    name="confirmPassword"
+    value={formData.confirmPassword}
+    onChange={handleChange}
+    placeholder="Confirm your password"
+    showToggle
+    showPassword={toggle.confirmPassword}
+    onToggle={() =>
+      setToggle((prev) => ({
+        ...prev,
+        confirmPassword: !prev.confirmPassword,
+      }))
+    }
+    error={!!errors.confirmPassword}
+    errorMessage={errors.confirmPassword}
+    disabled={loading}
+  />
 
             <div className="text-sm" style={{ color: COLORS.textMuted }}>
               <label className="flex items-start gap-2">
-                <input type="checkbox" required className="mt-1" disabled={loading} />
+                <input
+                  type="checkbox"
+                  required
+                  className="mt-1"
+                  disabled={loading}
+                />
                 <span>
-                  I agree to the{' '}
-                  <a href="/terms" style={{ color: COLORS.secondary }} className="hover:underline">
+                  I agree to the{" "}
+                  <a
+                    href="/terms"
+                    style={{ color: COLORS.secondary }}
+                    className="hover:underline"
+                  >
                     Terms of Service
-                  </a>{' '}
-                  and{' '}
-                  <a href="/privacy" style={{ color: COLORS.secondary }} className="hover:underline">
+                  </a>{" "}
+                  and{" "}
+                  <a
+                    href="/privacy"
+                    style={{ color: COLORS.secondary }}
+                    className="hover:underline"
+                  >
                     Privacy Policy
                   </a>
                 </span>
@@ -217,14 +237,19 @@ const SignUp = () => {
               type="submit"
               disabled={loading}
               className="w-full py-2 text-white rounded-md font-medium transition disabled:opacity-50 disabled:cursor-not-allowed"
-              style={{ 
+              style={{
                 background: loading ? COLORS.textMuted : COLORS.primary,
-                cursor: loading ? "not-allowed" : "pointer"
+                cursor: loading ? "not-allowed" : "pointer",
               }}
-              whileHover={!loading ? { scale: 1.02 } : {}}
-              whileTap={!loading ? { scale: 0.98 } : {}}
+              whileHover={
+              !loading
+                ? {
+                    backgroundColor: "#4F46E5", 
+                  }
+                : {}
+            }
             >
-              {loading ? 'Creating Account...' : 'Create Account'}
+              {loading ? "Creating Account..." : "Create Account"}
             </motion.button>
           </form>
 
@@ -232,7 +257,7 @@ const SignUp = () => {
         </motion.div>
 
         {/* Image Section */}
-        <motion.div 
+        <motion.div
           className="hidden md:flex w-1/2 items-center justify-center p-6"
           style={{ background: COLORS.background }}
           initial={{ x: 100, opacity: 0 }}

@@ -1,6 +1,6 @@
 .login-root {
     display: flex;
-    min-height: 100vh;
+    min-height: 80vh;
     background: #F9FAFB;
   }
   
@@ -15,6 +15,12 @@
   .login-left {
     background: #F9FAFB;
     padding: 40px;
+  }
+
+  .login-left h1 {
+    color: #0369A1;
+    font-size: 35px;
+    font-weight: 700;
   }
   
   .login-illustration {
@@ -62,6 +68,12 @@
     background: #F9FAFB;
     color: #1F2937;
   }
+
+  .login-form input:focus {
+  outline: none;
+  border-color: #3B82F6;
+}
+
   
   .login-forgot {
     text-align: right;
@@ -102,7 +114,7 @@
   .login-google {
     width: 100%;
     padding: 10px;
-    border: 1.5px solid #0EA5E9;
+    border: 1.5px solid #589ebf;
     border-radius: 6px;
     background: #fff;
     font-weight: 600;

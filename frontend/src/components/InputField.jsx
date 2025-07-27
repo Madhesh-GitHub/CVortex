@@ -1,10 +1,10 @@
-import React from 'react';
-import { Eye, EyeOff } from 'lucide-react';
+import React from "react";
+import { Eye, EyeOff } from "lucide-react";
 
 const InputField = ({
   label,
   icon: Icon,
-  type = 'text',
+  type = "text",
   name,
   value,
   onChange,
@@ -13,7 +13,7 @@ const InputField = ({
   onToggle,
   showPassword,
   error = false,
-  errorMessage = '',
+  errorMessage = "",
 }) => {
   return (
     <div className="flex flex-col gap-1">
@@ -23,15 +23,15 @@ const InputField = ({
           <Icon size={16} />
         </span>
         <input
-          type={showToggle ? (showPassword ? 'text' : 'password') : type}
+          type={showToggle ? (showPassword ? "text" : "password") : type}
           name={name}
           value={value}
           onChange={onChange}
           placeholder={placeholder}
-          className={`w-full pl-10 pr-10 py-2 border rounded-md outline-none placeholder-gray-500 focus:ring-2 ${
+          className={`w-full pl-10 pr-10 py-2 border rounded-md outline-none placeholder-gray-500 transition-all duration-200 ${
             error
-              ? 'border-red-500 focus:ring-red-400'
-              : 'border-gray-300 focus:ring-emerald-500'
+              ? "border-red-500 focus:ring-red-400"
+              : "border-gray-300 focus: focus:ring-[#3B82F6] focus:border-[#3B82F6]"
           }`}
           required
         />

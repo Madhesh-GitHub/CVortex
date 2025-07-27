@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import Header from "../components/Header/Header";
 
 const ResetPassword = () => {
   const navigate = useNavigate();
@@ -44,6 +45,10 @@ const ResetPassword = () => {
   };
 
   return (
+    <div className="reset-password min-h-screen bg-white">
+      <div className="w-full">
+        <Header />
+      </div>
     <div className="min-h-screen flex items-center justify-center bg-white">
       <div className="w-full max-w-md p-8 space-y-6 border rounded-md shadow-sm">
         <div className="text-center">
@@ -103,6 +108,7 @@ const ResetPassword = () => {
           ← Back to login
         </div>
       </div>
+    </div>
     </div>
   );
 };
