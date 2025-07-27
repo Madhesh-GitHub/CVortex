@@ -30,6 +30,7 @@ import VerifyEmail from './pages/VerifyEmail';
 import ResetPassword from './pages/ResetPassword';
 import ResumeGuide from './pages/ResumeGuide'
 import JDAnalyzer from './pages/JDAnalyzer'
+import UserBlogDashboard from './pages/UserBlogDashboard';
 
 
 import { Navigate } from "react-router-dom";
@@ -67,20 +68,22 @@ const App = () => {
         </Route>
 
         {/* Resume Builder Routes */}
-        <Route path="/builder" element={<ResumeBuilderNavBar />}>
-          <Route path="education" element={<Education />} />
-          <Route path="personal" element={<PersonalInformation />} />
-          <Route path="CertificatePage" element={<CertificatePage />} />
-          <Route path="AddCertificatePage" element={<AddCertificatePage />} />
-          <Route path="experience" element={<WorkExperience />} />
-          <Route path="languages" element={<Language />} />
-          <Route path="achievements" element={<Achievements />} />
-          <Route path="settings" element={<Settings />} />
-          <Route path="resume-preview" element={<ResumePreview />} />
-          <Route path="skills" element={<Skills/>} />
+       <Route path="/builder" element={<ResumeBuilderNavBar />}>
+  <Route path="education" element={<Education />} />
+  <Route path="personal" element={<PersonalInformation />} />
+  <Route path="CertificatePage" element={<CertificatePage />} />
+  <Route path="AddCertificatePage" element={<AddCertificatePage />} />
+  <Route path="experience" element={<WorkExperience />} />
+  <Route path="languages" element={<Language />} />
+  <Route path="achievements" element={<Achievements />} />
+  <Route path="settings" element={<Settings />} />
+  <Route path="resume-preview" element={<ResumePreview />} />
+  <Route path="skills" element={<Skills />} />
 
-
-        </Route>
+  {/* ✅ Fixed: now it's relative to /builder */}
+  
+</Route>
+<Route path="/dashboard/blogs" element={<UserBlogDashboard />} />
       </Routes>
       </ResumeBuilderProvider>
     </>
