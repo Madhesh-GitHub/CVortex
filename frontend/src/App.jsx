@@ -36,6 +36,9 @@ import Features from './pages/Features'
 import Setting from './pages/Setting'
 import { Navigate } from "react-router-dom";
 import { ResumeBuilderProvider } from './contexts/ResumeBuilderContext';
+import TermsAndConditions from './pages/TermsAndConditions'; 
+import PrivacyPolicy from './pages/PrivacyPolicy';
+
 
 
 const App = () => {
@@ -87,6 +90,8 @@ const App = () => {
   
 </Route>
 <Route path="/dashboard/blogs" element={<UserBlogDashboard />} />
+<Route path="/terms" element={<TermsAndConditions />} />
+<Route path="/privacy" element={<PrivacyPolicy />} />
       </Routes>
       </ResumeBuilderProvider>
     </>
