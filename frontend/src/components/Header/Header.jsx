@@ -11,7 +11,7 @@ const Header = () => {
       <div className="flex justify-between items-center px-6 py-4">
         {/* Logo */}
         <div className="text-white font-bold text-xl ">
-          ATS Tool
+          CVortex
         </div>
 
         {/* Desktop Nav */}
