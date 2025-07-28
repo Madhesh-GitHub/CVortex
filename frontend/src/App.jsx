@@ -32,6 +32,7 @@ import ResumeGuide from './pages/ResumeGuide'
 import JDAnalyzer from './pages/JDAnalyzer'
 import UserBlogDashboard from './pages/UserBlogDashboard';
 import Help from './pages/Help';
+import Features from './pages/Features'
 import Setting from './pages/Setting'
 import { Navigate } from "react-router-dom";
 import { ResumeBuilderProvider } from './contexts/ResumeBuilderContext';
@@ -65,6 +66,7 @@ const App = () => {
           <Route path="improve" element={<ImproveResume />} />
           <Route path="generate-ats-resume" element={<GenerateAtsResume />} />
           <Route path="help" element={<Help/>}/>
+          <Route path="features" element={<Features/>}/>
           <Route path="settings" element={<Setting/>}/>
         </Route>
 
