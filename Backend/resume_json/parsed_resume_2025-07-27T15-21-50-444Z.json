@@ -1,0 +1,30 @@
+{
+  "personalInfo": {
+    "firstName": "Madhesh",
+    "lastName": "K",
+    "email": "madheshk7239087@gmail.com",
+    "phone": "8782727",
+    "linkedIn": "",
+    "portfolio": "",
+    "headline": "",
+    "street": "",
+    "apartment": "",
+    "city": "",
+    "state": "",
+    "zip": "",
+    "country": "",
+    "remote": "false",
+    "relocate": "false"
+  },
+  "workExperience": [],
+  "education": [],
+  "skills": {},
+  "achievements": [],
+  "languages": [
+    {
+      "language": "English",
+      "proficiency": "Native"
+    }
+  ],
+  "certificates": []
+}
