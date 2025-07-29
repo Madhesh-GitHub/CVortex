@@ -44,16 +44,16 @@ We welcome contributions! Here's how you can help:
      cd your-repo-name
      ```
 3.Install dependencies and run:
-       ```bash 
-         cd backend
-         npm install
-         npm run dev
-       ```
-       ```bash
-         cd ../frontend
-         npm install
-         npm run dev
-       ```
+  ```bash 
+      cd backend
+      npm install
+      npm run dev
+  ```
+  ```bash
+      cd ../frontend
+      npm install
+      npm run dev
+  ```
 4. Create a new branch:  
    ```bash
    git checkout -b feature/YourFeatureName
