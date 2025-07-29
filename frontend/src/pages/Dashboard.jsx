@@ -143,6 +143,7 @@ navigate("/app/score", {
                   {fileName && <div className="upload-filename">{fileName}</div>}
                 </div>
               </div>
+               <h2 style={{ color: COLORS.primary }}>(optional)</h2>
               <textarea
                 className="upload-jobdesc"
                 placeholder="Paste the job description here..."

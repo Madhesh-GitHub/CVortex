@@ -32,47 +32,86 @@ export const scoreResume = async (req, res) => {
         const jdPath = path.join("parsed_content", jdFile);
         jd = await fs.readFile(jdPath, "utf-8");
         }
-
-    const prompt = `
-You are an expert resume reviewer.
+const prompt = `
+You are an expert AI resume reviewer.
 
 Your task is to:
-1. If only resume is provided, first identify the most likely job role the person is applying for.
-2. Based on that role, evaluate the resume.
-3. If a job description is provided, compare the resume with the JD instead.
+1. If only a resume is provided, identify the most likely job role the candidate is targeting.
+2. If a job description (JD) is also provided, compare the resume with the JD.
+3. Extract the candidate's full name from the resume.
+4. Analyze the resume's strengths, weaknesses, formatting, and skills relevance.
+5. Evaluate ATS compatibility and offer actionable improvement suggestions.
+6. Return everything in valid JSON using the structure below.
 
-Return the result in this strict JSON format:
+Strict JSON format:
 
 {
-  "guessed_role": string (the likely job role, e.g., 'Full-Stack Developer'),
+  "candidate_name": string,
+  "guessed_role": string,
+  "suitable_roles": [string],  // Based on resume: e.g., ["Frontend Developer", "Full Stack Developer"]
   "score": number (0–100),
-  "short_summary": string (max 2 lines),
-  "highlights": [list of 3–5 strengths],
-  "improvement_tips": [list of 3–5 clear suggestions],
-  "formatting_feedback": [list of formatting suggestions],
+  "short_summary": string,
+  "job_description_summary": string,  // short 1–2 line summary of the JD if provided
+  "ai_feedback_summary": string,  // short, friendly, overall AI comment/encouragement
+  "strengths": [string],
+  "areas_to_improve": [string],
+  "formatting_feedback": [string],
   "example_rewrites": [
     { "original": string, "suggested": string }
   ],
+  "section_feedback": {
+    "summary": string,
+    "experience": string,
+    "skills": string,
+    "projects": string,
+    "education": string
+  },
   "quality_breakdown": {
-    "formatting": number (0–10),
-    "clarity": number (0–10),
-    "relevance": number (0–10),
-    "conciseness": number (0–10),
-    "action_verbs": number (0–10)
+    "formatting": number,
+    "clarity": number,
+    "relevance": number,
+    "conciseness": number,
+    "action_verbs": number
   },
   "skills_match": {
-    "matched": [list of matched skills from JD if provided],
-    "missing": [list of missing skills from JD if provided]
-  }
+    "matched": [string],
+    "missing": [string]
+  },
+  "skills_match_score": number,  // out of 100
+  "ats_compatibility": {
+    "score": number (0–10),
+    "issues": [string]
+  },
+  "ats_score_label": string,  // "Awesome", "Good", "Average", "Poor", "Needs Major Improvement"
+  "personality_traits": [string],
+  "weak_phrases": [string],
+  "suggested_keywords": [string],
+  "summary_cta_suggestions": [string],
+  "project_analysis": [
+    {
+      "title": string,
+      "score": number,
+      "feedback": string
+    }
+  ],
+  "common_mistakes": [string],
+  "industry_tags": [string],
+  "missing_links": [string],
+  "redundant_content": [string],
+  "tone_suggestion": string,
+  "overall_professionalism": string
 }
 
-Only return valid JSON. No extra explanation, markdown, or symbols.
+Only return a valid JSON object. DO NOT use markdown, backticks, or any surrounding text.
 
 Resume:
 ${resume}
 
 ${jd ? `Job Description:\n${jd}` : ''}
 `;
+
+
+
 
 
     const chatCompletion = await groq.chat.completions.create({
