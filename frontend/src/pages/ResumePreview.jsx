@@ -7,7 +7,7 @@ export default function ResumePreview() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [generationSuccess, setGenerationSuccess] = useState(false);
-  const [zoomLevel, setZoomLevel] = useState(85); // Start at 85% for better fit
+  const [zoomLevel, setZoomLevel] = useState(50); // Start at 50% for better fit
   const [isFullscreen, setIsFullscreen] = useState(false);
 
   // Auto-generate on component mount

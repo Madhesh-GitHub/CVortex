@@ -1,0 +1,32 @@
+=== CERTIFICATE DATA ===
+0: {
+  title: UI/UX Design Mastery
+  issuer: Graphic Design Institute
+  issueDate: May 2022
+  expiryDate: May 2025
+  credentialId: 
+  credentialUrl: 
+  description: Validates expertise in designing user-centered digital products.
+}
+1: {
+  title: AWS Certified Cloud Practitioner
+  issuer: AWS
+  issueDate: January 2023
+  expiryDate: No Expiration
+  credentialId: 
+  credentialUrl: 
+  description: Certification for designing and building data processing systems on AWS.
+}
+2: {
+  title: Data Science & Analytics
+  issuer: HP Life
+  issueDate: August 2021
+  expiryDate: August 2023
+  credentialId: 
+  credentialUrl: 
+  description: Demonstrates knowledge of data science principles and analytics techniques.
+}
+
+
+=== LANGUAGES DATA ===
+0: {"language":"English","proficiency":"Native"}
