@@ -38,18 +38,32 @@ The **ATS Resume Builder** is a web application designed to help job seekers cre
 We welcome contributions! Here's how you can help:
 
 1. **Fork** the repository.
-2. Create a new branch:  
+2. clone and navigate:
+  ```bash
+   git clone `git clone https://github.com/your-username/your-repo-name.git`
+   cd your-repo-name
+   ```
+3.Install dependencies and run:
+  ```bash
+   cd backend
+   npm install
+   npm run dev
+   cd ../frontend
+   npm install
+   npm run dev
+   ```
+4. Create a new branch:  
    ```bash
    git checkout -b feature/YourFeatureName
    ```
-3. Make your changes and commit:  
+5. Make your changes and commit:  
    ```bash
    git commit -m "Added new feature"
    ```
-4. Push to your branch:  
+6. Push to your branch:  
    ```bash
    git push origin feature/YourFeatureName
    ```
-5. Open a **Pull Request**.
+7. Open a **Pull Request**.
 
 Please ensure your code follows project conventions and includes appropriate documentation or comments.
