@@ -21,21 +21,30 @@ const ResumeBuilderSideNav = ({ isSidebarOpen, setIsSidebarOpen }) => {
   const activePath = location.pathname;
 
   return (
-    <aside className={`fixed top-0 left-0 h-full bg-[#0EA5E9] text-[#fff] border-r border-[#eee] transition-all duration-300 ease-in-out ${isSidebarOpen ? "w-[220px]" : "w-[60px]"}`}>
+    <aside className={`fixed top-0 left-0 h-full bg-[#0EA5E9] text-white border-r border-[#eee] transition-all duration-300 ease-in-out z-40 ${isSidebarOpen ? "w-[220px]" : "w-[60px]"}`}>
+      {/* Header with Logo + Toggle */}
       <div className="relative flex items-center h-16 px-4 border-b border-[#eee] shadow">
         <img src="/logo.jpg" alt="Logo" className="h-10 w-10 rounded-full" />
-        {isSidebarOpen && <span className="ml-3 font-bold text-md tracking-wide text-gray-200">Resume Builder</span>}
+        {isSidebarOpen && (
+          <span className="ml-3 font-bold text-md tracking-wide text-gray-200">
+            Resume Builder
+          </span>
+        )}
+        {/* Toggle Button */}
         <button
           onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-          className="absolute top-1/2 -right-4 transform -translate-y-1/2 bg-blue-100 border border-blue-300 text-blue-700 rounded-full p-1 hover:bg-blue-200"
+          className="absolute top-1/2 right-[-12px] -translate-y-1/2 bg-blue-100 border border-blue-300 text-blue-700 rounded-full p-1 z-50 hover:bg-blue-200"
+          aria-label="Toggle Sidebar"
         >
-          {isSidebarOpen
-            ? <ChevronLeft size={14} className="text-blue-700" />
-            : <ChevronRight size={14} className="text-blue-700" />
-          }
+          {isSidebarOpen ? (
+            <ChevronLeft size={14} className="text-blue-700" />
+          ) : (
+            <ChevronRight size={14} className="text-blue-700" />
+          )}
         </button>
       </div>
 
+      {/* Navigation Items */}
       <nav className="flex-1 px-2 py-4 space-y-1">
         <NavItem icon={<Home size={18} />} label="Dashboard" path="/builder" isOpen={isSidebarOpen} activePath={activePath} />
         <NavItem icon={<User size={18} />} label="Personal Info" path="/builder/personal" isOpen={isSidebarOpen} activePath={activePath} />
@@ -60,7 +69,7 @@ const NavItem = ({ icon, label, path, isOpen, activePath }) => {
   return (
     <div
       className={`flex items-center space-x-3 p-2 rounded-md cursor-pointer transition 
-    ${isActive
+        ${isActive
           ? "bg-white text-[#1274b1] font-semibold"
           : "hover:bg-white hover:text-[#1274b1] text-white"
         }`}
