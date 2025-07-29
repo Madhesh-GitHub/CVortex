@@ -32,7 +32,7 @@ const SideNav = ({ isSidebarOpen, setIsSidebarOpen }) => {
         <NavItem icon={<Home size={18} />} label="Home" path="/" isOpen={isSidebarOpen} activePath={activePath} />
         <NavItem icon={<Upload size={18} />} label="Upload Resume" path="/app/upload" isOpen={isSidebarOpen} activePath={activePath} />
         <NavItem icon={<Activity size={18} />} label="Resume Score" path="/app/score" isOpen={isSidebarOpen} activePath={activePath} />
-        <NavItem icon={<FileText size={18} />} label="Improve Resume" path="/app/improve" isOpen={isSidebarOpen} activePath={activePath} />
+        {/* <NavItem icon={<FileText size={18} />} label="Improve Resume" path="/app/improve" isOpen={isSidebarOpen} activePath={activePath} /> */}
         <NavItem icon={<FileText size={18} />} label="Generate ATS Resume" path="/app/generate-ats-resume" isOpen={isSidebarOpen} activePath={activePath} />
         
         {/* <NavItem icon={<Search size={18} />} label="JD Analyzer" path="/app/jd-analyzer" isOpen={isSidebarOpen} activePath={activePath} /> */}
