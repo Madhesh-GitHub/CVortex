@@ -45,14 +45,14 @@ We welcome contributions! Here's how you can help:
      ```
 3.Install dependencies and run:
   ```bash 
-      cd backend
-      npm install
-      npm run dev
+  cd backend
+  npm install
+  npm run dev
   ```
   ```bash
-      cd ../frontend
-      npm install
-      npm run dev
+  cd ../frontend
+  npm install
+  npm run dev
   ```
 4. Create a new branch:  
    ```bash
