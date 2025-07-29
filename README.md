@@ -39,19 +39,21 @@ We welcome contributions! Here's how you can help:
 
 1. **Fork** the repository.
 2. clone and navigate:
-  ```bash
-   git clone `git clone https://github.com/your-username/your-repo-name.git`
-   cd your-repo-name
-   ```
+    ```bash
+     git clone `git clone https://github.com/your-username/your-repo-name.git`
+     cd your-repo-name
+     ```
 3.Install dependencies and run:
-  ```bash
-   cd backend
-   npm install
-   npm run dev
-   cd ../frontend
-   npm install
-   npm run dev
-   ```
+    ```bash
+    
+     cd backend
+     npm install
+     npm run dev
+    
+     cd ../frontend
+     npm install
+     npm run dev
+     ```
 4. Create a new branch:  
    ```bash
    git checkout -b feature/YourFeatureName
