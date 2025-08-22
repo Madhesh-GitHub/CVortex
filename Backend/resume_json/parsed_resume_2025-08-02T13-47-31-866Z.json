@@ -1,0 +1,34 @@
+{
+  "personalInfo": {
+    "firstName": "Madhesh",
+    "lastName": "K",
+    "email": "thisismadhesh@gmail.com",
+    "phone": "8782727",
+    "linkedIn": "DWEANDKQ",
+    "portfolio": "27jhhvdjvasd",
+    "headline": "Full Stack DEV",
+    "street": "",
+    "apartment": "",
+    "city": "",
+    "state": "",
+    "zip": "",
+    "country": "",
+    "remote": "false",
+    "relocate": "false"
+  },
+  "workExperience": [
+    {
+      "jobTitle": "Python DEV",
+      "companyName": "BoringCEO",
+      "startDate": "2025-08-02",
+      "endDate": "2025-08-31",
+      "isCurrent": "false",
+      "responsibilities": "test"
+    }
+  ],
+  "education": [],
+  "skills": {},
+  "achievements": [],
+  "languages": [],
+  "certificates": []
+}

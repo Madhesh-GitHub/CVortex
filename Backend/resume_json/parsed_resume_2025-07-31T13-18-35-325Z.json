@@ -1,0 +1,42 @@
+{
+  "personalInfo": {
+    "firstName": "Madhesh",
+    "lastName": "K",
+    "email": "thisismadhesh@gmail.com",
+    "phone": "8778606263",
+    "linkedIn": "wqw",
+    "portfolio": "mmmmmmmmm",
+    "headline": "",
+    "street": "Srisivasakthinagar 2nd street, murugampalayam, induvampalayam, Tiruppur.",
+    "apartment": "",
+    "city": "Tiruppur",
+    "state": "Tamil Nadu",
+    "zip": "641687",
+    "country": "India",
+    "remote": "false",
+    "relocate": "false"
+  },
+  "workExperience": [],
+  "education": [],
+  "skills": {
+    "technicalSkills": [
+      "JavaScript",
+      "Node.js",
+      "MongoDB"
+    ],
+    "softSkills": "",
+    "industrySkills": ""
+  },
+  "achievements": [],
+  "languages": [
+    {
+      "language": "English",
+      "proficiency": "Native"
+    },
+    {
+      "language": "",
+      "proficiency": "Native"
+    }
+  ],
+  "certificates": []
+}

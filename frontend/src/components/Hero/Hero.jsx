@@ -1,9 +1,23 @@
-import React from "react";
-import heroImage from "../../assets/hero-image.png";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Hero = () => {
   const navigate = useNavigate();
+
+  // Load the Lottie web component script
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://unpkg.com/@lottiefiles/dotlottie-wc@0.6.2/dist/dotlottie-wc.js';
+    script.type = 'module';
+    document.head.appendChild(script);
+
+    return () => {
+      // Cleanup script on unmount
+      if (document.head.contains(script)) {
+        document.head.removeChild(script);
+      }
+    };
+  }, []);
 
   const handleUploadClick = () => {
     const token = sessionStorage.getItem("token");
@@ -59,13 +73,21 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* Right Image */}
+        {/* Right Animation */}
         <div className="flex-1 w-full flex justify-center items-center">
-          <img
-            src={heroImage}
-            alt="ATS Optimization Visual"
-            className="w-full max-w-[400px] sm:max-w-[500px] md:max-w-[600px] h-auto object-contain"
-          />
+          <div className="w-full max-w-[400px] sm:max-w-[500px] md:max-w-[600px] flex justify-center">
+            <dotlottie-wc
+              src="https://lottie.host/423e2977-ed6f-4428-a212-5ca6ebbb1832/Q78OHX4b6H.lottie"
+              style={{
+                width: "100%",
+                height: "400px",
+                maxWidth: "500px"
+              }}
+              speed="1"
+              autoplay="true"
+              loop="true"
+            />
+          </div>
         </div>
       </div>
     </div>

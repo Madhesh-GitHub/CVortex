@@ -1,0 +1,39 @@
+{
+  "personalInfo": {},
+  "workExperience": [],
+  "education": [],
+  "skills": {
+    "technicalSkills": [
+      ""
+    ],
+    "softSkills": "",
+    "industrySkills": ""
+  },
+  "achievements": [],
+  "languages": [],
+  "certificates": [
+    {
+      "0": "{"
+    },
+    {
+      "1": "{",
+      "title": "UI/UX Design Mastery",
+      "issuer": "Graphic Design Institute",
+      "issueDate": "May 2022",
+      "expiryDate": "May 2025",
+      "credentialId": "",
+      "credentialUrl": "",
+      "description": "Validates expertise in designing user-centered digital products."
+    },
+    {
+      "2": "{",
+      "title": "AWS Certified Cloud Practitioner",
+      "issuer": "AWS",
+      "issueDate": "January 2023",
+      "expiryDate": "No Expiration",
+      "credentialId": "",
+      "credentialUrl": "",
+      "description": "Certification for designing and building data processing systems on AWS."
+    }
+  ]
+}
