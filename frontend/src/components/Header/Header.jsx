@@ -21,7 +21,11 @@ const Header = () => {
           </li>
           <li className="text-sm cursor-pointer font-medium hover:underline">
             Features
+          </li> 
+            <li className="text-sm  cursor-pointer font-medium hover:underline" onClick={() => navigate('/contributors')}>
+            Contributors
           </li>
+
           <li className="text-sm  cursor-pointer font-medium hover:underline" onClick={() => navigate('/login')}>
             Login
           </li>

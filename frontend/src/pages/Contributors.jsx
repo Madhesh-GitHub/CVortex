@@ -1,6 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaHome } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
+
 
 // Images
 import nandhini from '../assets/Nandhini.jpg';
@@ -99,8 +101,21 @@ const contributors = [
 ];
 
 export default function Contributors() {
+      const navigate = useNavigate();
+
   return (
+
+
     <div className="min-h-screen px-6 py-12 bg-gradient-to-br from-[#fdfbfb] to-[#ebedee]">
+    <button
+  onClick={() => navigate('/')}
+  className="absolute top-6 left-6 p-3 rounded-full bg-white/80 backdrop-blur-md 
+             shadow-md hover:shadow-xl transition-all duration-300 
+             hover:bg-gray-100 text-gray-700 hover:text-black text-2xl"
+  aria-label="Back to Home"
+>
+  <FaHome />
+</button>
       <div className="text-center mb-12">
         <h1 className="text-5xl font-bold text-gray-800 tracking-tight mb-3">Contributors</h1>
         <p className="text-gray-600 max-w-xl mx-auto">We appreciate every contributor who helped shape this project.</p>

@@ -43,7 +43,11 @@ const SideNav = ({ isSidebarOpen, setIsSidebarOpen }) => {
 
       {/* Nav Items */}
       <nav className="flex-1 px-2 py-4 space-y-3">
-        <NavItem icon={<Home size={18} />} label="Home" path="/" isOpen={isSidebarOpen} activePath={activePath} />
+        <NavItem icon={<Home size={18} />} label="Home" path="/" isOpen={isSidebarOpen} activePath={activePath}   onClick={() => {
+    setUploadedResume(null);
+    setGeneratedResume(null);
+    sessionStorage.setItem("clearATS", "true");
+  }} />
         <NavItem icon={<Upload size={18} />} label="Upload Resume" path="/app/upload" isOpen={isSidebarOpen} activePath={activePath} />
         <NavItem icon={<Activity size={18} />} label="Resume Score" path="/app/score" isOpen={isSidebarOpen} activePath={activePath} />
         <NavItem icon={<FileText size={18} />} label="Generate ATS Resume" path="/app/generate-ats-resume" isOpen={isSidebarOpen} activePath={activePath} />
@@ -59,13 +63,21 @@ const SideNav = ({ isSidebarOpen, setIsSidebarOpen }) => {
 const NavItem = ({ icon, label, path, isOpen, activePath }) => {
   const navigate = useNavigate();
   const isActive = activePath === path;
+    const handleClick = () => {
+    if (path === "/") {
+      // Clear all session data when going Home
+      sessionStorage.clear();
+      
+    }
+    navigate(path);
+  };
 
   return (
     <div
       className={`flex items-center space-x-3 p-2 rounded-md cursor-pointer transition ${
         isActive ? "bg-white text-[#6366F1] font-semibold" : "hover:bg-white hover:text-[#6366F1]"
       }`}
-      onClick={() => navigate(path)}
+      onClick={handleClick}
     >
       {icon}
       {isOpen && <span className="text-sm">{label}</span>}
