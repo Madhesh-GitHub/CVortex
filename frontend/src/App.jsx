@@ -75,6 +75,7 @@ const App = () => {
 
         {/* Resume Builder Routes */}
        <Route path="/builder" element={<ResumeBuilderNavBar />}>
+          <Route index element={<Navigate to="/builder/personal" />} /> 
   <Route path="education" element={<Education />} />
   <Route path="personal" element={<PersonalInformation />} />
   <Route path="CertificatePage" element={<CertificatePage />} />

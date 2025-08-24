@@ -46,7 +46,7 @@ const ResumeBuilderSideNav = ({ isSidebarOpen, setIsSidebarOpen }) => {
 
       {/* Navigation Items */}
       <nav className="flex-1 px-2 py-4 space-y-1">
-        <NavItem icon={<Home size={18} />} label="Dashboard" path="/builder" isOpen={isSidebarOpen} activePath={activePath} />
+        <NavItem icon={<Home size={18} />} label="Home" path="/" isOpen={isSidebarOpen} activePath={activePath} />
         <NavItem icon={<User size={18} />} label="Personal Info" path="/builder/personal" isOpen={isSidebarOpen} activePath={activePath} />
         <NavItem icon={<Briefcase size={18} />} label="Work Experience" path="/builder/experience" isOpen={isSidebarOpen} activePath={activePath} />
         <NavItem icon={<GraduationCap size={18} />} label="Education" path="/builder/education" isOpen={isSidebarOpen} activePath={activePath} />
