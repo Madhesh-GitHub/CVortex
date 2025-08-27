@@ -67,7 +67,7 @@ const App = () => {
           <Route path="upload" element={<Dashboard />} />
           <Route path="score" element={<ResumeScore />} />
           <Route path="improve" element={<ImproveResume />} />
-          <Route path="generate-ats-resume" element={<GenerateAtsResume />} />
+          {/* <Route path="generate-ats-resume" element={<GenerateAtsResume />} /> */}
           <Route path="help" element={<Help/>}/>
           <Route path="features" element={<Features/>}/>
           <Route path="settings" element={<Setting/>}/>
