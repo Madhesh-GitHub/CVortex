@@ -144,7 +144,7 @@ Return ONLY the JSON object, no other text.`;
     console.log('🤖 Converting to JSON using Groq...');
     const chatCompletion = await groq.chat.completions.create({
       messages: [{ role: "user", content: prompt }],
-      model: "llama3-70b-8192",
+      model: "llama-3.3-70b-versatile",
       temperature: 0.1, // Lower temperature for more consistent output
       max_completion_tokens: 2048,
       top_p: 1,

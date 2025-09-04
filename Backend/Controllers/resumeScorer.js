@@ -35,6 +35,12 @@ export const scoreResume = async (req, res) => {
 const prompt = `
 You are an expert AI resume reviewer.
 
+CRITICAL INSTRUCTIONS:
+- Return ONLY ONE JSON object
+- DO NOT include markdown formatting (no \`\`\`json or \`\`\`)
+- DO NOT include any text before or after the JSON
+- DO NOT repeat the JSON multiple times
+
 Your task is to:
 1. If only a resume is provided, identify the most likely job role the candidate is targeting.
 2. If a job description (JD) is also provided, compare the resume with the JD.
@@ -116,7 +122,7 @@ ${jd ? `Job Description:\n${jd}` : ''}
 
     const chatCompletion = await groq.chat.completions.create({
       messages: [{ role: "user", content: prompt }],
-      model: "llama3-70b-8192",
+      model: "llama-3.3-70b-versatile",
       temperature: 1,
       max_completion_tokens: 1024,
       top_p: 1,
@@ -124,7 +130,7 @@ ${jd ? `Job Description:\n${jd}` : ''}
     });
 
 const resultText = chatCompletion.choices[0]?.message?.content || "{}";
-
+console.log(resultText)
 let parsed;
 try {
   parsed = JSON.parse(resultText);
