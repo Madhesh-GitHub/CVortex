@@ -16,10 +16,10 @@ const ResumeScore = () => {
   
 const [parsedData] = useState(() => {
   if (location.state?.parsedData) {
-     sessionStorage.setItem("resume_parsed_data", JSON.stringify(location.state.parsedData));
+    localStorage.setItem("resume_parsed_data", JSON.stringify(location.state.parsedData));
     return location.state.parsedData;
   }
- const saved = sessionStorage.getItem("resume_parsed_data");
+  const saved = localStorage.getItem("resume_parsed_data");
   return saved ? JSON.parse(saved) : null;
 });
 
@@ -31,7 +31,7 @@ const jdFile = parsedData?.files?.jdParsed;
 
   const [loading, setLoading] = useState(true);
   const [aiResult, setAiResult] = useState(() => {
-const saved = sessionStorage.getItem("resume_score_result");
+    const saved = localStorage.getItem("resume_score_result");
     return saved ? JSON.parse(saved) : null;
   });
   const [error, setError] = useState(null);
@@ -60,7 +60,7 @@ const saved = sessionStorage.getItem("resume_score_result");
         if (!res.ok) throw new Error(`Server responded with ${res.status}`);
         const data = await res.json();
         setAiResult(data);
-        sessionStorage.setItem("resume_score_result", JSON.stringify(data));
+        localStorage.setItem("resume_score_result", JSON.stringify(data));
       } catch (error) {
         setError("Unable to fetch score. Please try again later.");
       } finally {
@@ -100,8 +100,8 @@ useEffect(() => {
 }, [aiResult?.score, aiResult?.skills_match_score, jdFile]);
 
 const handleReset = () => {
- sessionStorage.removeItem("resume_score_result");
-  sessionStorage.removeItem("resume_parsed_data");
+  localStorage.removeItem("resume_score_result");
+  localStorage.removeItem("resume_parsed_data");
   navigate('/app/upload');
 };
 
@@ -518,7 +518,6 @@ const handleReset = () => {
 };
 
 export default ResumeScore;
-
 
 
 
