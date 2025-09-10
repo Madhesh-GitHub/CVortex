@@ -65,6 +65,7 @@ const App = () => {
         <Route path="/app" element={<Navbar />}>
         <Route index element={<Navigate to="/app/upload" />} /> 
           <Route path="upload" element={<Dashboard />} />
+          <Route path="resume-score" element={<ResumeScore />} />
           <Route path="score" element={<ResumeScore />} />
           <Route path="improve" element={<ImproveResume />} />
           {/* <Route path="generate-ats-resume" element={<GenerateAtsResume />} /> */}

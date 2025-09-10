@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { COLORS } from "../styles/colors";
 import "./Dashboard.css";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 
 export default function Dashboard() {
   // UploadResume logic
@@ -26,56 +26,73 @@ export default function Dashboard() {
 
   const handleAnalyze = async (e) => {
     e.preventDefault();
-
-    if (!fileInput.current.files[0]) {
-      alert("Please upload a resume file first.");
+    
+    console.log('📁 File input:', fileInput.current);
+    console.log('📄 Files:', fileInput.current?.files);
+    console.log('📝 File count:', fileInput.current?.files?.length);
+    
+    if (!fileInput.current?.files?.[0]) {
+      alert('Please select a resume file');
       return;
     }
-setLoading(true);
-    const formData = new FormData();
-    formData.append("resume", fileInput.current.files[0]);
-    
-    // 🔥 ADD THIS LINE - Send job description
-    formData.append("jobDescription", jobDesc);
+
+    const selectedFile = fileInput.current.files[0];
+    console.log('✅ Selected file:', {
+      name: selectedFile.name,
+      size: selectedFile.size,
+      type: selectedFile.type
+    });
+
+    setLoading(true);
 
     try {
-      const res = await fetch("http://localhost:5000/api/uploads", {
-        method: "POST",
+      const sessionId = crypto.randomUUID();
+      console.log('✅ New session started:', sessionId);
+
+      const formData = new FormData();
+      formData.append('resume', selectedFile);
+      formData.append('jobDescription', jobDesc.trim());
+
+      console.log('📤 Sending FormData with:', {
+        file: selectedFile.name,
+        jobDescLength: jobDesc.trim().length
+      });
+
+      const response = await fetch('http://localhost:5000/api/uploads', {
+        method: 'POST',
         body: formData,
       });
 
-      const data = await res.json();
-      console.log("🔁 Response:", res);
-console.log("📦 Response body:", data);
+      console.log('🔁 Response status:', response.status);
+      const data = await response.json();
+      console.log('📦 Response body:', data);
 
-      if (res.ok) {
-        console.log("✅ Parsed Resume Data:", data);
-        console.log("📝 Session ID:", data.sessionId);
-        console.log("📄 Files created:", data.files);
-        setLoading(true);
-               setTimeout(() => {
-navigate("/app/score", {
-  state: {
-    parsedData: {
-      files: {
-        resumeParsed: `resume_${data.sessionId}.txt`,
-        jdParsed: jobDesc ? `job_desc_${data.sessionId}.txt` : null,
-      },
-    },
-  },
-});
-
-
-
-
-      }, 3000);
-        // alert("Resume analyzed successfully!");
+      if (response.ok) {
+        console.log('✅ Upload successful:', data);
+        console.log('🚀 About to navigate to /resume-score');
+        
+        // 🚀 CRITICAL: Make sure navigation happens with proper state
+        navigate('/app/score', {
+          state: {
+            sessionId: data.sessionId,
+            files: data.files,
+            originalFilename: data.originalFilename || selectedFile.name,
+            analysis: data.analysis,
+            hasAnalysis: !!data.analysis,
+            aiError: data.aiError || null
+          }
+        });
+        
+        console.log('✅ Navigation call completed');
       } else {
-        alert(data.message || "Something went wrong!");
+        console.error('❌ Upload failed:', data);
+        alert(`Upload failed: ${data.message || 'Unknown error'}`);
       }
-    } catch (err) {
-      console.error("Upload error:", err);
-      alert("Failed to analyze resume.");
+    } catch (error) {
+      console.error('❌ Network error:', error);
+      alert('Network error. Please check your connection.');
+    } finally {
+      setLoading(false);
     }
   };
  

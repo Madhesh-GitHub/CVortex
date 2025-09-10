@@ -1,5 +1,3 @@
-
-
 import React, { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
@@ -14,28 +12,67 @@ const ResumeScore = () => {
   const location = useLocation();
   const navigate = useNavigate();
   
-const [parsedData] = useState(() => {
-  if (location.state?.parsedData) {
-     sessionStorage.setItem("resume_parsed_data", JSON.stringify(location.state.parsedData));
-    return location.state.parsedData;
-  }
- const saved = sessionStorage.getItem("resume_parsed_data");
-  return saved ? JSON.parse(saved) : null;
-});
+  const [parsedData] = useState(() => {
+    return location.state ? {
+      sessionId: location.state.sessionId,
+      files: location.state.files,
+      originalFilename: location.state.originalFilename,
+      hasAnalysis: location.state.hasAnalysis,
+      analysis: location.state.analysis,
+      aiError: location.state.aiError
+    } : null;
+  });
 
-const resumeFile = parsedData?.files?.resumeParsed;
-const jdFile = parsedData?.files?.jdParsed;
+  const resumeFile = parsedData?.files?.resumeParsed;
+  const jdFile = parsedData?.files?.jdParsed;
 
   const [displayedJDScore, setDisplayedJDScore] = useState(0);
-
-
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(!parsedData?.hasAnalysis); // Only load if no analysis
   const [aiResult, setAiResult] = useState(() => {
-const saved = sessionStorage.getItem("resume_score_result");
-    return saved ? JSON.parse(saved) : null;
+    // 🚀 NEW: Use direct analysis if available
+    return parsedData?.analysis || null;
   });
-  const [error, setError] = useState(null);
+  const [error, setError] = useState(parsedData?.aiError || null);
   const [displayedScore, setDisplayedScore] = useState(0);
+
+  // 🚀 MODIFIED: Only fetch analysis if not already provided
+  useEffect(() => {
+    if (resumeFile && !parsedData?.hasAnalysis) {
+      console.log('📡 Fetching AI analysis (fallback)...');
+      // Your existing fetchAIAnalysis logic
+      const fetchAIAnalysis = async () => {
+        try {
+          const response = await fetch('http://localhost:5000/api/resume/score', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ 
+              resumeFile: resumeFile,
+              jdFile: jdFile 
+            })
+          });
+          
+          if (response.ok) {
+            const result = await response.json();
+            setAiResult(result);
+            setError(null);
+          } else {
+            const errorData = await response.json();
+            setError(errorData.message || 'Analysis failed');
+          }
+        } catch (err) {
+          console.error('❌ Analysis error:', err);
+          setError('Network error during analysis');
+        } finally {
+          setLoading(false);
+        }
+      };
+
+      fetchAIAnalysis();
+    } else if (parsedData?.hasAnalysis) {
+      console.log('✅ Using direct analysis from upload');
+      setLoading(false);
+    }
+  }, [resumeFile, jdFile, parsedData?.hasAnalysis]);
 
   useEffect(() => {
     if (aiResult) {
@@ -71,39 +108,39 @@ const saved = sessionStorage.getItem("resume_score_result");
     fetchScore();
   }, [resumeFile, jdFile]);
 
-useEffect(() => {
-  if (aiResult?.score) {
-    let i = 0;
-    const interval = setInterval(() => {
-      setDisplayedScore((prev) => {
-        if (prev >= aiResult.score) {
-          clearInterval(interval);
-          return aiResult.score;
-        }
-        return prev + 1;
-      });
-    }, 15);
-  }
+  useEffect(() => {
+    if (aiResult?.score) {
+      let i = 0;
+      const interval = setInterval(() => {
+        setDisplayedScore((prev) => {
+          if (prev >= aiResult.score) {
+            clearInterval(interval);
+            return aiResult.score;
+          }
+          return prev + 1;
+        });
+      }, 15);
+    }
 
-  if (jdFile && aiResult?.skills_match_score) {
-    let j = 0;
-    const interval2 = setInterval(() => {
-      setDisplayedJDScore((prev) => {
-        if (prev >= aiResult.skills_match_score) {
-          clearInterval(interval2);
-          return aiResult.skills_match_score;
-        }
-        return prev + 1;
-      });
-    }, 15);
-  }
-}, [aiResult?.score, aiResult?.skills_match_score, jdFile]);
+    if (jdFile && aiResult?.skills_match_score) {
+      let j = 0;
+      const interval2 = setInterval(() => {
+        setDisplayedJDScore((prev) => {
+          if (prev >= aiResult.skills_match_score) {
+            clearInterval(interval2);
+            return aiResult.skills_match_score;
+          }
+          return prev + 1;
+        });
+      }, 15);
+    }
+  }, [aiResult?.score, aiResult?.skills_match_score, jdFile]);
 
-const handleReset = () => {
- sessionStorage.removeItem("resume_score_result");
-  sessionStorage.removeItem("resume_parsed_data");
-  navigate('/app/upload');
-};
+  const handleReset = () => {
+    sessionStorage.removeItem("resume_score_result");
+    sessionStorage.removeItem("resume_parsed_data");
+    navigate('/app/upload');
+  };
 
 
   if (loading) return <div className="flex justify-center items-center min-h-screen">⏳ Analyzing Resume...</div>;
