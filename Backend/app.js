@@ -35,7 +35,7 @@ app.use(cors({
   origin: [
     'http://localhost:5173', // Development
     'http://localhost:3000', // Development
-    process.env.FRONTEND_URL || 'https://thecvortex.vercel.app/'
+    process.env.FRONTEND_URL || 'https://thecvortex.vercel.app'
   ],
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
