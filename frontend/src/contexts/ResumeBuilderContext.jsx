@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
+import API_BASE_URL from '../config/api';
 
 const ResumeBuilderContext = createContext();
 
@@ -23,7 +24,7 @@ export const ResumeBuilderProvider = ({ children }) => {
   const startNewSession = async () => {
     try {
       setLoading(true);
-      const response = await fetch('http://localhost:5000/api/resume-builder/start-session', {
+      const response = await fetch(`${API_BASE_URL}/api/resume-builder/start-session`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -50,7 +51,7 @@ export const ResumeBuilderProvider = ({ children }) => {
     try {
       setLoading(true);
       
-      const response = await fetch('http://localhost:5000/api/resume-builder/save-step', {
+      const response = await fetch(`${API_BASE_URL}/api/resume-builder/save-step`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -78,7 +79,7 @@ export const ResumeBuilderProvider = ({ children }) => {
 
   const getCurrentData = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/resume-builder/current-data');
+      const response = await fetch(`${API_BASE_URL}/api/resume-builder/current-data`);
       const result = await response.json();
       
       if (result.success) {
