@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Download, FileText, Loader2, AlertCircle, RefreshCw, CheckCircle, ZoomIn, ZoomOut, Maximize2, Eye, EyeOff } from 'lucide-react';
+import API_BASE_URL from '../config/api';
 
 export default function ResumePreview() {
   const [atsResumeHTML, setAtsResumeHTML] = useState('');
@@ -23,7 +24,7 @@ export default function ResumePreview() {
     try {
       console.log('🎯 Generating ATS resume from form data...');
       
-      const response = await fetch('http://localhost:5000/api/resume-builder/generate-ats-resume', {
+      const response = await fetch(`${API_BASE_URL}/api/resume-builder/generate-ats-resume`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

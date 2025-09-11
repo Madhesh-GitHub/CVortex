@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Plus, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import API_BASE_URL from '../config/api';
 const AchievementsPage = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const [achievements, setAchievements] = useState([]);
@@ -58,7 +59,7 @@ const saveAllDataAndNavigate = async () => {
       awards
     };
 
-    const response = await fetch("http://localhost:5000/save", {
+    const response = await fetch(`${API_BASE_URL}/save`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"

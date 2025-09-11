@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { COLORS } from "../styles/colors";
 import "./Dashboard.css";
 import { useNavigate } from 'react-router-dom';
+import API_BASE_URL from '../config/api';
 
 export default function Dashboard() {
   // UploadResume logic
@@ -58,7 +59,7 @@ export default function Dashboard() {
         jobDescLength: jobDesc.trim().length
       });
 
-      const response = await fetch('http://localhost:5000/api/uploads', {
+      const response = await fetch(`${API_BASE_URL}/api/uploads`, {
         method: 'POST',
         body: formData,
       });

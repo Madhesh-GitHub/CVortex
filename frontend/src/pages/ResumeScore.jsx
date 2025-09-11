@@ -7,6 +7,7 @@ import {
   FaCheckCircle, FaLightbulb, FaFileAlt, FaEdit, FaChartBar,
   FaClipboardList, FaRedo, FaUserTag,FaUserAlt,FaInfoCircle
 } from 'react-icons/fa';
+import API_BASE_URL from '../config/api';
 
 const ResumeScore = () => {
   const location = useLocation();
@@ -42,7 +43,7 @@ const ResumeScore = () => {
       // Your existing fetchAIAnalysis logic
       const fetchAIAnalysis = async () => {
         try {
-          const response = await fetch('http://localhost:5000/api/resume/score', {
+          const response = await fetch(`${API_BASE_URL}/api/resume/score`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ 
@@ -88,7 +89,7 @@ const ResumeScore = () => {
 
     const fetchScore = async () => {
       try {
-        const res = await fetch("http://localhost:5000/api/resume/score", {
+        const res = await fetch(`${API_BASE_URL}/api/resume/score`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ resumeFile, jdFile }),

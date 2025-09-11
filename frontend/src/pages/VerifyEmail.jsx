@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Header from "../components/Header/Header";
+import API_BASE_URL from "../config/api";
 
 const VerifyEmail = () => {
   const [otp, setOtp] = useState(["", "", "", ""]);
@@ -37,7 +38,7 @@ const VerifyEmail = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/users/verify-otp",
+        `${API_BASE_URL}/api/users/verify-otp`,
         {
           email,
           otp: otpValue,

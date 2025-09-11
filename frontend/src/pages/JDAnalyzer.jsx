@@ -13,6 +13,7 @@ import {
   Home
 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import API_BASE_URL from '../config/api';
 
 const JDAnalyzer = () => {
   const navigate = useNavigate();
@@ -39,7 +40,7 @@ const JDAnalyzer = () => {
     try {
       console.log('🚀 Sending request to backend...');
       
-      const response = await fetch('http://localhost:5000/api/jd/analyze', {
+      const response = await fetch(`${API_BASE_URL}/api/jd/analyze`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router";
+import API_BASE_URL from "../config/api";
 const Education = () => {
   const [educationData, setEducationData] = useState([]);
   const [newEdu, setNewEdu] = useState({
@@ -54,7 +55,7 @@ const handleSave = async () => {
   setEducationData(updatedEducationData);
 
   try {
-    const response = await fetch("http://localhost:5000/save", {
+    const response = await fetch(`${API_BASE_URL}/save`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

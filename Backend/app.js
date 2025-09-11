@@ -31,7 +31,16 @@ const filePath = path.join(__dirname, "uploads/data.txt");
 
 // Middlewares
 
-app.use(cors());
+app.use(cors({
+  origin: [
+    'http://localhost:5173', // Development
+    'http://localhost:3000', // Development
+    process.env.FRONTEND_URL || 'https://your-vercel-app.vercel.app'
+  ],
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
 app.use(express.json());
 
 // Routes

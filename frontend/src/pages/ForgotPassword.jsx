@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router";
 import Header from "../components/Header/Header";
+import API_BASE_URL from "../config/api";
 
 const ForgotPassword = () => {
   const navigate = useNavigate();
@@ -10,7 +11,7 @@ const ForgotPassword = () => {
     e.preventDefault();
 
     const response = await fetch(
-      "http://localhost:5000/api/users/forgot-password",
+      `${API_BASE_URL}/api/users/forgot-password`,
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },

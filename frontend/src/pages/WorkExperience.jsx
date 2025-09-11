@@ -1,6 +1,7 @@
 import React, { use, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router";
+import API_BASE_URL from "../config/api";
 const WorkExperience = () => {
   const [formData, setFormData] = useState({
     jobTitle: "",
@@ -35,7 +36,7 @@ const WorkExperience = () => {
   }
 
   try {
-    const response = await axios.post("http://localhost:5000/save", {
+    const response = await axios.post(`${API_BASE_URL}/save`, {
       step: "work_experience",
       data: formData,
     });

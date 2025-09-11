@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { MdDelete } from 'react-icons/md';
 import { useNavigate } from 'react-router-dom';
+import API_BASE_URL from '../config/api';
 
 const Language = () => {
     const navigate = useNavigate();
@@ -33,7 +34,7 @@ const Language = () => {
     };
     const saveToServer = async () => {
     try {
-        const response = await fetch("http://localhost:5000/save", {
+        const response = await fetch(`${API_BASE_URL}/save`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

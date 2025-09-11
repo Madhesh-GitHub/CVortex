@@ -6,6 +6,7 @@ import BlogList from '../components/Blog/BlogList';
 import BlogWriteForm from '../components/Blog/BlogWriteForm';
 import { COLORS } from '../styles/colors';
 import axios from 'axios';
+import API_BASE_URL from '../config/api';
 
 // Sample blog data
 const sampleBlogs = [
@@ -88,7 +89,7 @@ const BlogPage = () => {
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
-        const res = await axios.get('http://localhost:5000/api/blogs');
+        const res = await axios.get(`${API_BASE_URL}/api/blogs`);
         const backendTitles = res.data.map(b => b.title);
         const filteredSamples = sampleBlogs.filter(sb => !backendTitles.includes(sb.title));
         setBlogs([...filteredSamples, ...res.data]);
@@ -120,7 +121,7 @@ const BlogPage = () => {
     }
 
     try {
-      await axios.delete(`http://localhost:5000/api/blogs/delete/${id}`);
+      await axios.delete(`${API_BASE_URL}/api/blogs/delete/${id}`);
       setBlogs(prev => prev.filter(blog => blog._id !== id && blog.id !== id));
       alert('Blog deleted successfully!');
     } catch (error) {

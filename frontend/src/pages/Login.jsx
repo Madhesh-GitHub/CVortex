@@ -6,6 +6,7 @@ import axios from "axios";
 import "./Login.css";
 import { GoogleLogin } from "@react-oauth/google";
 import Header from "../components/Header/Header";
+import API_BASE_URL from "../config/api";
 
 function Login() {
   const [formData, setFormData] = useState({ email: "", password: "" });
@@ -21,7 +22,7 @@ function Login() {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/users/login",
+        `${API_BASE_URL}/api/users/login`,
         formData
       );
       const { token, user } = response.data;
@@ -44,7 +45,7 @@ function Login() {
     try {
       const { credential } = credentialResponse;
       const res = await axios.post(
-        "http://localhost:5000/api/users/google-login",
+        `${API_BASE_URL}/api/users/google-login`,
         {
           credential,
         }
