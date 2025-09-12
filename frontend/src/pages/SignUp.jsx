@@ -8,6 +8,7 @@ import AuthFooter from "../components/AuthFooter";
 import Header from "../components/Header/Header";
 import { COLORS } from "../styles/colors";
 import axios from "axios";
+import API_BASE_URL from "../config/api";
 
 const SignUp = () => {
   const [formData, setFormData] = useState({
@@ -78,7 +79,7 @@ const SignUp = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/users/signup",
+        `${API_BASE_URL}/api/users/signup`,
         {
           name: formData.name,
           email: formData.email,
