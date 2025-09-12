@@ -1,4 +1,4 @@
-# 🚀 CVortex - AI-Powered Career Acceleration Platform
+# CVortex - AI-Powered Resume Analyzing and Building Software
 
 <div align="center">
   <img src="https://img.shields.io/badge/Status-Live-brightgreen" alt="Status">
