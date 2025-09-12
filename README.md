@@ -1,4 +1,4 @@
-# 🚀 CVortex - AI-Powered Career Acceleration Platform
+# CVortex - AI-Powered Resume Analyzing and Resume Building Software
 
 <div align="center">
   <img src="https://img.shields.io/badge/Status-Live-brightgreen" alt="Status">
@@ -11,13 +11,13 @@
 
 ## 🌟 About CVortex
 
-**CVortex** is an innovative AI-powered career acceleration platform that started on **July 4, 2025**. Created by 13 passionate pre-final and final year students from various states across India, CVortex is designed to revolutionize how job seekers approach their career journey.
+**CVortex** is an innovative open source AI-powered career acceleration platform that started on **July 4, 2025**. Created by 13 passionate pre-final and final year students from various states across India, CVortex is designed to revolutionize how job seekers approach their career journey.
 
 Our mission is simple: **Make every resume ATS-friendly and every job application successful.**
 
 ---
 
-## ✨ Key Features
+## ✨ 4 Core Features of CVortex
 
 ### 🤖 **AI Resume Analyzer** *(Fully Ready)*
 - **Instant ATS Compatibility Check** - Get real-time feedback on resume formatting
@@ -72,19 +72,19 @@ We are 13 passionate students from across India, united by our vision to help jo
 
 | Name | Role | State |
 |------|------|-------|
-| **Madhesh K** | Full Stack Developer | Tamil Nadu |
+| **Uvajanani RP** | Full Stack Developer | Tamil Nadu |
 | **Alagunandhini M** | Full Stack Developer | Tamil Nadu |
-| **Uvajanani RP** | Full Stack Designer | Tamil Nadu |
+| **Madhesh K** | Full Stack Designer | Tamil Nadu |
 | **Payel Mallick** | Full Stack Developer | West Bengal |
 | **Nikitha** | Full Stack Developer | Kerala |
 | **Shilpa** | Full Stack Developer | Tamil Nadu |
 | **Deepika** | Full Stack Developer | Tamil Nadu |
 | **Monisha** | Full Stack Developer | Tamil Nadu |
-| **Sanjay Ramesh** | Full Stack | Tamil Nadu |
+| **Sanjay Ramesh** | Full Stack Developer | Tamil Nadu |
 | **Bala Karthikeya** | Full Stack Developer | Andhra Pradesh |
 | **Dhanush** | Full Stack Developer | Tamil Nadu |
 | **Sivagurumoorthy** | Full Stack Developer | Tamil Nadu |
-| **Vaishali Kadam** | Full tack Developer | Telangana |
+| **Vaishali Kadam** | Full Stack Developer | Telangana |
 
 </div>
 
@@ -92,7 +92,7 @@ We are 13 passionate students from across India, united by our vision to help jo
 
 ## 🎯 Project Highlights
 
-- 🌍 **Multi-State Collaboration** - Team members from 4 Indian states
+- 🌍 **Multi-State Collaboration** - Team members from 5 Indian states
 - 🎓 **Student Innovation** - Built entirely by pre-final & final year students
 - 🚀 **Real-World Impact** - Helping job seekers across the globe
 - 🔄 **Continuous Improvement** - Evolving based on user feedback
@@ -130,14 +130,14 @@ We welcome contributions from the community! Here's how you can help:
 ## 📞 Contact & Support
 
 - 📧 **Email**: cvortexofficial@gmail.com
-- 💬 **Issues**: [GitHub Issues](https://github.com/your-username/CVortex/issues)
+- 💬 **Issues**: [GitHub Issues](https://github.com/Madhesh-GitHub/CVortex/issues)
 - 🌐 **Website**: [CVortex.com](https://thecvortex.vercel.app)
 
 ---
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the GPL License - see the [LICENSE](LICENSE) file for details.
 
 ---
 
