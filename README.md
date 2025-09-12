@@ -80,11 +80,11 @@ We are 13 passionate students from across India, united by our vision to help jo
 | **Shilpa** | Full Stack Developer | Tamil Nadu |
 | **Deepika** | Full Stack Developer | Tamil Nadu |
 | **Monisha** | Full Stack Developer | Tamil Nadu |
-| **Sanjay Ramesh** | Full Stack | Tamil Nadu |
+| **Sanjay Ramesh** | Full Stack Developer | Tamil Nadu |
 | **Bala Karthikeya** | Full Stack Developer | Andhra Pradesh |
 | **Dhanush** | Full Stack Developer | Tamil Nadu |
 | **Sivagurumoorthy** | Full Stack Developer | Tamil Nadu |
-| **Vaishali Kadam** | Full tack Developer | Telangana |
+| **Vaishali Kadam** | Full Stack Developer | Telangana |
 
 </div>
 
@@ -92,7 +92,7 @@ We are 13 passionate students from across India, united by our vision to help jo
 
 ## 🎯 Project Highlights
 
-- 🌍 **Multi-State Collaboration** - Team members from 4 Indian states
+- 🌍 **Multi-State Collaboration** - Team members from 5 Indian states
 - 🎓 **Student Innovation** - Built entirely by pre-final & final year students
 - 🚀 **Real-World Impact** - Helping job seekers across the globe
 - 🔄 **Continuous Improvement** - Evolving based on user feedback
@@ -130,14 +130,14 @@ We welcome contributions from the community! Here's how you can help:
 ## 📞 Contact & Support
 
 - 📧 **Email**: cvortexofficial@gmail.com
-- 💬 **Issues**: [GitHub Issues](https://github.com/your-username/CVortex/issues)
+- 💬 **Issues**: [GitHub Issues](https://github.com/Madhesh-GitHub/CVortex/issues)
 - 🌐 **Website**: [CVortex.com](https://thecvortex.vercel.app)
 
 ---
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the GPL License - see the [LICENSE](LICENSE) file for details.
 
 ---
 
