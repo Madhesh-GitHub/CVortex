@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { X, Save, Eye, Tag, User, Calendar, Clock } from 'lucide-react';
 import axios from 'axios';
+import API_BASE_URL from "../config/api";
 
 const BlogWriteForm = ({ isOpen, onClose, onSave, editingBlog, onUpdateBlog }) => {
   const [formData, setFormData] = useState({
@@ -81,11 +82,11 @@ const BlogWriteForm = ({ isOpen, onClose, onSave, editingBlog, onUpdateBlog }) =
 
     try {
       if (editingBlog?._id) {
-        const res = await axios.put(`http://localhost:5000/api/blogs/update/${editingBlog._id}`, blogData);
+        const res = await axios.put(`${API_BASE_URL}/api/blogs/update/${editingBlog._id}`, blogData);
         alert('Blog updated successfully!');
         if (onUpdateBlog) onUpdateBlog(res.data);
       } else {
-        const res = await axios.post('http://localhost:5000/api/blogs/create', blogData);
+        const res = await axios.post(`${API_BASE_URL}/api/blogs/create`, blogData);
         alert('Blog created successfully!');
         if (onSave) onSave(res.data);
       }
