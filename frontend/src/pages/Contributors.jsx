@@ -27,6 +27,18 @@ const contributors = [
     photo: madhesh
   },
   {
+    name: "Alagu Nandhini M",
+    github: "https://github.com/alagunandhini",
+    linkedin: "https://www.linkedin.com/in/alagunandhini/",
+    photo: nandhini
+  },
+  {
+    name: "Uvajanani RP",
+    github: "https://github.com/Uvajanani",
+    linkedin: "https://www.linkedin.com/in/uvajanani/",
+    photo: uvajanani
+  },
+  {
     name: "Shilpa",
     github: "https://github.com/shilpa053020",
     linkedin: "https://www.linkedin.com/in/shilpa05",
@@ -38,18 +50,8 @@ const contributors = [
     linkedin: "https://www.linkedin.com/in/deepika-a-21754b302/",
     photo: deepika
   },
-  {
-    name: "Uvajanani",
-    github: "https://github.com/Uvajanani",
-    linkedin: "https://www.linkedin.com/in/uvajanani/",
-    photo: uvajanani
-  },
-  {
-    name: "Alagu Nandhini",
-    github: "https://github.com/alagunandhini",
-    linkedin: "https://www.linkedin.com/in/alagunandhini/",
-    photo: nandhini
-  },
+  
+  
   {
     name: "Payel",
     github: "https://github.com/Payel647",

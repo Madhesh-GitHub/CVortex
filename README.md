@@ -11,7 +11,7 @@
 
 ## 🌟 About CVortex
 
-**CVortex** is an innovative open source AI-powered career acceleration platform that started on **July 4, 2025**. Created by 13 passionate pre-final and final year students from various states across India, CVortex is designed to revolutionize how job seekers approach their career journey.
+**CVortex** is an innovative open source AI-powered career acceleration platform that started on **July 8, 2025**. Created by 13 passionate pre-final and final year students from various states across India, CVortex is designed to revolutionize how job seekers approach their career journey.
 
 Our mission is simple: **Make every resume ATS-friendly and every job application successful.**
 

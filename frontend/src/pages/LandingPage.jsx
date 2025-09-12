@@ -1,16 +1,14 @@
 import React, { useEffect } from 'react'
 import Header from '../components/Header/Header'
 import Hero from '../components/Hero/Hero'
-import OurTools from '../components/OurTools' // Add this import
+import OurTools from '../components/OurTools'
 import HowItWorks from '../components/HowItWorks'
 import Whychoose from '../components/WhyChoose'
 import Footer from '../components/Footer'
 import Blog from '../components/Blog/Blog'
 import ReadyToBoost from '../components/ReadyToBoost'
-import JDAnalysisSection from '../components/JDAnalysisSection' // Add this import
-
-
-
+import JDAnalysisSection from '../components/JDAnalysisSection'
+import AboutUs from '../components/AboutUs' // Add this import
 
 const LandingPage = () => {
     useEffect(() => {
@@ -19,16 +17,17 @@ const LandingPage = () => {
   }, []);
 
   return (
-    
     <div className="min-h-screen bg-[#F9FAFB] font-roboto">
       <Header/>
       <Hero/>
-      <OurTools/> {/* Add this component after Hero */}
+      <OurTools/>
       <JDAnalysisSection/>
       <HowItWorks/>
       <Whychoose/>
+      {/* Add this component */}
       <ReadyToBoost/>
       <Blog/>
+      <AboutUs/> 
       <Footer />
     </div>
   )
