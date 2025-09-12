@@ -19,9 +19,9 @@ const Header = () => {
           <li className="text-sm  cursor-pointer font-medium hover:underline" onClick={() => navigate('/')}>
             Home
           </li>
-          <li className="text-sm cursor-pointer font-medium hover:underline">
+          {/* <li className="text-sm cursor-pointer font-medium hover:underline">
             Features
-          </li> 
+          </li>  */}
             <li className="text-sm  cursor-pointer font-medium hover:underline" onClick={() => navigate('/contributors')}>
             Contributors
           </li>
@@ -53,9 +53,9 @@ const Header = () => {
           <li className="text-sm  cursor-pointer font-medium hover:underline" onClick={() => {navigate('/contributors'); setIsOpen(false);}}>
             Contributors
           </li>
-          <li className="text-sm  cursor-pointer font-medium hover:underline" onClick={() => setIsOpen(false)}>
+          {/* <li className="text-sm  cursor-pointer font-medium hover:underline" onClick={() => setIsOpen(false)}>
             Features
-          </li>
+          </li> */}
           <li className="text-sm  cursor-pointer font-medium hover:underline" onClick={() => { navigate('/login'); setIsOpen(false); }}>
             Login
           </li>
