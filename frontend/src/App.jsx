@@ -35,7 +35,7 @@ import Help from './pages/Help';
 import Features from './pages/Features'
 import Setting from './pages/Setting'
 import { Navigate } from "react-router-dom";
-import { ResumeBuilderProvider } from './contexts/ResumeBuilderContext';
+// import { ResumeBuilderProvider } from './contexts/ResumeBuilderContext';
 import TermsAndConditions from './pages/TermsAndConditions'; 
 import PrivacyPolicy from './pages/PrivacyPolicy';
 
@@ -44,7 +44,7 @@ import PrivacyPolicy from './pages/PrivacyPolicy';
 const App = () => {
   return (
     <>
-    <ResumeBuilderProvider>
+    {/* <ResumeBuilderProvider> */}
       <Routes>
         {/* Public Routes */}
         <Route path="/" element={<LandingPage />} />
@@ -95,7 +95,7 @@ const App = () => {
 <Route path="/terms" element={<TermsAndConditions />} />
 <Route path="/privacy" element={<PrivacyPolicy />} />
       </Routes>
-      </ResumeBuilderProvider>
+      {/* </ResumeBuilderProvider> */}
     </>
   )
 }
