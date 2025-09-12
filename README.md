@@ -72,19 +72,19 @@ We are 13 passionate students from across India, united by our vision to help jo
 
 | Name | Role | State |
 |------|------|-------|
-| **Uvajanani RP** | Full Stack Developer | Tamil Nadu |
-| **Alagunandhini M** | Full Stack Developer | Tamil Nadu |
 | **Madhesh K** | Full Stack Developer | Tamil Nadu |
+| **Alagunandhini M** | Full Stack Developer | Tamil Nadu |
+| **Uvajanani RP** | Full Stack Developer | Tamil Nadu |
 | **Payel Mallick** | Full Stack Developer | West Bengal |
-| **Nikitha** | Full Stack Developer | Kerala |
 | **Shilpa** | Full Stack Developer | Tamil Nadu |
+| **Sanjay Ramesh** | Full Stack Developer | Tamil Nadu |
+| **Bala Karthikeya** | Full Stack Developer | Andra Pradesh |
+| **Nikitha** | Full Stack Developer | Kerala |
+| **Dhanush** | Full Stack Developer | Tamil Nadu |
 | **Deepika** | Full Stack Developer | Tamil Nadu |
 | **Monisha** | Full Stack Developer | Tamil Nadu |
-| **Sanjay Ramesh** | Full Stack Developer | Tamil Nadu |
-| **Bala Karthikeya** | Full Stack Developer | Andhra Pradesh |
-| **Dhanush** | Full Stack Developer | Tamil Nadu |
-| **Sivagurumoorthy** | Full Stack Developer | Tamil Nadu |
 | **Vaishali Kadam** | Full Stack Developer | Telangana |
+| **Shiva Gurumoorthy** | Full Stack Developer | Tamil Nadu |
 
 </div>
 
