@@ -25,10 +25,10 @@ const SideNav = ({ isSidebarOpen, setIsSidebarOpen }) => {
     >
       {/* Top section with logo and toggle */}
       <div className="relative flex items-center h-16 px-4 border-b border-[#fdf2e9] shadow">
-        <img src="/logo.jpg" alt="Logo" className="h-10 w-10 rounded-full" />
+        {/* <img src="/logo.jpg" alt="Logo" className="h-10 w-10 rounded-full" /> */}
         {isSidebarOpen && (
           <span className="ml-3 font-bold text-md tracking-wide text-white">
-            ATS Tool
+            CVortex
           </span>
         )}
         {/* Toggle Button */}
@@ -66,7 +66,7 @@ const NavItem = ({ icon, label, path, isOpen, activePath }) => {
     const handleClick = () => {
     if (path === "/") {
       // Clear all session data when going Home
-      sessionStorage.clear();
+      // sessionStorage.clear();
       
     }
     navigate(path);

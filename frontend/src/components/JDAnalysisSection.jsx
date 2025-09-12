@@ -5,8 +5,14 @@ import { useNavigate } from 'react-router-dom';
 const JDAnalysisSection = () => {
   const navigate = useNavigate();
 
+  // Auth check function similar to Hero component
   const handleAnalyzeClick = () => {
-    navigate('/jd-analyzer'); // ✅ This should work now
+    const token = sessionStorage.getItem("token");
+    if (token) {
+      navigate("/jd-analyzer");
+    } else {
+      navigate("/login", { state: { redirectTo: "/jd-analyzer" } });
+    }
   };
 
   return (
@@ -58,7 +64,7 @@ const JDAnalysisSection = () => {
           </div>
         </div>
 
-        {/* CTA Section */}
+        {/* CTA Section with Auth Check */}
         <div className="bg-white rounded-2xl shadow-lg p-8 text-center">
           <h3 className="text-2xl font-bold text-gray-900 mb-4">
             Ready to Optimize Your Resume?
@@ -72,6 +78,13 @@ const JDAnalysisSection = () => {
           >
             Analyze Job Description Now
           </button>
+          
+          {/* Auth Notice */}
+          <p className="text-sm text-gray-500 mt-3">
+            <span className="inline-flex items-center">
+              🔒 Requires sign-in for personalized analysis
+            </span>
+          </p>
         </div>
       </div>
     </section>

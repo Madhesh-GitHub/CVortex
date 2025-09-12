@@ -61,14 +61,14 @@ const Hero = () => {
               className="bg-gradient-to-r from-[#6366F1] to-[#8B5CF6] text-white px-8 py-4 rounded-xl font-semibold text-lg hover:from-[#4F46E5] hover:to-[#7C3AED] transition-all duration-300 transform hover:scale-102 shadow-xl"
               onClick={handleUploadClick}
             >
-              Upload Your Resume
+              Resume Analyzer
             </button>
 
             <button
               className="bg-gradient-to-r from-[#3B82F6] to-[#3B82F6] text-white px-8 py-4 rounded-xl font-semibold text-lg hover:from-[#2563EB] hover:to-[#2563EB] transition-all duration-300 transform hover:scale-103 shadow-xl"
               onClick={handleBuilderClick}
             >
-              Build ATS Ready Resume
+              Build ATS Resume
             </button>
           </div>
         </div>

@@ -50,6 +50,9 @@ const Header = () => {
           <li className="text-sm cursor-pointer font-medium hover:underline" onClick={() => { navigate('/'); setIsOpen(false); }}>
             Home
           </li>
+          <li className="text-sm  cursor-pointer font-medium hover:underline" onClick={() => {navigate('/contributors'); setIsOpen(false);}}>
+            Contributors
+          </li>
           <li className="text-sm  cursor-pointer font-medium hover:underline" onClick={() => setIsOpen(false)}>
             Features
           </li>

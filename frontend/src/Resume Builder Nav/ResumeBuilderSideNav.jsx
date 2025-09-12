@@ -24,10 +24,10 @@ const ResumeBuilderSideNav = ({ isSidebarOpen, setIsSidebarOpen }) => {
     <aside className={`fixed top-0 left-0 h-full bg-[#0EA5E9] text-white border-r border-[#eee] transition-all duration-300 ease-in-out z-40 ${isSidebarOpen ? "w-[220px]" : "w-[60px]"}`}>
       {/* Header with Logo + Toggle */}
       <div className="relative flex items-center h-16 px-4 border-b border-[#eee] shadow">
-        <img src="/logo.jpg" alt="Logo" className="h-10 w-10 rounded-full" />
+        {/* <img src="/logo.jpg" alt="Logo" className="h-10 w-10 rounded-full" /> */}
         {isSidebarOpen && (
           <span className="ml-3 font-bold text-md tracking-wide text-gray-200">
-            Resume Builder
+            CVortex
           </span>
         )}
         {/* Toggle Button */}

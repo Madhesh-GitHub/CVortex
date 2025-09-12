@@ -12,7 +12,7 @@ const TopNav = ({ isSidebarOpen }) => {
     >
       {/* Left Section - Title */}
       <div className="flex items-center">
-        <h1 className="text-lg font-semibold text-gray-900">ATS Resume Tool</h1>
+        <h1 className="text-lg font-semibold text-gray-900">Resume Analyzer</h1>
       </div>
 
       {/* Right Section - Profile Only */}

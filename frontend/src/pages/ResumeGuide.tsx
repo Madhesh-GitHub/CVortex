@@ -301,7 +301,7 @@ export default function ATSScoreChecker() {
     {/* Branding */}
     <div className="space-y-4">
       <h4 className="text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-700 to-blue-500">
-        ATS Score Checker
+        CVortex
       </h4>
       <p className="text-sm text-gray-600 leading-relaxed">
         Helping you pass Applicant Tracking Systems and land your dream job with confidence.
@@ -345,7 +345,7 @@ export default function ATSScoreChecker() {
 
   {/* Copyright */}
   <div className="text-center text-sm text-gray-500 py-6 border-t border-gray-300">
-    © {new Date().getFullYear()} ATS Score Checker. All rights reserved.
+    © {new Date().getFullYear()} CVortex. All rights reserved.
   </div>
 </footer>
 </div>

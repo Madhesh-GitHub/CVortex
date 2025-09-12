@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { 
   DocumentMagnifyingGlassIcon, 
   BriefcaseIcon, 
@@ -8,6 +8,18 @@ import {
 } from '@heroicons/react/24/outline';
 
 const OurTools = () => {
+  const navigate = useNavigate();
+
+  // Auth check function similar to Hero component
+  const handleToolClick = (toolLink) => {
+    const token = sessionStorage.getItem("token");
+    if (token) {
+      navigate(toolLink);
+    } else {
+      navigate("/login", { state: { redirectTo: toolLink } });
+    }
+  };
+
   const tools = [
     {
       id: 1,
@@ -40,7 +52,8 @@ const OurTools = () => {
       statusColor: "bg-green-100 text-green-800", 
       link: "/blog",
       features: ["Expert Articles", "Career Tips", "Industry Insights"],
-      isReady: true
+      isReady: true,
+      requiresAuth: false // Blog doesn't need auth
     },
     {
       id: 4,
@@ -118,9 +131,16 @@ const OurTools = () => {
                 ))}
               </ul>
 
-              {/* CTA Button */}
-              <Link
-                to={tool.link}
+              {/* CTA Button with Auth Check */}
+              <button
+                onClick={() => {
+                  // Blog doesn't require authentication
+                  if (tool.requiresAuth === false) {
+                    navigate(tool.link);
+                  } else {
+                    handleToolClick(tool.link);
+                  }
+                }}
                 className={`w-full inline-flex items-center justify-center px-4 py-2 rounded-lg font-medium text-sm transition-colors ${
                   tool.isReady
                     ? 'bg-blue-600 text-white hover:bg-blue-700'
@@ -128,7 +148,7 @@ const OurTools = () => {
                 }`}
               >
                 {tool.isReady ? 'Try Now' : 'Try Beta'}
-              </Link>
+              </button>
 
               {/* Beta Note for Resume Builder */}
               {!tool.isReady && (
@@ -140,7 +160,7 @@ const OurTools = () => {
           ))}
         </div>
 
-        {/* Bottom CTA */}
+        {/* Bottom CTA with Auth Checks */}
         <div className="text-center mt-12">
           <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-8 border border-blue-100">
             <h3 className="text-xl font-semibold text-gray-900 mb-2">
@@ -150,18 +170,18 @@ const OurTools = () => {
               Start with our AI Resume Analyzer and get instant insights into your resume's ATS compatibility.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                to="/app/upload"
+              <button
+                onClick={() => handleToolClick("/app/upload")}
                 className="inline-flex items-center justify-center px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors"
               >
                 Analyze My Resume
-              </Link>
-              <Link
-                to="/jd-analyzer"
+              </button>
+              <button
+                onClick={() => handleToolClick("/jd-analyzer")}
                 className="inline-flex items-center justify-center px-6 py-3 border-2 border-blue-600 text-blue-600 font-medium rounded-lg hover:bg-blue-50 transition-colors"
               >
                 Analyze Job Description
-              </Link>
+              </button>
             </div>
           </div>
         </div>
