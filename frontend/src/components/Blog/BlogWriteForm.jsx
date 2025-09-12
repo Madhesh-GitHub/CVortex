@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { X, Save, Eye, Tag, User, Calendar, Clock } from 'lucide-react';
 import axios from 'axios';
-import API_BASE_URL from "../config/api";
+import API_BASE_URL from "../../config/api";
 
 const BlogWriteForm = ({ isOpen, onClose, onSave, editingBlog, onUpdateBlog }) => {
   const [formData, setFormData] = useState({
