@@ -9,12 +9,12 @@
     "lint": "eslint .",
     "preview": "vite preview"
   },
-  
   "engines": {
     "node": ">=18.0.0",
     "npm": ">=8.0.0"
   },
   "dependencies": {
+    "@heroicons/react": "^2.2.0",
     "@react-oauth/google": "^0.12.2",
     "axios": "^1.11.0",
     "framer-motion": "^12.23.9",

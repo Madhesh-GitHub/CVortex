@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import Header from '../components/Header/Header'
 import Hero from '../components/Hero/Hero'
+import OurTools from '../components/OurTools' // Add this import
 import HowItWorks from '../components/HowItWorks'
 import Whychoose from '../components/WhyChoose'
 import Footer from '../components/Footer'
@@ -22,7 +23,8 @@ const LandingPage = () => {
     <div className="min-h-screen bg-[#F9FAFB] font-roboto">
       <Header/>
       <Hero/>
-      <JDAnalysisSection/> {/* Add this component before HowItWorks */}
+      <OurTools/> {/* Add this component after Hero */}
+      <JDAnalysisSection/>
       <HowItWorks/>
       <Whychoose/>
       <ReadyToBoost/>
